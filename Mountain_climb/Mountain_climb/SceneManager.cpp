@@ -1,7 +1,9 @@
 #include "SceneManager.h"
 #include"DxLib.h"
 #include "SceneMain.h"
+#include "TitleScene.h"
 #include <cassert>
+
 
 SceneManager::SceneManager():
 	m_kind(kSceneMain),
@@ -16,6 +18,11 @@ SceneManager::~SceneManager()
 		delete m_pSceneMain;
 		m_pSceneMain = nullptr;
 	}
+	if (m_pTitleScene != nullptr)
+	{
+		delete m_pTitleScene;
+		m_pTitleScene = nullptr;
+	}
 }
 
 void SceneManager::Init()
@@ -25,6 +32,10 @@ void SceneManager::Init()
 	case SceneManager::kSceneMain:
 		m_pSceneMain = new SceneMain();
 		m_pSceneMain->Init();
+		break;
+	case SceneManager::kTitleScene:
+		m_pTitleScene = new TitleScene();
+		m_pTitleScene->Init();
 		break;
 	default:
 		assert(false);
@@ -37,8 +48,10 @@ void SceneManager::End()
 	switch (m_kind)
 	{
 	case SceneManager::kSceneMain:
-		m_pSceneMain = new SceneMain();
 		m_pSceneMain->End();
+		break;
+	case SceneManager::kTitleScene:
+		m_pTitleScene->End();
 		break;
 	default:
 		assert(false);
@@ -51,8 +64,10 @@ void SceneManager::Update()
 	switch (m_kind)
 	{
 	case SceneManager::kSceneMain:
-		m_pSceneMain = new SceneMain();
 		m_pSceneMain->Update();
+		break;
+	case SceneManager::kTitleScene:
+		m_pTitleScene->Update();
 		break;
 	default:
 		assert(false);
@@ -65,8 +80,10 @@ void SceneManager::Draw()
 	switch (m_kind)
 	{
 	case SceneManager::kSceneMain:
-		m_pSceneMain = new SceneMain();
 		m_pSceneMain->Draw();
+		break;
+	case SceneManager::kTitleScene:
+		m_pTitleScene->Draw();
 		break;
 	default:
 		assert(false);

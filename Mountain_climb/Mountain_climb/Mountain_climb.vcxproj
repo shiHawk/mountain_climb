@@ -140,15 +140,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pad.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="Pad.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

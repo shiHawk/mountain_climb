@@ -1,5 +1,6 @@
 #pragma once
 
+class TitleScene;
 class SceneMain;
 class SceneManager
 {
@@ -16,7 +17,8 @@ public:
 	// 列挙型を使用して現在実行中のシーンを管理する
 	enum SceneKind
 	{
-		kSceneMain
+		kSceneMain,
+		kTitleScene
 	};
 private:
 
@@ -24,5 +26,6 @@ private:
 	SceneKind m_kind;
 
 	SceneMain* m_pSceneMain;
+	TitleScene* m_pTitleScene;
 };
 
