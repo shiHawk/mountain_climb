@@ -1,6 +1,6 @@
 #include "DxLib.h"
 #include "game.h"
-
+#include "SceneManager.h"
 
 
 // プログラムは WinMain から始まります
@@ -21,6 +21,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	// 描画先を裏画面にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	SceneManager* pScene = new SceneManager();
+
+	pScene->Init();
 	
 	// ゲームループ
 	while (ProcessMessage() == 0)	// Windowsが行う処理を待つ必要がある
@@ -31,6 +34,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ここにゲームの処理を書く
+		pScene->Update();
+		pScene->Draw();
 
 		// 画面の切り替わりを待つ必要がある
 		ScreenFlip();		// 1/60秒経過するまで待つ
@@ -40,6 +45,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 		}
 	}
+	pScene->End();
+
+	// メモリの解放
+	delete pScene;
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
