@@ -7,6 +7,7 @@
 
 SceneManager::SceneManager():
 	m_kind(kSceneMain),
+	m_pTitleScene(nullptr),
 	m_pSceneMain(nullptr)
 {
 }

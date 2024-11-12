@@ -33,7 +33,7 @@ private:
 
 	// ƒWƒƒƒ“ƒvˆ—
 	bool m_isJump;
-	float m_isjumpSpeed;
+	float m_jumpSpeed;
 
 };
 

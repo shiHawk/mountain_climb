@@ -23,7 +23,7 @@ namespace
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -8.0f;	// ジャンプの初速
+	constexpr float kJumpPower = -10.0f;	// ジャンプの初速
 	constexpr float kGravity = 0.4f;	// 重力
 }
 
@@ -31,10 +31,11 @@ Player::Player() :
 	m_handleIdle(-1),
 	m_handleRun(-1),
 	m_pos(320.0f,kFieldHeight),
+	m_isDirLeft(false),
 	m_animFrame(0),
 	m_isRun(false),
 	m_isJump(false),
-	m_isjumpSpeed(0.0f)
+	m_jumpSpeed(0.0f)
 {
 }
 
@@ -93,11 +94,33 @@ void Player::Update()
 		m_isDirLeft = false;
 		m_isRun = true;
 	}
-	//// 上キーでジャンプ
-	//if (Pad::IsTrigger(KEY_INPUT_UP))
-	//{
-	//	if()
-	//}
+	// 1ボタンでジャンプ
+	if (Pad::IsTrigger(PAD_INPUT_1))
+	{
+		if (!m_isJump)
+		{
+			m_isJump = true;
+			m_jumpSpeed = kJumpPower;
+		}
+	}
+
+	if (m_isJump)
+	{
+		m_pos.y += m_jumpSpeed;
+		m_jumpSpeed += kGravity;
+		if (m_jumpSpeed > 0)
+		{
+			if (m_pos.y >= kFieldHeight)
+			{
+				// ジャンプ終了
+				m_isJump = false;
+				m_jumpSpeed = 0.0f;
+
+				// 地面にめり込まないようにする
+				m_pos.y = kFieldHeight;
+			}
+		}
+	}
 }
 
 void Player::Draw()
