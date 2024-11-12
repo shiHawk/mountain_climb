@@ -17,15 +17,17 @@ public:
 	// 列挙型を使用して現在実行中のシーンを管理する
 	enum SceneKind
 	{
+		kTitleScene,
 		kSceneMain,
-		kTitleScene
+
+		kSceneNum
 	};
 private:
 
 	// 現在実行中のシーン
 	SceneKind m_kind;
 
-	SceneMain* m_pSceneMain;
 	TitleScene* m_pTitleScene;
+	SceneMain* m_pSceneMain;
 };
 

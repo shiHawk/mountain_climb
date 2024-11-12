@@ -1,7 +1,7 @@
 #include "SceneManager.h"
-#include"DxLib.h"
-#include "SceneMain.h"
+#include "DxLib.h"
 #include "TitleScene.h"
+#include "SceneMain.h"
 #include <cassert>
 
 
@@ -14,15 +14,15 @@ SceneManager::SceneManager():
 
 SceneManager::~SceneManager()
 {
-	if (m_pSceneMain != nullptr)
-	{
-		delete m_pSceneMain;
-		m_pSceneMain = nullptr;
-	}
 	if (m_pTitleScene != nullptr)
 	{
 		delete m_pTitleScene;
 		m_pTitleScene = nullptr;
+	}
+	if (m_pSceneMain != nullptr)
+	{
+		delete m_pSceneMain;
+		m_pSceneMain = nullptr;
 	}
 }
 

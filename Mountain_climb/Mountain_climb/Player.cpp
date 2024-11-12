@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
 #include"Pad.h"
+#include "game.h"
 #include <cassert>
 
 namespace
@@ -23,8 +24,12 @@ namespace
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -10.0f;	// ジャンプの初速
+	constexpr float kJumpPower = -9.3f;	// ジャンプの初速
 	constexpr float kGravity = 0.4f;	// 重力
+
+	// 左右の壁
+	constexpr float kLeftWall = 64.0f;
+	constexpr float kRightWall = 96.0f;
 }
 
 Player::Player() :
@@ -102,6 +107,18 @@ void Player::Update()
 			m_isJump = true;
 			m_jumpSpeed = kJumpPower;
 		}
+	}
+
+	// 左の壁に当たる
+	if (m_pos.x <= kLeftWall)
+	{
+		m_pos.x = kLeftWall;
+	}
+
+	// 右の壁に当たる
+	if (m_pos.x >= Game::kScreenWidth - kRightWall)
+	{
+		m_pos.x = Game::kScreenWidth - kRightWall;
 	}
 
 	if (m_isJump)

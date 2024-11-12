@@ -1,4 +1,6 @@
 #include "TitleScene.h"
+#include "DxLib.h"
+
 
 TitleScene::TitleScene()
 {
