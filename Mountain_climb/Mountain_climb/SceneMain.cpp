@@ -1,4 +1,5 @@
 #include "SceneMain.h"
+#include "DxLib.h"
 #include"Pad.h"
 
 SceneMain::SceneMain()
@@ -23,7 +24,7 @@ void SceneMain::End()
 
 SceneManager::SceneKind SceneMain::Update()
 {
-	m_stage.Update();
+	m_stage.Update(&m_player);
 	m_player.Update();
 	Pad::Update();
 	return SceneManager::SceneKind::kSceneMain;

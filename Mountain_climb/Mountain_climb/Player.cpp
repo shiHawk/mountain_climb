@@ -157,20 +157,20 @@ void Player::Draw()
 
 float Player::GetLeft() const
 {
-	return (m_pos.x - kGraphWidth / 2);
+	return m_pos.x;
 }
 
 float Player::GetTop() const
 {
-	return (m_pos.y - kGraphHeight);
+	return m_pos.y;
 }
 
 float Player::GetRight() const
 {
-	return (m_pos.x + kGraphWidth / 2);
+	return (m_pos.x + kGraphWidth);
 }
 
 float Player::GetBottom() const
 {
-	return m_pos.y;
+	return (m_pos.y + kGraphHeight);
 }

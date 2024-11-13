@@ -1,6 +1,6 @@
 #include "TitleScene.h"
 #include "DxLib.h"
-
+#include "Pad.h"
 
 TitleScene::TitleScene()
 {
@@ -20,7 +20,11 @@ void TitleScene::End()
 
 SceneManager::SceneKind TitleScene::Update()
 {
-	return SceneManager::SceneKind();
+	if (Pad::IsTrigger(PAD_INPUT_1))
+	{
+		return SceneManager::SceneKind::kSceneMain;
+	}
+	return SceneManager::SceneKind::kTitleScene;
 }
 
 void TitleScene::Draw()

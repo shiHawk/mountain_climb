@@ -1,5 +1,6 @@
 #include "Stage.h"
 #include "game.h"
+#include"Player.h"
 #include "DxLib.h"
 #include <cassert>
 
@@ -79,8 +80,19 @@ void Stage::End()
 	DeleteGraph(m_handle);
 }
 
-void Stage::Update()
+void Stage::Update(Player* player)
 {
+	for (int h = 0; h < kChipNumY; h++)
+	{
+		for (int w = 0; w < kChipNumX; w++)
+		{
+			int chipNo = kChipSetData[h][w];
+			if (chipNo == 23)
+			{
+				//if()
+			}
+		}
+	}
 }
 
 void Stage::Draw()
