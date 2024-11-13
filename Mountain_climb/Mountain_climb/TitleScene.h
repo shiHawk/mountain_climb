@@ -9,6 +9,5 @@ public:
 	void End();
 	SceneManager::SceneKind Update();
 	void Draw();
-
 };
 

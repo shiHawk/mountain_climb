@@ -25,4 +25,5 @@ SceneManager::SceneKind TitleScene::Update()
 
 void TitleScene::Draw()
 {
+	DrawString(10, 10, "TitleScene", 0xffffff);
 }
