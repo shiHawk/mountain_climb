@@ -17,6 +17,12 @@ public:
 	float GetTop() const;
 	float GetRight() const;
 	float GetBottom() const;
+	void AddMove(Vec2 move);
+	void AddMoveY(float DisY);
+	void SetVelocity(Vec2 velocity);
+	void OnCollideY();
+
+	void SetJumpFlag(bool flag);
 private:
 	// グラフィックハンドル
 	int m_handleIdle;
@@ -29,6 +35,7 @@ private:
 	bool m_isRun;
 
 	Vec2 m_pos;
+	Vec2 m_velocity;
 	bool m_isDirLeft;
 
 	// ジャンプ処理

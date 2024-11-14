@@ -88,14 +88,14 @@ void Player::Update()
 	if (Pad::IsPress(KEY_INPUT_LEFT))
 	{
 		// 左キーを押しているときの処理
-		m_pos.x -= kSpeed;
+		m_velocity.x += -kSpeed;
 		m_isDirLeft = true;
 		m_isRun = true;
 	}
 	if (Pad::IsPress(KEY_INPUT_RIGHT))
 	{
 		// 右キーを押しているときの処理
-		m_pos.x += kSpeed;
+		m_velocity.x += kSpeed;
 		m_isDirLeft = false;
 		m_isRun = true;
 	}
@@ -105,7 +105,7 @@ void Player::Update()
 		if (!m_isJump)
 		{
 			m_isJump = true;
-			m_jumpSpeed = kJumpPower;
+			m_velocity.y = kJumpPower;
 		}
 	}
 
@@ -123,21 +123,23 @@ void Player::Update()
 
 	if (m_isJump)
 	{
-		m_pos.y += m_jumpSpeed;
-		m_jumpSpeed += kGravity;
-		if (m_jumpSpeed > 0)
+		m_velocity.y += kGravity;
+		if (m_velocity.y > 0)
 		{
 			if (m_pos.y >= kFieldHeight)
 			{
 				// ジャンプ終了
 				m_isJump = false;
-				m_jumpSpeed = 0.0f;
+				m_velocity.y = 0.0f;
 
 				// 地面にめり込まないようにする
 				m_pos.y = kFieldHeight;
 			}
 		}
 	}
+
+	m_pos += m_velocity;
+	//printfDx("Pos(%f,%f)\n",m_pos.x,m_pos.y);
 }
 
 void Player::Draw()
@@ -174,3 +176,29 @@ float Player::GetBottom() const
 {
 	return (m_pos.y + kGraphHeight);
 }
+
+void Player::AddMove(Vec2 move)
+{
+	m_pos += move;
+}
+
+void Player::AddMoveY(float DisY)
+{
+	m_pos.y += DisY;
+}
+
+void Player::SetVelocity(Vec2 velocity)
+{
+	m_velocity = velocity;
+}
+
+void Player::OnCollideY()
+{
+	m_velocity.y = 0;
+}
+
+void Player::SetJumpFlag(bool flag)
+{
+
+}
+

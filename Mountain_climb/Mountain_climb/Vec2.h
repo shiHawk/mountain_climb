@@ -6,6 +6,7 @@ class Vec2
 public:
 	float x;
 	float y;
+	void operator+=(Vec2 vec) { x += vec.x; y += vec.y; }
 
 public:
 	Vec2()
