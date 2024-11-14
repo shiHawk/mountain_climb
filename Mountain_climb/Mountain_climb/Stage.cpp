@@ -49,10 +49,10 @@ namespace
 	};
 }
 
-Stage::Stage():
-m_graphChipNumX(0),
-m_graphChipNumY(0),
-m_handle(-1)
+Stage::Stage() :
+	m_graphChipNumX(0),
+	m_graphChipNumY(0),
+	m_handle(-1)
 {
 }
 
@@ -89,7 +89,11 @@ void Stage::Update(Player* player)
 			int chipNo = kChipSetData[h][w];
 			if (chipNo == 23)
 			{
-				//if()
+				if (player->GetLeft() >= w * kChipWidth && player->GetRight() <= w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight)
+				{
+					DrawString(10, 10, "“–‚½‚Á‚½", 0xffffff);
+				}
 			}
 		}
 	}
