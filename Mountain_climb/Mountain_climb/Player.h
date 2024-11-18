@@ -19,8 +19,10 @@ public:
 	float GetBottom() const;
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);
+	void AddMoveLeft(float left);
 	void SetVelocity(Vec2 velocity);
 	void OnCollideY();
+	void OnCollideX();
 
 	void SetJumpFlag(bool flag);
 private:

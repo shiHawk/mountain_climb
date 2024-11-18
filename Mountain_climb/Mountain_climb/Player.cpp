@@ -18,7 +18,7 @@ namespace
 	constexpr int kSingleAnimFrame = 4;
 
 	// キャラクターの移動速度
-	constexpr float kSpeed = 2.0f;
+	constexpr float kSpeed = 1.0f;
 
 	// 地面の高さ
 	constexpr float kFieldHeight = 480.0f - 48.0f;
@@ -88,17 +88,28 @@ void Player::Update()
 	if (Pad::IsPress(KEY_INPUT_LEFT))
 	{
 		// 左キーを押しているときの処理
-		m_velocity.x += -kSpeed;
+		m_velocity.x -= kSpeed;
 		m_isDirLeft = true;
 		m_isRun = true;
 	}
-	if (Pad::IsPress(KEY_INPUT_RIGHT))
+	else if (Pad::IsPress(KEY_INPUT_RIGHT))
 	{
 		// 右キーを押しているときの処理
 		m_velocity.x += kSpeed;
 		m_isDirLeft = false;
 		m_isRun = true;
 	}
+
+
+	if (m_velocity.x >= 4.0f)
+	{
+		m_velocity.x = 4.0f;
+	}
+	if (m_velocity.x <= -4.0f)
+	{
+		m_velocity.x = -4.0f;
+	}
+
 	// 1ボタンでジャンプ
 	if (Pad::IsTrigger(PAD_INPUT_1))
 	{
@@ -112,13 +123,15 @@ void Player::Update()
 	// 左の壁に当たる
 	if (m_pos.x <= kLeftWall)
 	{
-		m_pos.x = kLeftWall;
+		m_pos.x = kLeftWall + 0.1f;
+		m_velocity.x = 0.0f;
 	}
 
 	// 右の壁に当たる
 	if (m_pos.x >= Game::kScreenWidth - kRightWall)
 	{
-		m_pos.x = Game::kScreenWidth - kRightWall;
+		m_pos.x = Game::kScreenWidth - kRightWall - 0.1f;
+		m_velocity.x = 0.0f;
 	}
 
 	if (m_isJump)
@@ -187,6 +200,11 @@ void Player::AddMoveY(float DisY)
 	m_pos.y += DisY;
 }
 
+void Player::AddMoveLeft(float left)
+{
+	m_pos.x -= left;
+}
+
 void Player::SetVelocity(Vec2 velocity)
 {
 	m_velocity = velocity;
@@ -195,6 +213,11 @@ void Player::SetVelocity(Vec2 velocity)
 void Player::OnCollideY()
 {
 	m_velocity.y = 0;
+}
+
+void Player::OnCollideX()
+{
+	m_velocity.x = 0;
 }
 
 void Player::SetJumpFlag(bool flag)
