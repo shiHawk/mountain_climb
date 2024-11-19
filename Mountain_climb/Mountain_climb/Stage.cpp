@@ -53,7 +53,7 @@ void Stage::Update(Player* player)
 					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
 				{
 					// 下から当たった場合
-					printfDx("HIT ");
+					//printfDx("HIT ");
 					float chipBottom = h * kChipHeight + kChipHeight;
 					player->AddMoveY(chipBottom - player->GetTop());
 					player->OnCollideY();
@@ -71,9 +71,25 @@ void Stage::Update(Player* player)
 					//printfDx("着地");
 					float chipTop = h * kChipHeight;
 					player->Landing(player->GetBottom() - chipTop);
-					player->OnCollideY();
+					player->OnCollideY();	
 				}
-				
+
+				// マップチップの左側から当たった場合
+				if (player->GetRight() >= w * kChipWidth && player->GetRight() < w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+				{
+					float chipLeft = w * kChipWidth;
+					player->AddMoveLeft(player->GetRight() - chipLeft);
+					player->OnCollideX();
+				}
+				// マップチップの右側から当たった場合
+				/*if (player->GetLeft() > w * kChipWidth && player->GetLeft() < w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+				{
+					float chipRight = w * kChipWidth + kChipWidth;
+					player->AddMoveRight(chipRight - player->GetLeft());
+					player->OnCollideX();
+				}*/
 			}
 		}
 	}

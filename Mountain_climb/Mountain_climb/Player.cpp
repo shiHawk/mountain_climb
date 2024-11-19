@@ -149,18 +149,18 @@ void Player::Update()
 	if (m_isJump)
 	{
 		m_velocity.y += kJumpGravity;
-		if (m_velocity.y > 0)
-		{
-			if (m_pos.y >= kFieldHeight)
-			{
-				// ジャンプ終了
-				m_isJump = false;
-				m_velocity.y = 0.0f;
+		//if (m_velocity.y > 0)
+		//{
+		//	if (m_pos.y >= kFieldHeight)
+		//	{
+		//		// ジャンプ終了
+		//		m_isJump = false;
+		//		m_velocity.y = 0.0f;
 
-				// 地面にめり込まないようにする
-				m_pos.y = kFieldHeight;
-			}
-		}
+		//		// 地面にめり込まないようにする
+		//		m_pos.y = kFieldHeight;
+		//	}
+		//}
 	}
 
 	m_pos += m_velocity;
@@ -212,15 +212,16 @@ void Player::AddMoveY(float DisY)
 	m_pos.y += DisY;
 }
 
-void Player::AddMoveLeft()
+void Player::AddMoveLeft(float left)
 {
-	m_pos.x -= 0.5f;
+	m_pos.x -= left;
 }
 
-void Player::AddMoveRight()
+void Player::AddMoveRight(float right)
 {
-	m_pos.x += 0.5f;
+	m_pos.x += right;
 }
+
 
 void Player::SetVelocity(Vec2 velocity)
 {
@@ -247,6 +248,6 @@ void Player::Landing(float DisY)
 
 void Player::SetJumpFlag(bool flag)
 {
-
+	m_isJump = flag;
 }
 

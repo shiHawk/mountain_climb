@@ -17,10 +17,11 @@ public:
 	float GetTop() const;
 	float GetRight() const;
 	float GetBottom() const;
+
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);
-	void AddMoveLeft();
-	void AddMoveRight();
+	void AddMoveLeft(float left);
+	void AddMoveRight(float right);
 	void SetVelocity(Vec2 velocity);
 	void OnCollideY();
 	void OnCollideX();
