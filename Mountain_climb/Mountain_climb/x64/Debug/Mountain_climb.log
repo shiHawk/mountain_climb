@@ -1,3 +1,4 @@
-﻿  Player.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3964,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  Mountain_climb.vcxproj -> C:\Users\志鷹瑛仁\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe
+﻿  Stage.cpp
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(57,23): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(72,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe

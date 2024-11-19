@@ -18,14 +18,15 @@ namespace
 	constexpr int kSingleAnimFrame = 4;
 
 	// キャラクターの移動速度
-	constexpr float kSpeed = 1.0f;
+	constexpr float kSpeed = 0.5f;
 
 	// 地面の高さ
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -9.3f;	// ジャンプの初速
-	constexpr float kGravity = 0.4f;	// 重力
+	constexpr float kJumpPower = -9.5f;	// ジャンプの初速
+	float kJumpGravity = 0.4f;	// 重力
+	float kGravity = 4.0f;
 
 	// 左右の壁
 	constexpr float kLeftWall = 64.0f;
@@ -83,6 +84,7 @@ void Player::Update()
 	// 前回のアニメーションを覚えておく
 	bool isLastRun = m_isRun;
 
+	
 	// 左右にキャラクターを動かす
 	m_isRun = false;
 	if (Pad::IsPress(KEY_INPUT_LEFT))
@@ -100,14 +102,24 @@ void Player::Update()
 		m_isRun = true;
 	}
 
-
-	if (m_velocity.x >= 4.0f)
+	if (!m_isRun)
 	{
-		m_velocity.x = 4.0f;
+		m_velocity.x = 0.0f;
 	}
-	if (m_velocity.x <= -4.0f)
+
+	if (!m_isJump)
 	{
-		m_velocity.x = -4.0f;
+		m_velocity.y += kJumpGravity;
+	}
+
+	// velocityが3.0fになったら加速を止める
+	if (m_velocity.x >= 3.0f)
+	{
+		m_velocity.x = 3.0f;
+	}
+	if (m_velocity.x <= -3.0f)
+	{
+		m_velocity.x = -3.0f;
 	}
 
 	// 1ボタンでジャンプ
@@ -136,7 +148,7 @@ void Player::Update()
 
 	if (m_isJump)
 	{
-		m_velocity.y += kGravity;
+		m_velocity.y += kJumpGravity;
 		if (m_velocity.y > 0)
 		{
 			if (m_pos.y >= kFieldHeight)
@@ -172,7 +184,7 @@ void Player::Draw()
 
 float Player::GetLeft() const
 {
-	return m_pos.x;
+	return (m_pos.x + kGraphWidth * 0.5f);
 }
 
 float Player::GetTop() const
@@ -200,9 +212,14 @@ void Player::AddMoveY(float DisY)
 	m_pos.y += DisY;
 }
 
-void Player::AddMoveLeft(float left)
+void Player::AddMoveLeft()
 {
-	m_pos.x -= left;
+	m_pos.x -= 0.5f;
+}
+
+void Player::AddMoveRight()
+{
+	m_pos.x += 0.5f;
 }
 
 void Player::SetVelocity(Vec2 velocity)
@@ -219,6 +236,14 @@ void Player::OnCollideX()
 {
 	m_velocity.x = 0;
 }
+
+void Player::Landing(float DisY)
+{
+	m_isJump = false;
+	m_pos.y -= DisY;
+}
+
+
 
 void Player::SetJumpFlag(bool flag)
 {
