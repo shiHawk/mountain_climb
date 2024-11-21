@@ -26,7 +26,8 @@ namespace
 	// ジャンプ処理
 	constexpr float kJumpPower = -9.5f;	// ジャンプの初速
 	float kJumpGravity = 0.4f;	// 重力
-	float kGravity = 4.0f;
+	float kGravity = 0.5f;
+	bool FallFrag = false;
 
 	// 左右の壁
 	constexpr float kLeftWall = 64.0f;
@@ -109,7 +110,7 @@ void Player::Update()
 
 	if (!m_isJump)
 	{
-		m_velocity.y += kJumpGravity;
+		m_velocity.y += kGravity;
 	}
 
 	// velocityが3.0fになったら加速を止める
@@ -244,10 +245,13 @@ void Player::Landing(float DisY)
 	m_pos.y -= DisY;
 }
 
-
-
-void Player::SetJumpFlag(bool flag)
+float Player::PlayerAirPos()
 {
-	m_isJump = flag;
+	return m_pos.y -= 2.0f;
+}
+
+bool Player::SetFallFlag()
+{
+	return FallFrag;
 }
 

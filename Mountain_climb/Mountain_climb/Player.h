@@ -17,7 +17,8 @@ public:
 	float GetTop() const;
 	float GetRight() const;
 	float GetBottom() const;
-
+	float PlayerAirPos();
+	bool SetFallFlag();
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);
 	void AddMoveLeft(float left);
@@ -26,7 +27,8 @@ public:
 	void OnCollideY();
 	void OnCollideX();
 	void Landing(float DisY);
-	void SetJumpFlag(bool flag);
+	
+	
 private:
 	// グラフィックハンドル
 	int m_handleIdle;
