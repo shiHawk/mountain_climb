@@ -91,6 +91,37 @@ void Stage::Update(Player* player)
 					player->OnCollideX();
 				}*/
 			}
+
+			if (chipNo == 440 || chipNo == 441 || chipNo == 442)
+			{
+				// 下から当たった場合
+				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+				{
+					float chipBottom = h * kChipHeight + kChipHeight;
+					player->AddMoveY(chipBottom - player->GetTop());
+					player->OnCollideY();
+
+				}
+				// 上から当たった場合
+				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
+					&& player->GetBottom() >= h * kChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight)
+				{
+					//printfDx("着地");
+					float chipTop = h * kChipHeight;
+					player->Landing(player->GetBottom() - chipTop);
+					player->OnCollideY();
+				}
+
+				// マップチップの左側から当たった場合
+				if (player->GetRight() >= w * kChipWidth && player->GetRight() < w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+				{
+					float chipLeft = w * kChipWidth;
+					player->AddMoveLeft(player->GetRight() - chipLeft);
+					player->OnCollideX();
+				}
+			}
 		}
 	}
 }
