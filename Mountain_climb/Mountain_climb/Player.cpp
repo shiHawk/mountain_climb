@@ -113,6 +113,15 @@ void Player::Update()
 		m_velocity.y += kGravity;
 	}
 
+	if (m_velocity.y > 0)
+	{
+		FallFrag = true;
+	}
+	else
+	{
+		FallFrag = false;
+	}
+
 	// velocityが3.0fになったら加速を止める
 	if (m_velocity.x >= 3.0f)
 	{
@@ -150,22 +159,9 @@ void Player::Update()
 	if (m_isJump)
 	{
 		m_velocity.y += kJumpGravity;
-		//if (m_velocity.y > 0)
-		//{
-		//	if (m_pos.y >= kFieldHeight)
-		//	{
-		//		// ジャンプ終了
-		//		m_isJump = false;
-		//		m_velocity.y = 0.0f;
-
-		//		// 地面にめり込まないようにする
-		//		m_pos.y = kFieldHeight;
-		//	}
-		//}
 	}
 
 	m_pos += m_velocity;
-	//printfDx("Pos(%f,%f)\n",m_pos.x,m_pos.y);
 }
 
 void Player::Draw()
@@ -178,7 +174,7 @@ void Player::Draw()
 		useHandle = m_handleRun;
 	}
 
-	DrawRectGraph(static_cast<int>(m_pos.x), static_cast<int>(m_pos.y ),
+	DrawRectGraph(static_cast<int>(m_pos.x) , static_cast<int>(m_pos.y),
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		useHandle, true, m_isDirLeft);
 }
@@ -201,6 +197,11 @@ float Player::GetRight() const
 float Player::GetBottom() const
 {
 	return (m_pos.y + kGraphHeight);
+}
+
+Vec2 Player::PlayerPos()
+{
+	return m_pos;
 }
 
 void Player::AddMove(Vec2 move)
@@ -250,7 +251,7 @@ float Player::PlayerAirPos()
 	return m_pos.y -= 2.0f;
 }
 
-bool Player::SetFallFlag()
+bool Player::FallFlag()
 {
 	return FallFrag;
 }

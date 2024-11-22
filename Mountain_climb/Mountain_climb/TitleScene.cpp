@@ -30,4 +30,5 @@ SceneManager::SceneKind TitleScene::Update()
 void TitleScene::Draw()
 {
 	DrawString(10, 10, "TitleScene", 0xffffff);
+	DrawString(10, 30, "Press A Button", 0xffffff); 
 }
