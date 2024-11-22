@@ -54,12 +54,12 @@ void Stage::Update(Player* player)
 				{
 					// 下から当たった場合
 					//printfDx("HIT ");
+					Hitbottom = true;
 					float chipBottom = h * kChipHeight + kChipHeight;
 					player->AddMoveY(chipBottom - player->GetTop());// マップチップとプレイヤーの重なった分だけ下にずらす
 					player->OnCollideY();// m_velocity.yを0にする
 					if (h * kChipHeight + kChipHeight == player->GetTop() && player->FallFlag() == false)
 					{
-						Hitbottom = true;
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
 					}

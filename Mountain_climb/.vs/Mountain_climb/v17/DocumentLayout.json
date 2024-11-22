@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Pad.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
@@ -74,8 +74,7 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-12T06:04:51.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T06:04:51.273Z"
             },
             {
               "$type": "Document",
@@ -87,18 +86,17 @@
               "RelativeToolTip": "Mountain_climb\\Player.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABUAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-12T05:28:09.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T05:28:09.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Player.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp",
               "RelativeToolTip": "Mountain_climb\\Player.cpp",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAmwHIAAAAAAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAmwHcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-12T05:17:41.125Z",
               "EditorCaption": ""
@@ -113,8 +111,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneManager.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T05:47:17.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:47:17.723Z"
             },
             {
               "$type": "Document",
@@ -126,8 +123,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneManager.cpp",
               "ViewState": "AQIAABoAAAAAAAAAAAASwGMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T05:47:22.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:47:22.511Z"
             },
             {
               "$type": "Document",
@@ -139,8 +135,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneMain.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T05:37:17.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:37:17.564Z"
             },
             {
               "$type": "Document",
@@ -152,8 +147,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneMain.cpp",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T05:37:19.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:37:19.337Z"
             },
             {
               "$type": "Document",
@@ -165,8 +159,7 @@
               "RelativeToolTip": "Mountain_climb\\main.cpp",
               "ViewState": "AQIAABgAAAAAAAAAAAASwCQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T04:43:27.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:43:27.169Z"
             },
             {
               "$type": "Document",
@@ -178,8 +171,7 @@
               "RelativeToolTip": "Mountain_climb\\Stage.h",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAC4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T04:43:27.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:43:27.291Z"
             },
             {
               "$type": "Document",
@@ -191,18 +183,17 @@
               "RelativeToolTip": "Mountain_climb\\game.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-12T06:11:16.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T06:11:16.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Stage.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Stage.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.cpp",
               "RelativeToolTip": "Mountain_climb\\Stage.cpp",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGUAAAAiAAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAAAHYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-11T04:43:27.289Z",
               "EditorCaption": ""
@@ -217,8 +208,7 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-13T04:59:58.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T04:59:58.046Z"
             },
             {
               "$type": "Document",
@@ -230,8 +220,7 @@
               "RelativeToolTip": "Mountain_climb\\Pad.cpp",
               "ViewState": "AQIAADMAAAAAAAAAAAAAADoAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-13T06:52:48.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T06:52:48.831Z"
             }
           ]
         }
