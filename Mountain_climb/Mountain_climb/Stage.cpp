@@ -54,15 +54,18 @@ void Stage::Update(Player* player)
 				{
 					// 下から当たった場合
 					//printfDx("HIT ");
-					Hitbottom = true;
 					float chipBottom = h * kChipHeight + kChipHeight;
 					player->AddMoveY(chipBottom - player->GetTop());// マップチップとプレイヤーの重なった分だけ下にずらす
 					player->OnCollideY();// m_velocity.yを0にする
 					if (h * kChipHeight + kChipHeight == player->GetTop() && player->FallFlag() == false)
 					{
+						Hitbottom = true;
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
 					}
+					// 1マスの隙間からマップチップの下から当たると左側から当たった時の処理に引っかかって
+					// プレイヤーが左にずれてしまう　一通り終わってから調整する
+					Hitbottom = false;
 				}
 				// 上から当たった場合
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
@@ -83,6 +86,7 @@ void Stage::Update(Player* player)
 					player->AddMoveLeft(player->GetRight() - chipLeft);// マップチップとプレイヤーの重なった分だけ左にずらす
 					player->OnCollideX();// m_velocity.xを0にする
 				}
+				
 				// マップチップの右側から当たった場合
 				/*if (player->GetLeft() > w * kChipWidth && player->GetLeft() < w * kChipWidth + kChipWidth
 					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
@@ -117,7 +121,6 @@ void Stage::Update(Player* player)
 					player->AddMoveLeft(player->GetRight() - chipLeft);
 					player->OnCollideX();
 				}
-				Hitbottom = false;
 			}
 		}
 	}
