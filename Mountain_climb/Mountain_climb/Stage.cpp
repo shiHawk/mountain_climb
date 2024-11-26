@@ -63,10 +63,8 @@ void Stage::Update(Player* player)
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
 					}
-					// 1マスの隙間からマップチップの下から当たると左側から当たった時の処理に引っかかって
-					// プレイヤーが左にずれてしまう　一通り終わってから調整する
-					Hitbottom = false;
 				}
+
 				// 上から当たった場合
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
 					&& player->GetBottom() >= h * kChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight)
@@ -74,10 +72,13 @@ void Stage::Update(Player* player)
 					//printfDx("着地");
 					float chipTop = h * kChipHeight;
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
+					Hitbottom = false;
 					player->OnCollideY();	
 				}
 
 				// マップチップの左側から当たった場合
+				// 1マスの隙間からマップチップの下から当たると左側から当たった時の処理に引っかかって
+				// プレイヤーが左にずれてしまう　一通り終わってから調整する
 				if (player->GetRight() >= w * kChipWidth && player->GetRight() < w * kChipWidth + kChipWidth
 					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight
 					&& Hitbottom == false)
@@ -128,10 +129,9 @@ void Stage::Update(Player* player)
 
 void Stage::Draw()
 {
+	// 背景
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x191970, true);
-	//DrawRectGraph(0, Game::kScreenHeight - kChipHeight,	// 切り出したグラフィックをどこに表示するのか
-	//	0, 0, 16, 16,	// グラフィックのどの部分を切り取るか
-	//	m_handle, true);
+
 	// チップを画面全体に敷き詰める
 	for (int y = 0; y < kChipNumY; y++)
 	{

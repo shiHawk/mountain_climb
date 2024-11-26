@@ -199,11 +199,6 @@ float Player::GetBottom() const
 	return (m_pos.y + kGraphHeight);
 }
 
-Vec2 Player::PlayerPos()
-{
-	return m_pos;
-}
-
 void Player::AddMove(Vec2 move)
 {
 	m_pos += move;

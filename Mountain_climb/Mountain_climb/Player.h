@@ -17,7 +17,6 @@ public:
 	float GetTop() const;
 	float GetRight() const;
 	float GetBottom() const;
-	Vec2 PlayerPos();
 	float PlayerAirPos();
 	bool FallFlag();
 	void AddMove(Vec2 move);
