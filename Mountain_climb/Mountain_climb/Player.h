@@ -19,6 +19,7 @@ public:
 	float GetBottom() const;
 	float PlayerAirPos();
 	bool FallFlag();
+	void OnDamage();
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);
 	void AddMoveLeft(float left);
@@ -39,6 +40,10 @@ private:
 	// 現在再生中のアニメーション
 	// true:走っている　false:待機
 	bool m_isRun;
+
+	int m_invincibleCount;
+
+	int m_hp;
 
 	Vec2 m_pos;
 	Vec2 m_velocity;

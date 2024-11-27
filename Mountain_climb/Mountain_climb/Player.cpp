@@ -20,6 +20,10 @@ namespace
 	// キャラクターの移動速度
 	constexpr float kSpeed = 0.5f;
 
+	constexpr int kInvincible = 30;
+
+	constexpr int kMaxHp = 3;
+
 	// 地面の高さ
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
@@ -41,6 +45,8 @@ Player::Player() :
 	m_isDirLeft(false),
 	m_animFrame(0),
 	m_isRun(false),
+	m_invincibleCount(0),
+	m_hp(kMaxHp),
 	m_isJump(false),
 	m_jumpSpeed(0.0f)
 {
@@ -65,6 +71,21 @@ void Player::End()
 	DeleteGraph(m_handleRun);
 }
 
+void Player::OnDamage()
+{
+	// 既にダメージを受けている(無敵時間)間は
+	// 再度ダメージを受けることはない
+	if (m_invincibleCount > 0)
+	{
+		return;
+	}
+	// 無敵時間(点滅する時間)を設定する
+	m_invincibleCount = kInvincible;
+	// ダメージを受ける
+	m_hp--;
+	printfDx("Damage ");
+}
+
 void Player::Update()
 {
 	m_animFrame++;
@@ -85,6 +106,12 @@ void Player::Update()
 	// 前回のアニメーションを覚えておく
 	bool isLastRun = m_isRun;
 
+	// 無敵時間の更新
+	m_invincibleCount--;
+	if (m_invincibleCount < 0)
+	{
+		m_invincibleCount = 0;
+	}
 	
 	// 左右にキャラクターを動かす
 	m_isRun = false;
@@ -250,4 +277,6 @@ bool Player::FallFlag()
 {
 	return FallFrag;
 }
+
+
 

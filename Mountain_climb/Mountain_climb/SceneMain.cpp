@@ -30,6 +30,30 @@ SceneManager::SceneKind SceneMain::Update()
 	m_player.Update();
 	m_enemy.Update();
 	Pad::Update();
+
+	bool isPlayerHit = true;
+
+	if (m_player.GetLeft() > m_enemy.GetRight())
+	{
+		isPlayerHit = false;
+	}
+	if (m_player.GetTop() > m_enemy.GetBottom())
+	{
+		isPlayerHit = false;
+	}
+	if (m_player.GetRight() < m_enemy.GetLeft())
+	{
+		isPlayerHit = false;
+	}
+	if (m_player.GetBottom() < m_enemy.GetTop())
+	{
+		isPlayerHit = false;
+	}
+
+	if (isPlayerHit)
+	{
+		m_player.OnDamage();
+	}
 	return SceneManager::SceneKind::kSceneMain;
 }
 

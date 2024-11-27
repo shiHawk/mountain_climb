@@ -5,7 +5,8 @@
 Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
-	m_speed(0.5f)
+	m_speed(0.025f),
+	m_pos(100, 432)
 {
 }
 
@@ -23,34 +24,41 @@ void Enemy::End()
 
 void Enemy::Update()
 {
-	m_velocity.x += m_speed;
-
+	m_velocity.x = m_speed;
+	if (m_velocity.x < 1.0f)
+	{
+		m_velocity.x = 3.0f;
+	}
 	m_pos += m_velocity;
 }
 
 void Enemy::Draw()
 {
-	DrawBox(100, 432, 133, 465, 0xffffff, true);
+	DrawBox(m_pos.x, m_pos.y, m_pos.x+33, m_pos.y+33, 0xffffff, true);
+	if (m_pos.x > Game::kScreenWidth)
+	{
+		m_pos.x = 0 - 33;
+	}
 }
 
 float Enemy::GetLeft()
 {
-	return 0.0f;
+	return m_pos.x;
 }
 
 float Enemy::GetTop()
 {
-	return 0.0f;
+	return m_pos.y;
 }
 
 float Enemy::GetRight()
 {
-	return 0.0f;
+	return m_pos.x + 33;
 }
 
 float Enemy::GetBottom()
 {
-	return 0.0f;
+	return m_pos.y + 33;
 }
 
 void Enemy::Setting()
