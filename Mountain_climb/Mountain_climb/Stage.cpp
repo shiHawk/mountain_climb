@@ -50,14 +50,13 @@ void Stage::Update(Player* player)
 			if (chipNo == 23 || chipNo == 287 || chipNo == 195 || chipNo == 1)
 			{
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
-					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+					&& player->GetTop() >= h * kChipHeight - m_AllChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight - m_AllChipHeight)
 				{
 					// 下から当たった場合
-					//printfDx("HIT ");
-					float chipBottom = h * kChipHeight + kChipHeight;
+					float chipBottom = h * kChipHeight + kChipHeight - m_AllChipHeight;
 					player->AddMoveY(chipBottom - player->GetTop());// マップチップとプレイヤーの重なった分だけ下にずらす
 					player->OnCollideY();// m_velocity.yを0にする
-					if (h * kChipHeight + kChipHeight == player->GetTop() && player->FallFlag() == false)
+					if (h * kChipHeight + kChipHeight - m_AllChipHeight == player->GetTop() && player->FallFlag() == false)
 					{
 						Hitbottom = true;
 						// マップチップを壊す
@@ -67,10 +66,10 @@ void Stage::Update(Player* player)
 
 				// 上から当たった場合
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
-					&& player->GetBottom() >= h * kChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight)
+					&& player->GetBottom() >= h * kChipHeight - m_AllChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight - m_AllChipHeight)
 				{
 					//printfDx("着地");
-					float chipTop = h * kChipHeight;
+					float chipTop = h * kChipHeight - m_AllChipHeight;
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
 					Hitbottom = false;
 					player->OnCollideY();	
@@ -80,7 +79,7 @@ void Stage::Update(Player* player)
 				// 1マスの隙間からマップチップの下から当たると左側から当たった時の処理に引っかかって
 				// プレイヤーが左にずれてしまう　一通り終わってから調整する
 				if (player->GetRight() >= w * kChipWidth && player->GetRight() < w * kChipWidth + kChipWidth
-					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight
+					&& player->GetTop() >= h * kChipHeight - m_AllChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight - m_AllChipHeight
 					&& Hitbottom == false)
 				{
 					float chipLeft = w * kChipWidth;
@@ -103,10 +102,10 @@ void Stage::Update(Player* player)
 
 				// 上から当たった場合
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
-					&& player->GetBottom() >= h * kChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight
+					&& player->GetBottom() >= h * kChipHeight - m_AllChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight - m_AllChipHeight
 					&& player->FallFlag() == true)
 				{
-					float chipTop = h * kChipHeight;
+					float chipTop = h * kChipHeight - m_AllChipHeight;
 					if (player->PlayerAirPos() < chipTop)
 					{
 						player->Landing(player->GetBottom() - chipTop);
@@ -158,7 +157,7 @@ void Stage::Draw()
 			int cutX = indexX * kChipWidth;
 			int cutY = indexY * kChipHeight;
 
-			DrawRectGraph(x * kChipWidth, y * kChipHeight,
+			DrawRectGraph(x * kChipWidth, y * kChipHeight-m_AllChipHeight,
 				cutX, cutY, kChipWidth, kChipHeight,
 				m_handle, true);
 		}
