@@ -1,11 +1,15 @@
 #pragma once
+#include "Vec2.h"
 
-struct Player;
-struct Camera
+class Camera
 {
-	VECTOR pos;
-	VECTOR drawOffset;
-}; 
+public:
+	Camera();
+	~Camera();
 
-void InitCamera(Camera& camera);
-void UpdateCamera(Camera& camera,const Player& player);
+	void Init();
+	void End();
+	void Update();
+private:
+};
+
