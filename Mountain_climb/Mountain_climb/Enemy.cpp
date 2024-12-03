@@ -5,7 +5,7 @@
 Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
-	m_speed(0.025f),
+	m_speed(2.0f),
 	m_pos(100, 432)
 {
 }
@@ -25,10 +25,10 @@ void Enemy::End()
 void Enemy::Update()
 {
 	m_velocity.x = m_speed;
-	if (m_velocity.x < 1.0f)
+	/*if (m_velocity.x > 1.0f)
 	{
 		m_velocity.x = 3.0f;
-	}
+	}*/
 	m_pos += m_velocity;
 }
 

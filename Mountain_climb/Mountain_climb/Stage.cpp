@@ -6,7 +6,8 @@
 
 namespace
 {
-	bool Hitbottom = false;
+	bool hitBottom = false;
+	float liftX = 0;
 }
 
 Stage::Stage() :
@@ -47,7 +48,7 @@ void Stage::Update(Player* player)
 		for (int w = 0; w < kChipNumX; w++)
 		{
 			int chipNo = kChipSetData[h][w];
-			if (chipNo == 23 || chipNo == 287 || chipNo == 195 || chipNo == 1)
+			if (chipNo < 440 && chipNo >= 0)
 			{
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
 					&& player->GetTop() >= h * kChipHeight - m_AllChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight - m_AllChipHeight)
@@ -58,7 +59,7 @@ void Stage::Update(Player* player)
 					player->OnCollideY();// m_velocity.yを0にする
 					if (h * kChipHeight + kChipHeight - m_AllChipHeight == player->GetTop() && player->FallFlag() == false)
 					{
-						Hitbottom = true;
+						hitBottom = true;
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
 					}
@@ -71,7 +72,7 @@ void Stage::Update(Player* player)
 					//printfDx("着地");
 					float chipTop = h * kChipHeight - m_AllChipHeight;
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
-					Hitbottom = false;
+					hitBottom = false;
 					player->OnCollideY();	
 				}
 
@@ -80,7 +81,7 @@ void Stage::Update(Player* player)
 				// プレイヤーが左にずれてしまう　一通り終わってから調整する
 				if (player->GetRight() >= w * kChipWidth && player->GetRight() < w * kChipWidth + kChipWidth
 					&& player->GetTop() >= h * kChipHeight - m_AllChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight - m_AllChipHeight
-					&& Hitbottom == false)
+					&& hitBottom == false)
 				{
 					float chipLeft = w * kChipWidth;
 					player->AddMoveLeft(player->GetRight() - chipLeft);// マップチップとプレイヤーの重なった分だけ左にずらす
@@ -99,7 +100,6 @@ void Stage::Update(Player* player)
 
 			if (chipNo == 440 || chipNo == 441 || chipNo == 442)
 			{
-
 				// 上から当たった場合
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
 					&& player->GetBottom() >= h * kChipHeight - m_AllChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight - m_AllChipHeight
@@ -157,9 +157,11 @@ void Stage::Draw()
 			int cutX = indexX * kChipWidth;
 			int cutY = indexY * kChipHeight;
 
-			DrawRectGraph(x * kChipWidth, y * kChipHeight-m_AllChipHeight,
+			
+			DrawRectGraph(x * kChipWidth, y * kChipHeight - m_AllChipHeight,
 				cutX, cutY, kChipWidth, kChipHeight,
 				m_handle, true);
+			
 		}
 	}
 	

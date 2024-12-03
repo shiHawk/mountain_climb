@@ -20,6 +20,7 @@ public:
 	float PlayerAirPos();
 	bool FallFlag();
 	void OnDamage();
+	int GetPlayerHp();
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);
 	void AddMoveLeft(float left);

@@ -86,6 +86,7 @@ void Player::OnDamage()
 	printfDx("Damage ");
 }
 
+
 void Player::Update()
 {
 	m_animFrame++;
@@ -278,5 +279,8 @@ bool Player::FallFlag()
 	return FallFrag;
 }
 
-
+int Player::GetPlayerHp()
+{
+	return m_hp;
+}
 

@@ -33,6 +33,11 @@ SceneManager::SceneKind SceneMain::Update()
 
 	bool isPlayerHit = true;
 
+	if (m_player.GetPlayerHp() <= 0)
+	{
+		//return SceneManager::SceneKind::kTitleScene;
+	}
+
 	if (m_player.GetLeft() > m_enemy.GetRight())
 	{
 		isPlayerHit = false;
