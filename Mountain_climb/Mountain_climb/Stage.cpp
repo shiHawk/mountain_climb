@@ -30,9 +30,28 @@ void Stage::Init()
 	int graphWidth = 0;
 	int GraphHeight = 0;
 	GetGraphSize(m_handle, &graphWidth, &GraphHeight);
-
+	//マップチップの数
 	m_graphChipNumX = graphWidth / kChipWidth;
 	m_graphChipNumY = GraphHeight / kChipHeight;
+	//配列のマップデータをマップチップに入れる。
+	for (int wIndex = 0; wIndex < m_graphChipNumX; wIndex++)
+	{
+		for (int hIndex = 0; hIndex < m_graphChipNumY; hIndex++)
+		{
+			MapChip& temp = m_map.mapChips[wIndex][hIndex];
+			temp.w = kChipWidth;//幅
+			temp.h = kChipHeight;//高さ
+			temp.chipKind = kChipSetData[kChipNumY][kChipNumX];//種類
+			//mapChipのposを決める
+			float tempX = wIndex * temp.w + temp.w * 0.5f;
+			float tempY = hIndex * temp.h + temp.w * 0.5f;
+			temp.pos.SetPos(tempX,tempY);
+		}
+	}
+
+
+
+
 }
 
 void Stage::End()
@@ -126,18 +145,18 @@ void Stage::Update(Player* player)
 	}
 }
 
-void Stage::Draw()
+void Stage::Draw(Camera* camera)
 {
 	// 背景
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x191970, true);
 
 	// チップを画面全体に敷き詰める
-	for (int y = 0; y < kChipNumY; y++)
+	for (int hIndex = 0; hIndex < kChipNumY; hIndex++)
 	{
-		for (int x = 0; x < kChipNumX; x++)
+		for (int wIndex = 0; wIndex < kChipNumX; wIndex++)
 		{
 			// データから配置するチップを決定する
-			int chipNo = kChipSetData[y][x];
+			int chipNo = kChipSetData[hIndex][wIndex];
 
 			if (chipNo < 0)
 			{
@@ -157,8 +176,21 @@ void Stage::Draw()
 			int cutX = indexX * kChipWidth;
 			int cutY = indexY * kChipHeight;
 
-			
-			DrawRectGraph(x * kChipWidth, y * kChipHeight - m_AllChipHeight,
+			//描画範囲の決定
+			const MapChip& mapChip = m_map.mapChips[hIndex][wIndex];
+			//1つのマップチップの四隅の座標
+			auto leftTop = static_cast<int>(mapChip.pos.x - mapChip.w * 0.5f);
+			auto leftBottom = static_cast<int>(mapChip.pos.y - mapChip.h * 0.5f);
+			auto rightTop = static_cast<int>(mapChip.pos.x + mapChip.w * 0.5f);
+			auto rightBottom = static_cast<int>(mapChip.pos.y + mapChip.h * 0.5f);
+
+			/*DrawRectGraph(
+				mapChip.pos.y, mapChip.pos.x,
+				leftTop, leftBottom, leftTop - rightTop, leftTop - rightTop,
+				m_handle, true);*/
+
+			DrawRectGraph(wIndex * kChipWidth + static_cast<int>(camera->m_drawOffset.x),
+				hIndex * kChipHeight - m_AllChipHeight + static_cast<int>(camera->m_drawOffset.y),
 				cutX, cutY, kChipWidth, kChipHeight,
 				m_handle, true);
 			

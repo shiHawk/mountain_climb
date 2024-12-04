@@ -20,4 +20,9 @@ public:
 	{
 
 	}
+	void SetPos(float a,float b)
+	{
+		x = a;
+		y = b;
+	}
 };

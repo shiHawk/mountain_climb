@@ -1,13 +1,15 @@
 #pragma once
 #include "Vec2.h"
 
+class Camera;
+
 class Player
 {
 public:
 	Player();
 	~Player();
 
-	void Init();	// 初期化
+	void Init(Camera* camera);	// 初期化
 	void End();	// 終了
 	void Update();	// 更新
 	void Draw();	// 描画
@@ -29,7 +31,7 @@ public:
 	void OnCollideY();
 	void OnCollideX();
 	void Landing(float DisY);
-	
+	Vec2 GetPos() const;
 	
 private:
 	// グラフィックハンドル
@@ -54,5 +56,7 @@ private:
 	bool m_isJump;
 	float m_jumpSpeed;
 
+	//
+	Camera* m_camera;
 };
 

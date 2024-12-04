@@ -1,6 +1,18 @@
 #pragma once
 #include "game.h"
+#include "Vec2.h"
+#include "Camera.h"
 class Player;
+
+struct MapChip
+{
+	Vec2 pos;
+	float w, h;
+	int chipKind;
+};
+
+
+
 
 class Stage
 {
@@ -11,7 +23,7 @@ public:
 	void Init();	// 初期化
 	void End();	// 終了
 	void Update(Player* player);	// 更新
-	void Draw();	// 描画
+	void Draw(Camera* camera);	// 描画
 private:
 	// グラフィックハンドル
 	int m_handle;
@@ -67,6 +79,16 @@ private:
 		{88,89,89,90,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,88,89,89,90},
 		{22,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,24}
 	};
+
+	/// <summary>
+/// マップ構造体
+/// </summary>
+	struct Map
+	{
+		MapChip mapChips[kChipNumY][kChipNumX];
+	};
+
+	Map m_map;
 
 	/// <summary>
 	/// マップチップ全体の左下をウィンドウの左下に合わせるための高さ調整用変数

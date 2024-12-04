@@ -3,6 +3,7 @@
 #include"Pad.h"
 #include "game.h"
 #include <cassert>
+#include "Camera.h"
 
 namespace
 {
@@ -19,9 +20,9 @@ namespace
 
 	// キャラクターの移動速度
 	constexpr float kSpeed = 0.5f;
-
+	// 無敵時間
 	constexpr int kInvincible = 30;
-
+	// 最大残機
 	constexpr int kMaxHp = 3;
 
 	// 地面の高さ
@@ -56,12 +57,14 @@ Player::~Player()
 {
 }
 
-void Player::Init()
+void Player::Init(Camera* camera)
 {
 	m_handleIdle = LoadGraph("data/image/Idle .png");
 	assert(m_handleIdle != -1);
 
 	m_handleRun = LoadGraph("data/image/run.png");
+	m_camera = camera;
+	m_camera->m_pos.SetPos(m_pos.x, m_pos.y);
 }
 
 void Player::End()
@@ -201,8 +204,10 @@ void Player::Draw()
 	{
 		useHandle = m_handleRun;
 	}
-
-	DrawRectGraph(static_cast<int>(m_pos.x) , static_cast<int>(m_pos.y),
+	//描画位置の決定
+	int tempX = static_cast<int>(m_pos.x) + static_cast<int>(m_camera->m_drawOffset.x);
+	int tempY = static_cast<int>(m_pos.y) + static_cast<int>(m_camera->m_drawOffset.y);
+	DrawRectGraph(tempX , tempY,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		useHandle, true, m_isDirLeft);
 }
@@ -267,6 +272,11 @@ void Player::Landing(float DisY)
 {
 	m_isJump = false;
 	m_pos.y -= DisY;
+}
+
+Vec2 Player::GetPos() const
+{
+	return m_pos;
 }
 
 float Player::PlayerAirPos()

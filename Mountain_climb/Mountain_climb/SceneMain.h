@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Camera.h"
 
 class SceneMain
 {
@@ -18,5 +19,6 @@ private:
 	Stage m_stage;
 	Player m_player;
 	Enemy m_enemy;
+	Camera m_camera;
 };
 

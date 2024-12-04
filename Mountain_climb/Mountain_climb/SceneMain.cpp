@@ -12,8 +12,11 @@ SceneMain::~SceneMain()
 
 void SceneMain::Init()
 {
+	m_player.Init(&m_camera);
+	m_camera.Init();
 	m_stage.Init();
-	m_player.Init();
+	
+
 	m_enemy.Init();
 }
 
@@ -29,6 +32,7 @@ SceneManager::SceneKind SceneMain::Update()
 	m_stage.Update(&m_player);
 	m_player.Update();
 	m_enemy.Update();
+	m_camera.Update(&m_player);
 	Pad::Update();
 
 	bool isPlayerHit = true;
@@ -66,7 +70,7 @@ SceneManager::SceneKind SceneMain::Update()
 
 void SceneMain::Draw()
 {
-	m_stage.Draw();
+	m_stage.Draw(&m_camera);
 	m_player.Draw();
 	m_enemy.Draw();
 }
