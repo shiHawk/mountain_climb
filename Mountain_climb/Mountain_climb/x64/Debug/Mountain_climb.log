@@ -1,2 +1,5 @@
-﻿  Player.cpp
+﻿  Enemy.cpp
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(33,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(33,31): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(33,15): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe

@@ -29,7 +29,7 @@ namespace
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -9.5f;	// ジャンプの初速
+	constexpr float kJumpPower = -9.8f;	// ジャンプの初速
 	float kJumpGravity = 0.4f;	// 重力
 	float kGravity = 0.5f;
 	bool FallFrag = false;
@@ -193,7 +193,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
-	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
+	printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
 }
 
 void Player::Draw()
