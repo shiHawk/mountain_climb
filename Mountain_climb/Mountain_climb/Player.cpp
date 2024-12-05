@@ -86,7 +86,7 @@ void Player::OnDamage()
 	m_invincibleCount = kInvincible;
 	// ダメージを受ける
 	m_hp--;
-	printfDx("Damage ");
+	//printfDx("Damage ");
 }
 
 
@@ -153,14 +153,14 @@ void Player::Update()
 		FallFrag = false;
 	}
 
-	// velocityが3.0fになったら加速を止める
-	if (m_velocity.x >= 3.0f)
+	// velocityが2.0fになったら加速を止める
+	if (m_velocity.x >= 2.6f)
 	{
-		m_velocity.x = 3.0f;
+		m_velocity.x = 2.6f;
 	}
-	if (m_velocity.x <= -3.0f)
+	if (m_velocity.x <= -2.6f)
 	{
-		m_velocity.x = -3.0f;
+		m_velocity.x = -2.6f;
 	}
 
 	// 1ボタンでジャンプ
@@ -193,6 +193,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
+	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
 }
 
 void Player::Draw()

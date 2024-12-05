@@ -25,10 +25,6 @@ void Enemy::End()
 void Enemy::Update()
 {
 	m_velocity.x = m_speed;
-	/*if (m_velocity.x > 1.0f)
-	{
-		m_velocity.x = 3.0f;
-	}*/
 	m_pos += m_velocity;
 }
 
