@@ -180,10 +180,10 @@ void Stage::Draw(Camera* camera)
 			//描画範囲の決定
 			const MapChip& mapChip = m_map.mapChips[hIndex][wIndex];
 			//1つのマップチップの四隅の座標
-			auto leftTop = static_cast<int>(mapChip.pos.x - mapChip.w * 0.5f);
+			/*auto leftTop = static_cast<int>(mapChip.pos.x - mapChip.w * 0.5f);
 			auto leftBottom = static_cast<int>(mapChip.pos.y - mapChip.h * 0.5f);
 			auto rightTop = static_cast<int>(mapChip.pos.x + mapChip.w * 0.5f);
-			auto rightBottom = static_cast<int>(mapChip.pos.y + mapChip.h * 0.5f);
+			auto rightBottom = static_cast<int>(mapChip.pos.y + mapChip.h * 0.5f);*/
 
 			/*DrawRectGraph(
 				mapChip.pos.y, mapChip.pos.x,

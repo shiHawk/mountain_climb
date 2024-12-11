@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec2.h"
+#include "Camera.h"
 class Enemy
 {
 public:
@@ -9,7 +10,7 @@ public:
 	void Init();
 	void End();
 	void Update();
-	void Draw();
+	void Draw(Camera* camera);
 
 	float GetLeft();
 	float GetTop();

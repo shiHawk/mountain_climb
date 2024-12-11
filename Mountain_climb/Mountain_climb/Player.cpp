@@ -30,8 +30,10 @@ namespace
 
 	// ジャンプ処理
 	constexpr float kJumpPower = -9.8f;	// ジャンプの初速
-	float kJumpGravity = 0.4f;	// 重力
+	// 重力
+	float kJumpGravity = 0.4f;	
 	float kGravity = 0.5f;
+	// 落下判定
 	bool FallFrag = false;
 
 	// 左右の壁
@@ -193,7 +195,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
-	printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
+	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
 }
 
 void Player::Draw()
@@ -211,6 +213,7 @@ void Player::Draw()
 	DrawRectGraph(tempX , tempY,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		useHandle, true, m_isDirLeft);
+	//printfDx("player.pos:(%d,%d)\n", tempX, tempY);
 }
 
 float Player::GetLeft() const

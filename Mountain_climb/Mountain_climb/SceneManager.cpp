@@ -3,13 +3,15 @@
 #include "Pad.h"
 #include "TitleScene.h"
 #include "SceneMain.h"
+#include "ResultScene.h"
 #include <cassert>
 
 
 SceneManager::SceneManager():
 	m_kind(kTitleScene),
 	m_pTitleScene(nullptr),
-	m_pSceneMain(nullptr)
+	m_pSceneMain(nullptr),
+	m_pResultScene(nullptr)
 {
 }
 
@@ -25,6 +27,11 @@ SceneManager::~SceneManager()
 		delete m_pSceneMain;
 		m_pSceneMain = nullptr;
 	}
+	if (m_pResultScene != nullptr)
+	{
+		delete m_pResultScene;
+		m_pResultScene = nullptr;
+	}
 }
 
 void SceneManager::Init()
@@ -39,7 +46,10 @@ void SceneManager::Init()
 		m_pSceneMain = new SceneMain();
 		m_pSceneMain->Init();
 		break;
-	
+	case SceneManager::kResultScene:
+		m_pResultScene = new ResultScene();
+		m_pResultScene->Init();
+		break;
 	case SceneManager::kSceneNum:
 		break;
 	default:
@@ -62,6 +72,11 @@ void SceneManager::End()
 		delete m_pSceneMain;
 		m_pSceneMain = nullptr;
 		break;
+	case SceneManager::kResultScene:
+		m_pResultScene->End();
+		delete m_pResultScene;
+		m_pResultScene = nullptr;
+		break;
 	case SceneManager::kSceneNum:
 		break;
 	default:
@@ -82,6 +97,9 @@ void SceneManager::Update()
 		break;
 	case SceneManager::kSceneMain:
 		nextKind = m_pSceneMain->Update();
+		break;
+	case SceneManager::kResultScene:
+		nextKind = m_pResultScene->Update();
 		break;
 	case SceneManager::kSceneNum:
 		break;
@@ -108,6 +126,9 @@ void SceneManager::Draw()
 		break;
 	case SceneManager::kTitleScene:
 		m_pTitleScene->Draw();
+		break;
+	case SceneManager::kResultScene:
+		m_pResultScene->Draw();
 		break;
 	case SceneManager::kSceneNum:
 		break;

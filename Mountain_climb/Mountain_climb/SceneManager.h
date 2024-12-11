@@ -2,6 +2,7 @@
 
 class TitleScene;
 class SceneMain;
+class ResultScene;
 class SceneManager
 {
 public:
@@ -19,7 +20,7 @@ public:
 	{
 		kTitleScene,
 		kSceneMain,
-
+		kResultScene,
 		kSceneNum
 	};
 private:
@@ -29,5 +30,6 @@ private:
 
 	TitleScene* m_pTitleScene;
 	SceneMain* m_pSceneMain;
+	ResultScene* m_pResultScene;
 };
 

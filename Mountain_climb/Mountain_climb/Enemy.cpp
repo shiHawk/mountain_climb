@@ -28,9 +28,13 @@ void Enemy::Update()
 	m_pos += m_velocity;
 }
 
-void Enemy::Draw()
+void Enemy::Draw(Camera* camera)
 {
-	DrawBox(m_pos.x, m_pos.y, m_pos.x+33, m_pos.y+33, 0xffffff, true);
+	DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x), 
+		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
+		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
+		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
+		0xffffff, true);
 	if (m_pos.x > Game::kScreenWidth)
 	{
 		m_pos.x = 0 - 33;
