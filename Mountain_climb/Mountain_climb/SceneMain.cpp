@@ -45,7 +45,7 @@ SceneManager::SceneKind SceneMain::Update()
 
 	if (m_player.GetPlayerHp() <= 0)
 	{
-		//return SceneManager::SceneKind::kTitleScene;
+		return SceneManager::SceneKind::kTitleScene;
 	}
 
 	if (m_player.GetLeft() > m_enemy.GetRight())

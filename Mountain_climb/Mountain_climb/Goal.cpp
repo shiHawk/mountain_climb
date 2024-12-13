@@ -3,7 +3,7 @@
 
 Goal::Goal():
 	m_speed(2.0f),
-	m_pos(0,-1080)
+	m_pos(0,-1105)
 {
 }
 
@@ -29,8 +29,8 @@ void Goal::Draw(Camera* camera)
 {
 	DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
 		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + 20 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 20 + static_cast<int>(camera->m_drawOffset.y), 0x000000, true);
+		m_pos.x + 30 + static_cast<int>(camera->m_drawOffset.x),
+		m_pos.y + 30 + static_cast<int>(camera->m_drawOffset.y), 0x000000, true);
 	if (m_pos.x > Game::kScreenWidth)
 	{
 		m_pos.x = 0 - 20;
@@ -49,10 +49,10 @@ float Goal::GetTop()
 
 float Goal::GetRight()
 {
-	return m_pos.x + 20;
+	return m_pos.x + 30;
 }
 
 float Goal::GetBottom()
 {
-	return m_pos.y + 20;
+	return m_pos.y + 30;
 }

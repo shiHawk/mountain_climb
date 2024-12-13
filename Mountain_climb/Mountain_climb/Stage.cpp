@@ -79,10 +79,10 @@ void Stage::Update(Player* player)
 					if (h * kChipHeight + kChipHeight - m_AllChipHeight == player->GetTop() && player->FallFlag() == false
 						&& player->GetPos().y > -240)
 					{
-						hitBottom = true;
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
 					}
+					hitBottom = true;
 				}
 
 				// 上から当たった場合

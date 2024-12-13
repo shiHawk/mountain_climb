@@ -165,7 +165,7 @@ void Player::Update()
 		m_velocity.x = -2.6f;
 	}
 
-	// 1ボタンでジャンプ
+	// Aボタンでジャンプ
 	if (Pad::IsTrigger(PAD_INPUT_1))
 	{
 		if (!m_isJump)
