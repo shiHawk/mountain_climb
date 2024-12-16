@@ -60,7 +60,7 @@ void Stage::End()
 	DeleteGraph(m_handle);
 }
 
-void Stage::Update(Player* player)
+void Stage::Update(Player* player, Score* score)
 {
 	for (int h = 0; h < kChipNumY; h++)
 	{
@@ -81,6 +81,9 @@ void Stage::Update(Player* player)
 					{
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
+						score->Update();
+						int temp = score->DrawScore();
+						printfDx("score:(%d)\n",temp);
 					}
 					hitBottom = true;
 				}

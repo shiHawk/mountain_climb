@@ -31,7 +31,7 @@ void SceneMain::End()
 
 SceneManager::SceneKind SceneMain::Update()
 {
-	m_stage.Update(&m_player);
+	m_stage.Update(&m_player,&m_score);
 	m_player.Update();
 	m_enemy.Update();
 	m_camera.Update(&m_player);

@@ -2,6 +2,7 @@
 #include "game.h"
 #include "Vec2.h"
 #include "Camera.h"
+#include "Score.h"
 class Player;
 
 struct MapChip
@@ -22,7 +23,7 @@ public:
 
 	void Init();	// 初期化
 	void End();	// 終了
-	void Update(Player* player);	// 更新
+	void Update(Player* player,Score* score);	// 更新
 	void Draw(Camera* camera);	// 描画
 private:
 	// グラフィックハンドル

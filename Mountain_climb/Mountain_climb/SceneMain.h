@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "Camera.h"
 #include "Goal.h"
+#include "Score.h"
 
 class SceneMain
 {
@@ -22,5 +23,6 @@ private:
 	Enemy m_enemy;
 	Camera m_camera;
 	Goal m_goal;
+	Score m_score;
 };
 
