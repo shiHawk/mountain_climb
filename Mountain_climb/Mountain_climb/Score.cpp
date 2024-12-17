@@ -14,7 +14,7 @@ void Score::Init()
 	m_score = 0;
 }
 
-void Score::Update()
+void Score::AddScore()
 {
 	m_score += 100;
 }

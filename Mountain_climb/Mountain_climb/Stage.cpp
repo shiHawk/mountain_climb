@@ -48,10 +48,6 @@ void Stage::Init()
 			temp.pos.SetPos(tempX,tempY);
 		}
 	}
-
-
-
-
 }
 
 void Stage::End()
@@ -81,7 +77,7 @@ void Stage::Update(Player* player, Score* score)
 					{
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
-						score->Update();
+						score->AddScore();
 						int temp = score->DrawScore();
 						printfDx("score:(%d)\n",temp);
 					}
