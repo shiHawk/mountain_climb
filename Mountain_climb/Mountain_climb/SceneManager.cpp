@@ -128,7 +128,7 @@ void SceneManager::Draw()
 		m_pTitleScene->Draw();
 		break;
 	case SceneManager::kResultScene:
-		m_pResultScene->Draw();
+		m_pResultScene->Draw(&m_stage);
 		break;
 	case SceneManager::kSceneNum:
 		break;

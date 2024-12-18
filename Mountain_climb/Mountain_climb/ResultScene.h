@@ -1,6 +1,7 @@
 #pragma once
 #include "SceneManager.h"
 #include "Score.h"
+#include "Stage.h"
 class ResultScene
 {
 public:
@@ -10,7 +11,7 @@ public:
 	void Init();
 	void End();
 	SceneManager::SceneKind Update();
-	void Draw();
+	void Draw(Stage* stage);
 private:
 	Score m_score;
 };

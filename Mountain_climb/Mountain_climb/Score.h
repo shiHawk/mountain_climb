@@ -6,7 +6,7 @@ public:
 	 ~Score();
 	 void Init();
 	 void AddScore();
-	 int DrawScore();
+	 int FinalScore();
 private:
 	int m_score;
 };

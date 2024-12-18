@@ -1,5 +1,6 @@
 #pragma once
 #include"Score.h"
+#include "Stage.h"
 
 class TitleScene;
 class SceneMain;
@@ -25,7 +26,7 @@ public:
 		kSceneNum
 	};
 private:
-
+	Stage m_stage;
 	// Œ»İÀs’†‚ÌƒV[ƒ“
 	SceneKind m_kind;
 

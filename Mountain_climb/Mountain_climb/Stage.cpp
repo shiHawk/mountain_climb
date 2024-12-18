@@ -8,6 +8,8 @@ namespace
 {
 	bool hitBottom = false;
 	float liftX = 0;
+	// 壊したマップチップの数
+	int brokenBlockCount = 0;
 }
 
 Stage::Stage() :
@@ -77,9 +79,9 @@ void Stage::Update(Player* player, Score* score)
 					{
 						// マップチップを壊す
 						kChipSetData[h][w] = -1;
+						brokenBlockCount++;
 						score->AddScore();
-						int temp = score->DrawScore();
-						printfDx("score:(%d)\n",temp);
+						int temp = score->FinalScore();
 					}
 					hitBottom = true;
 				}
@@ -196,4 +198,9 @@ void Stage::Draw(Camera* camera)
 		}
 	}
 	
+}
+
+int Stage::BrokenBlock()
+{
+	return brokenBlockCount;
 }

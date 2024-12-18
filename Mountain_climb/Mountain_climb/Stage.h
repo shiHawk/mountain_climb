@@ -25,6 +25,7 @@ public:
 	void End();	// 終了
 	void Update(Player* player,Score* score);	// 更新
 	void Draw(Camera* camera);	// 描画
+	int BrokenBlock();
 private:
 	// グラフィックハンドル
 	int m_handle;

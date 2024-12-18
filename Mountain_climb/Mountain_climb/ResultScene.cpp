@@ -28,10 +28,10 @@ SceneManager::SceneKind ResultScene::Update()
 	return SceneManager::SceneKind::kResultScene;
 }
 
-void ResultScene::Draw()
+void ResultScene::Draw(Stage* stage)
 {
-	int temp = m_score.DrawScore();
+	int score = stage->BrokenBlock() * 100;
 	DrawString(10, 10, "ResultScene", 0xffffff);
 	DrawString(10, 30, "Press A Button", 0xffffff);
-	DrawFormatString(320, 50, 0xffffff, "score:%d", temp);
+	DrawFormatString(10, 50, 0xffffff, "score:%d", score);
 }

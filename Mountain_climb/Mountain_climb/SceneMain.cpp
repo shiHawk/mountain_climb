@@ -15,8 +15,6 @@ void SceneMain::Init()
 	m_player.Init(&m_camera);
 	m_camera.Init();
 	m_stage.Init();
-	
-
 	m_enemy.Init();
 	m_goal.Init();
 }

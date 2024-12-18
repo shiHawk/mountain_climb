@@ -2,7 +2,7 @@
 #include "DxLib.h"
 
 Goal::Goal():
-	m_speed(2.0f),
+	m_speed(3.0f),
 	m_pos(0,-1105)
 {
 }
@@ -33,7 +33,7 @@ void Goal::Draw(Camera* camera)
 		m_pos.y + 30 + static_cast<int>(camera->m_drawOffset.y), 0x000000, true);
 	if (m_pos.x > Game::kScreenWidth)
 	{
-		m_pos.x = 0 - 20;
+		m_pos.x = 0 - 30;
 	}
 }
 
