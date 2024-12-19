@@ -155,7 +155,7 @@ void Player::Update()
 		FallFrag = false;
 	}
 
-	// velocity‚ª2.0f‚É‚È‚Á‚½‚ç‰Á‘¬‚ðŽ~‚ß‚é
+	// velocity‚ª2.6f‚É‚È‚Á‚½‚ç‰Á‘¬‚ðŽ~‚ß‚é
 	if (m_velocity.x >= 2.6f)
 	{
 		m_velocity.x = 2.6f;

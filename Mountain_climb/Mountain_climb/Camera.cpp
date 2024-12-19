@@ -33,14 +33,15 @@ void Camera::Update(const Player* player)
 		aimCameraPos.x = player->GetPos().x + (CameraScopeRangeW * 0.5f);
 	}
 	// y座標の決定
-	if (player->GetPos().y > m_pos.y + (CameraScopeRangeH * 0.5f))
-	{
-		aimCameraPos.y = player->GetPos().y - (CameraScopeRangeH * 0.5f);
-	}
-	else if (player->GetPos().y < m_pos.y - (CameraScopeRangeH * 0.5f))
+	if (player->GetPos().y < m_pos.y - (CameraScopeRangeH * 0.5f))
 	{
 		aimCameraPos.y = player->GetPos().y + (CameraScopeRangeH * 0.5f);
 	}
+	else if (player->GetPos().y > m_pos.y + (CameraScopeRangeH * 0.5f))
+	{
+		aimCameraPos.y = player->GetPos().y - (CameraScopeRangeH * 0.5f);
+	}
+	
 
 	// 目標ポジションに、Lerpを使ってカメラポジションを近づける
 	m_pos = Lerp(m_pos, aimCameraPos, CameraLerpRate);

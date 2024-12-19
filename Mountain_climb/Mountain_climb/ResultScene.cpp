@@ -12,7 +12,7 @@ ResultScene::~ResultScene()
 
 void ResultScene::Init()
 {
-	int score = 0;
+	
 }
 
 void ResultScene::End()
