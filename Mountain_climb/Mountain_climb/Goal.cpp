@@ -3,7 +3,7 @@
 
 Goal::Goal():
 	m_speed(3.0f),
-	m_pos(0,-1105)
+	m_pos(0,-1100)
 {
 }
 

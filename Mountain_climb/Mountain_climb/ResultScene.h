@@ -12,6 +12,7 @@ public:
 	void End();
 	SceneManager::SceneKind Update();
 	void Draw(Stage* stage);
+	bool ChangeSatge();
 private:
 	Score m_score;
 };

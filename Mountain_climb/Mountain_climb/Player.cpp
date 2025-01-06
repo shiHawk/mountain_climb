@@ -29,7 +29,7 @@ namespace
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -9.8f;	// ジャンプの初速
+	constexpr float kJumpPower = -9.6f;	// ジャンプの初速
 	// 重力
 	float kJumpGravity = 0.4f;	
 	float kGravity = 0.5f;
