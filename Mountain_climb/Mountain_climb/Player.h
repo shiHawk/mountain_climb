@@ -22,6 +22,7 @@ public:
 	float PlayerAirPos();
 	bool FallFlag();
 	void OnDamage();
+	void InstanceDeath();
 	int GetPlayerHp();
 	void AddMove(Vec2 move);
 	void AddMoveY(float DisY);

@@ -2,12 +2,9 @@
 #include "DxLib.h"
 #include "Pad.h"
 
-namespace 
-{
-	bool isChangeStage = false;
-}
 
-ResultScene::ResultScene()
+ResultScene::ResultScene():
+	m_score(0)
 {
 }
 
@@ -28,21 +25,16 @@ SceneManager::SceneKind ResultScene::Update()
 {
 	if (Pad::IsTrigger(PAD_INPUT_1))
 	{
-		isChangeStage = true;
-		return SceneManager::SceneKind::kSceneMain;
+		return SceneManager::SceneKind::kTitleScene;
 	}
 	return SceneManager::SceneKind::kResultScene;
 }
 
 void ResultScene::Draw(Stage* stage)
 {
-	int score = stage->BrokenBlock() * 100;
+	m_score = stage->BrokenBlock() * 100;
 	DrawString(10, 10, "ResultScene", 0xffffff);
 	DrawString(10, 30, "Press A Button", 0xffffff);
-	DrawFormatString(10, 50, 0xffffff, "score:%d", score);
+	DrawFormatString(10, 50, 0xffffff, "score:%d", m_score);
 }
 
-bool ResultScene::ChangeSatge()
-{
-	return isChangeStage;
-}

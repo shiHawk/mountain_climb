@@ -31,6 +31,8 @@ private:
 	int m_graphChipNumX;
 	int m_graphChipNumY;
 
+	// 壊したマップチップの数
+	int m_brokenBlockCount;
 
 	// マップチップの1つ分のサイズ
 	const static int kChipWidth = 16;

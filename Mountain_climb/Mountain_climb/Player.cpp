@@ -91,6 +91,11 @@ void Player::OnDamage()
 	//printfDx("Damage ");
 }
 
+void Player::InstanceDeath()
+{
+	m_hp -= kMaxHp;
+}
+
 
 void Player::Update()
 {

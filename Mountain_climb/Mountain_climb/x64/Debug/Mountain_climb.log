@@ -1,13 +1,7 @@
-﻿  ResultScene.cpp
-  SceneMain.cpp
-  SceneManager.cpp
-  Stage.cpp
-  TitleScene.cpp
+﻿  Stage.cpp
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(74,23): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(94,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(107,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(129,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(141,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-  main.cpp
-  コードを生成中...
   Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe
