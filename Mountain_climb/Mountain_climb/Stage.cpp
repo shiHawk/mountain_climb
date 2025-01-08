@@ -10,6 +10,7 @@ namespace
 	float liftX = 0;
 	// 壊したマップチップの数
 	int brokenBlockCount = 0;
+	bool stageSwitch = false;
 }
 
 Stage::Stage() :
@@ -50,6 +51,8 @@ void Stage::Init()
 			temp.pos.SetPos(tempX,tempY);
 		}
 	}
+	// スコアを初期化する
+	brokenBlockCount = 0;
 }
 
 void Stage::End()
@@ -65,6 +68,11 @@ void Stage::Update(Player* player, Score* score)
 		for (int w = 0; w < kChipNumX; w++)
 		{
 			int chipNo = kChipSetData[h][w];
+			if (stageSwitch)
+			{
+				chipNo = kChipSetData2[h][w];
+			}
+
 			if (chipNo < 440 && chipNo >= 0)
 			{
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
@@ -78,6 +86,11 @@ void Stage::Update(Player* player, Score* score)
 						&& player->GetPos().y > -240)
 					{
 						// マップチップを壊す
+						if (stageSwitch)
+						{
+							kChipSetData2[h][w] = -1;
+						}
+
 						kChipSetData[h][w] = -1;
 						brokenBlockCount++;
 						score->AddScore();
@@ -94,7 +107,7 @@ void Stage::Update(Player* player, Score* score)
 					float chipTop = h * kChipHeight - m_AllChipHeight;
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
 					hitBottom = false;
-					player->OnCollideY();	
+					player->OnCollideY();
 				}
 
 				// マップチップに左から当たった場合
@@ -159,6 +172,10 @@ void Stage::Draw(Camera* camera)
 		{
 			// データから配置するチップを決定する
 			int chipNo = kChipSetData[hIndex][wIndex];
+			if (stageSwitch)
+			{
+				chipNo = kChipSetData2[hIndex][wIndex];
+			}
 
 			if (chipNo < 0)
 			{
@@ -197,10 +214,23 @@ void Stage::Draw(Camera* camera)
 				m_handle, true);
 		}
 	}
-	
+	int score = brokenBlockCount * 100;
+	DrawFormatString(10, 10, 0xffffff, "score:%d",score);
 }
 
 int Stage::BrokenBlock()
 {
-	return brokenBlockCount;
+	return brokenBlockCount * 100;
+}
+
+void Stage::ChangeStage()
+{
+	if (!stageSwitch)
+	{
+		stageSwitch = true;
+	}
+	else
+	{
+		stageSwitch = false;
+	}
 }

@@ -10,7 +10,7 @@ public:
 
 	void Init();
 	void End();
-	SceneManager::SceneKind Update();
+	SceneManager::SceneKind Update(Stage* stage);
 	void Draw(Stage* stage);
 private:
 	int m_score;

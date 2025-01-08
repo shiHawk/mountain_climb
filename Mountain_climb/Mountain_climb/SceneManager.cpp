@@ -99,7 +99,7 @@ void SceneManager::Update()
 		nextKind = m_pSceneMain->Update();
 		break;
 	case SceneManager::kResultScene:
-		nextKind = m_pResultScene->Update();
+		nextKind = m_pResultScene->Update(&m_stage);
 		break;
 	case SceneManager::kSceneNum:
 		break;
