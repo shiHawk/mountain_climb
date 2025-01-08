@@ -2,6 +2,11 @@
 #include "DxLib.h"
 #include "Pad.h"
 
+namespace
+{
+	int stageCount = 0;
+}
+
 ResultScene::ResultScene():
 	m_score(0)
 {
