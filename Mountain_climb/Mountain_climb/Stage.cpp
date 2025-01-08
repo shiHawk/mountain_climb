@@ -68,6 +68,7 @@ void Stage::Update(Player* player, Score* score)
 		for (int w = 0; w < kChipNumX; w++)
 		{
 			int chipNo = kChipSetData[h][w];
+			// ステージ2ならchipNoにkChipSetData2を読み込む
 			if (stageSwitch)
 			{
 				chipNo = kChipSetData2[h][w];
