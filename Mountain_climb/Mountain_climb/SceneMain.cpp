@@ -85,7 +85,7 @@ SceneManager::SceneKind SceneMain::Update()
 	{
 		m_player.OnDamage();
 	}
-
+	
 	if (isGoalHit)
 	{
 		return SceneManager::SceneKind::kResultScene;

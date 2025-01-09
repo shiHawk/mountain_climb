@@ -93,7 +93,7 @@ void Player::OnDamage()
 
 void Player::InstanceDeath()
 {
-	m_hp -= kMaxHp;
+	m_hp = 0;
 }
 
 
@@ -200,7 +200,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
-	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y);
+	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y+48);
 }
 
 void Player::Draw()

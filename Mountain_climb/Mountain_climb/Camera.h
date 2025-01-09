@@ -2,6 +2,7 @@
 #include "Vec2.h"
 #include "DxLib.h"
 #include "game.h"
+#include "Player.h"
 #include <cmath>
 
 class Player;
@@ -18,7 +19,6 @@ public:
 	Vec2 m_pos;// カメラの位置
 	Vec2 m_drawOffset; // プレイヤーを画面の中央に捉えるためにDrawに足す値
 private:
-	
-	
+	Player m_player;
 };
 
