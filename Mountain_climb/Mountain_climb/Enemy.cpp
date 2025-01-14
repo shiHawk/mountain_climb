@@ -42,7 +42,7 @@ void Enemy::Draw(Camera* camera)
 	
 	if (m_pos.x > Game::kScreenWidth)
 	{
-		m_pos.x = 0 - 33;
+		m_pos.x = 0 - 40;
 	}
 }
 
@@ -63,7 +63,7 @@ float Enemy::GetRight()
 
 float Enemy::GetBottom()
 {
-	return m_pos.y+ 33;
+	return m_pos.y + 33;
 }
 
 void Enemy::Setting()
