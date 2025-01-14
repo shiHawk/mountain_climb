@@ -6,7 +6,7 @@ Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
 	m_speed(2.0f),
-	m_pos(100, 432)
+	m_pos(-40, 432)
 {
 }
 
@@ -16,6 +16,7 @@ Enemy::~Enemy()
 
 void Enemy::Init()
 {
+
 }
 
 void Enemy::End()
@@ -30,11 +31,15 @@ void Enemy::Update()
 
 void Enemy::Draw(Camera* camera)
 {
-	DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x), 
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
-		0xffffff, true);
+	for (int i = 0; i < 2; i++)
+	{
+		DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
+			m_pos.y - i * 96 + static_cast<int>(camera->m_drawOffset.y),
+			m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
+			m_pos.y - i * 96 + 33 + static_cast<int>(camera->m_drawOffset.y),
+			0xffffff, true);
+	}
+	
 	if (m_pos.x > Game::kScreenWidth)
 	{
 		m_pos.x = 0 - 33;
@@ -58,7 +63,7 @@ float Enemy::GetRight()
 
 float Enemy::GetBottom()
 {
-	return m_pos.y + 33;
+	return m_pos.y+ 33;
 }
 
 void Enemy::Setting()

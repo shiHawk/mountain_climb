@@ -1,5 +1,4 @@
 #include "Stage.h"
-
 #include"Player.h"
 #include "DxLib.h"
 #include <cassert>

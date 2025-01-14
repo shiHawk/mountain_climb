@@ -28,6 +28,9 @@ namespace
 	// 地面の高さ
 	constexpr float kFieldHeight = 480.0f - 48.0f;
 
+	// 最高速度
+	constexpr float kMaxSpeed = 2.6f;
+
 	// ジャンプ処理
 	constexpr float kJumpPower = -9.6f;	// ジャンプの初速
 	// 重力
@@ -160,14 +163,14 @@ void Player::Update()
 		FallFrag = false;
 	}
 
-	// velocityが2.6fになったら加速を止める
-	if (m_velocity.x >= 2.6f)
+	// velocityがkMaxSpeedになったら加速を止める
+	if (m_velocity.x >= kMaxSpeed)
 	{
-		m_velocity.x = 2.6f;
+		m_velocity.x = kMaxSpeed;
 	}
-	if (m_velocity.x <= -2.6f)
+	if (m_velocity.x <= -kMaxSpeed)
 	{
-		m_velocity.x = -2.6f;
+		m_velocity.x = -kMaxSpeed;
 	}
 
 	// Aボタンでジャンプ

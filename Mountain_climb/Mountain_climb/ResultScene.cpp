@@ -4,7 +4,7 @@
 
 namespace
 {
-	int stageCount = 0;
+	bool changeScene = false;
 }
 
 ResultScene::ResultScene():
@@ -27,8 +27,15 @@ void ResultScene::End()
 
 SceneManager::SceneKind ResultScene::Update(Stage* stage)
 {
-	if (Pad::IsTrigger(PAD_INPUT_1))
+	if (Pad::IsTrigger(PAD_INPUT_1) && !changeScene)
 	{
+		changeScene = true;
+		stage->ChangeStage();
+		return SceneManager::SceneKind::kSceneMain;
+	}
+	else if (Pad::IsTrigger(PAD_INPUT_1) && changeScene)
+	{
+		changeScene = false;
 		stage->ChangeStage();
 		return SceneManager::SceneKind::kTitleScene;
 	}
