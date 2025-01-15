@@ -66,7 +66,7 @@ void Stage::Update(Player* player, Score* score)
 	{
 		for (int w = 0; w < kChipNumX; w++)
 		{
-			int chipNo = kChipSetData[h][w];
+			int chipNo = kChipSetData3[h][w];
 			// ステージ2ならchipNoにkChipSetData2を読み込む
 			if (stageSwitch)
 			{
@@ -91,7 +91,7 @@ void Stage::Update(Player* player, Score* score)
 							kChipSetData2[h][w] = -1;
 						}
 
-						kChipSetData[h][w] = -1;
+						kChipSetData3[h][w] = -1;
 						brokenBlockCount++;
 						score->AddScore();
 						int temp = score->FinalScore();
@@ -108,6 +108,17 @@ void Stage::Update(Player* player, Score* score)
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
 					hitBottom = false;
 					player->OnCollideY();
+					if (chipNo > 109 && chipNo < 113)
+					{
+						if (player->IsDir())
+						{
+							player->AddMoveLeft(1.0f);
+						}
+						else
+						{
+							player->AddMoveRight(1.0f);
+						}
+					}
 				}
 
 				// マップチップに左から当たった場合
@@ -171,7 +182,7 @@ void Stage::Draw(Camera* camera)
 		for (int wIndex = 0; wIndex < kChipNumX; wIndex++)
 		{
 			// データから配置するチップを決定する
-			int chipNo = kChipSetData[hIndex][wIndex];
+			int chipNo = kChipSetData3[hIndex][wIndex];
 			if (stageSwitch)
 			{
 				chipNo = kChipSetData2[hIndex][wIndex];

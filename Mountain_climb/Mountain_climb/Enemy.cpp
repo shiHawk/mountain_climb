@@ -31,14 +31,11 @@ void Enemy::Update()
 
 void Enemy::Draw(Camera* camera)
 {
-	for (int i = 0; i < 2; i++)
-	{
-		DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-			m_pos.y - i * 96 + static_cast<int>(camera->m_drawOffset.y),
-			m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-			m_pos.y - i * 96 + 33 + static_cast<int>(camera->m_drawOffset.y),
-			0xffffff, true);
-	}
+	DrawBox(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
+		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
+		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
+		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
+		0xffffff, true);
 	
 	if (m_pos.x > Game::kScreenWidth)
 	{

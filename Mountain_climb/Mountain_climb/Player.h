@@ -21,6 +21,7 @@ public:
 	float GetBottom() const;
 	float PlayerAirPos();
 	bool FallFlag();
+	bool IsDir();
 	void OnDamage();
 	void InstanceDeath();
 	int GetPlayerHp();

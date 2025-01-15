@@ -301,6 +301,18 @@ bool Player::FallFlag()
 	return FallFrag;
 }
 
+bool Player::IsDir()
+{
+	if (m_isDirLeft)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 int Player::GetPlayerHp()
 {
 	return m_hp;
