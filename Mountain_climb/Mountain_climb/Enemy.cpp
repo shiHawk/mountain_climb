@@ -63,6 +63,3 @@ float Enemy::GetBottom()
 	return m_pos.y + 33;
 }
 
-void Enemy::Setting()
-{
-}

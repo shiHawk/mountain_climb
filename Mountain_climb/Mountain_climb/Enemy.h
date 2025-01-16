@@ -16,8 +16,6 @@ public:
 	float GetTop();
 	float GetRight();
 	float GetBottom();
-
-	void Setting();
 private:
 	int m_handle;
 	int m_animFrameCount;

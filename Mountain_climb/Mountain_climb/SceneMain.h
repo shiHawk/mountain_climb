@@ -20,7 +20,7 @@ public:
 private:
 	Stage m_stage;
 	Player m_player;
-	Enemy m_enemy;
+	Enemy m_enemy[2];
 	Camera m_camera;
 	Goal m_goal;
 	Score m_score;

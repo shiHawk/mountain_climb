@@ -40,6 +40,9 @@ private:
 	const static int kChipNumX = Game::kScreenWidth / kChipWidth;
 	const static int kChipNumY = 88;
 
+	// enemyを出現させるための1階層の高さ
+	int m_hierarchyHeight = 96;
+
 	// ステージ1
 	int kChipSetData[kChipNumY][kChipNumX] =
 	{

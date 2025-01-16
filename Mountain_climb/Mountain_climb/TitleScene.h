@@ -9,5 +9,8 @@ public:
 	void End();
 	SceneManager::SceneKind Update();
 	void Draw();
+private:
+	int m_handle;
+	int m_buttonHandle;
 };
 
