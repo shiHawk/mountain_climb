@@ -107,8 +107,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-14T05:48:01.801Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -120,8 +119,7 @@
               "RelativeToolTip": "Mountain_climb\\Player.cpp",
               "ViewState": "AQIAAPkAAAAAAAAAAAAAAE4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-12T05:17:41.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T05:17:41.125Z"
             },
             {
               "$type": "Document",
@@ -146,8 +144,7 @@
               "RelativeToolTip": "Mountain_climb\\main.cpp",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAACAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-14T02:49:42.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-14T02:49:42.143Z"
             },
             {
               "$type": "Document",
@@ -159,8 +156,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneMain.cpp",
               "ViewState": "AQIAAF8AAAAAAAAAAAAAAB8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T05:37:19.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:37:19.337Z"
             },
             {
               "$type": "Document",
@@ -172,8 +168,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneMain.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T05:37:17.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:37:17.564Z"
             },
             {
               "$type": "Document",
@@ -185,8 +180,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneManager.cpp",
               "ViewState": "AQIAAHgAAAAAAAAAAAAAAAIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T05:47:22.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:47:22.511Z"
             },
             {
               "$type": "Document",
@@ -198,8 +192,7 @@
               "RelativeToolTip": "Mountain_climb\\SceneManager.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T05:47:17.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:47:17.723Z"
             },
             {
               "$type": "Document",
@@ -211,8 +204,7 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-12T06:04:51.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T06:04:51.273Z"
             },
             {
               "$type": "Document",
@@ -224,8 +216,7 @@
               "RelativeToolTip": "Mountain_climb\\Stage.cpp",
               "ViewState": "AQIAAGYAAAAAAAAAAAAAAHYAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T04:43:27.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:43:27.289Z"
             },
             {
               "$type": "Document",
@@ -237,8 +228,7 @@
               "RelativeToolTip": "Mountain_climb\\Stage.h",
               "ViewState": "AQIAABoAAAAAAAAAAAAAwCoAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T04:43:27.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:43:27.291Z"
             },
             {
               "$type": "Document",
@@ -250,8 +240,7 @@
               "RelativeToolTip": "Mountain_climb\\game.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-12T06:11:16.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T06:11:16.156Z"
             },
             {
               "$type": "Document",
@@ -275,8 +264,7 @@
               "RelativeToolTip": "Mountain_climb\\Player.h",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAADAAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-12T05:28:09.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T05:28:09.242Z"
             },
             {
               "$type": "Document",
@@ -288,8 +276,7 @@
               "RelativeToolTip": "Mountain_climb\\Camera.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-04T02:44:21.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T02:44:21.568Z"
             },
             {
               "$type": "Document",
@@ -301,8 +288,7 @@
               "RelativeToolTip": "Mountain_climb\\ResultScene.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-11T06:20:48.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T06:20:48.578Z"
             },
             {
               "$type": "Document",
@@ -314,8 +300,7 @@
               "RelativeToolTip": "Mountain_climb\\ResultScene.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-11T06:20:42.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T06:20:42.58Z"
             },
             {
               "$type": "Document",
@@ -327,8 +312,7 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-13T04:59:58.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T04:59:58.046Z"
             },
             {
               "$type": "Document",
@@ -340,8 +324,7 @@
               "RelativeToolTip": "Mountain_climb\\Goal.h",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-11T02:29:07.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T02:29:07.656Z"
             },
             {
               "$type": "Document",
@@ -353,8 +336,7 @@
               "RelativeToolTip": "Mountain_climb\\Goal.cpp",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAABgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-11T02:29:09.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T02:29:09.842Z"
             },
             {
               "$type": "Document",
