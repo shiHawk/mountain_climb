@@ -2,7 +2,8 @@
 #include "DxLib.h"
 #include"Pad.h"
 
-SceneMain::SceneMain()
+SceneMain::SceneMain():
+	m_bgmHandle(0)
 {
 }
 
@@ -14,11 +15,11 @@ void SceneMain::Init()
 {
 	m_player.Init(&m_camera);
 	m_camera.Init();
+	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 	m_stage.Init();
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		m_enemy[i].Init();
-	
 	}
 	m_goal.Init();
 }
@@ -27,10 +28,11 @@ void SceneMain::End()
 {
 	m_stage.End();
 	m_player.End();
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		m_enemy[i].End();
 	}
+	DeleteSoundMem(m_bgmHandle);
 	m_goal.End();
 }
 
@@ -38,14 +40,16 @@ SceneManager::SceneKind SceneMain::Update()
 {
 	m_stage.Update(&m_player,&m_score);
 	m_player.Update();
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		m_enemy[i].Update();
 	}
 	m_camera.Update(&m_player);
+	// bgm再生
+	PlaySoundMem(m_bgmHandle,DX_PLAYTYPE_LOOP,true);
 	m_goal.Update();
 	Pad::Update();
-
+	
 	// プレイヤーと敵の当たり判定
 	bool isPlayerHit = true;
 	// プレイヤーとゴールの当たり判定
@@ -56,7 +60,7 @@ SceneManager::SceneKind SceneMain::Update()
 		return SceneManager::SceneKind::kTitleScene;
 	}
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		if (m_player.GetLeft() > m_enemy[i].GetRight())
 		{
@@ -111,7 +115,7 @@ void SceneMain::Draw()
 {
 	m_stage.Draw(&m_camera);
 	m_player.Draw();
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		m_enemy[i].Draw(&m_camera);
 	}

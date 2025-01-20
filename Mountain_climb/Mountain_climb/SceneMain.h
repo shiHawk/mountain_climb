@@ -17,10 +17,11 @@ public:
 	void End();
 	SceneManager::SceneKind Update();
 	void Draw();
+	int m_bgmHandle;
 private:
 	Stage m_stage;
 	Player m_player;
-	Enemy m_enemy[2];
+	Enemy m_enemy[7];
 	Camera m_camera;
 	Goal m_goal;
 	Score m_score;
