@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include"Pad.h"
 
+
 SceneMain::SceneMain():
 	m_bgmHandle(0)
 {
@@ -15,7 +16,6 @@ void SceneMain::Init()
 {
 	m_player.Init(&m_camera);
 	m_camera.Init();
-	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 	m_stage.Init();
 	for (int i = 0; i < 7; i++)
 	{
@@ -32,7 +32,6 @@ void SceneMain::End()
 	{
 		m_enemy[i].End();
 	}
-	DeleteSoundMem(m_bgmHandle);
 	m_goal.End();
 }
 
@@ -45,8 +44,6 @@ SceneManager::SceneKind SceneMain::Update()
 		m_enemy[i].Update();
 	}
 	m_camera.Update(&m_player);
-	// bgmÄ¶
-	PlaySoundMem(m_bgmHandle,DX_PLAYTYPE_LOOP,true);
 	m_goal.Update();
 	Pad::Update();
 	

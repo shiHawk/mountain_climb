@@ -4,7 +4,7 @@
 
 namespace
 {
-	int changeScene = 0;
+	int changeScene = 1;
 }
 
 ResultScene::ResultScene():
@@ -27,19 +27,19 @@ void ResultScene::End()
 
 SceneManager::SceneKind ResultScene::Update(Stage* stage)
 {
-	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 0)
+	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 1)
 	{
 		changeScene = 1;
 		stage->ChangeStage();
 		return SceneManager::SceneKind::kSceneMain;
 	}
-	else if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 1)
+	else if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 2)
 	{
 		changeScene = 2;
 		stage->ChangeStage();
 		return SceneManager::SceneKind::kSceneMain;
 	}
-	else if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 2)
+	else if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 3)
 	{
 		changeScene = 0;
 		stage->ChangeStage();
@@ -51,8 +51,9 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 void ResultScene::Draw(Stage* stage)
 {
 	m_score = stage->BrokenBlock();
-	DrawString(10, 10, "ResultScene", 0xffffff);
-	DrawString(10, 30, "Press A Button", 0xffffff);
-	DrawFormatString(10, 50, 0xffffff, "score:%d", m_score);
+	DrawFormatString(300, 10, 0xffffff, "Stage %d", changeScene);
+	DrawString(10, 30, "ResultScene", 0xffffff);
+	DrawString(10, 50, "Press A Button", 0xffffff);
+	DrawFormatString(10, 70, 0xffffff, "score:%d", m_score);
 }
 

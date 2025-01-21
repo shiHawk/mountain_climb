@@ -40,7 +40,7 @@ private:
 	const static int kChipNumX = Game::kScreenWidth / kChipWidth;
 	const static int kChipNumY = 88;
 
-	// enemy‚ğoŒ»‚³‚¹‚é‚½‚ß‚Ì1ŠK‘w‚Ì‚‚³
+	// 1ŠK‘w‚Ì‚‚³
 	int m_hierarchyHeight = 96;
 
 	// ƒXƒe[ƒW1

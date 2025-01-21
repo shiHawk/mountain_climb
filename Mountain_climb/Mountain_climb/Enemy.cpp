@@ -6,7 +6,8 @@ Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
 	m_speed(2.0f),
-	m_pos(-40, 432)
+	m_pos(-40, 432),
+	m_enemyPop(0)
 {
 }
 
@@ -16,7 +17,6 @@ Enemy::~Enemy()
 
 void Enemy::Init()
 {
-
 }
 
 void Enemy::End()
