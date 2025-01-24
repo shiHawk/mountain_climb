@@ -1,6 +1,7 @@
 #pragma once
 #include "Vec2.h"
 #include "Camera.h"
+#include "EnemyDate.h"
 class Enemy
 {
 public:
@@ -22,6 +23,6 @@ private:
 	Vec2 m_pos;
 	Vec2 m_velocity;
 	float m_speed;
-	int m_enemyPop;
+	EnemyDate m_enemyDate;
 };
 

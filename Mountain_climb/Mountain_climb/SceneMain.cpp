@@ -2,6 +2,10 @@
 #include "DxLib.h"
 #include"Pad.h"
 
+namespace
+{
+
+}
 
 SceneMain::SceneMain():
 	m_bgmHandle(0)
@@ -17,10 +21,7 @@ void SceneMain::Init()
 	m_player.Init(&m_camera);
 	m_camera.Init();
 	m_stage.Init();
-	for (int i = 0; i < 7; i++)
-	{
-		m_enemy[i].Init();
-	}
+	m_enemyDate.Init();
 	m_goal.Init();
 }
 
@@ -28,10 +29,7 @@ void SceneMain::End()
 {
 	m_stage.End();
 	m_player.End();
-	for (int i = 0; i < 7; i++)
-	{
-		m_enemy[i].End();
-	}
+	m_enemyDate.End();
 	m_goal.End();
 }
 
@@ -39,10 +37,7 @@ SceneManager::SceneKind SceneMain::Update()
 {
 	m_stage.Update(&m_player,&m_score);
 	m_player.Update();
-	for (int i = 0; i < 7; i++)
-	{
-		m_enemy[i].Update();
-	}
+	m_enemyDate.Update();
 	m_camera.Update(&m_player);
 	m_goal.Update();
 	Pad::Update();
@@ -57,24 +52,21 @@ SceneManager::SceneKind SceneMain::Update()
 		return SceneManager::SceneKind::kTitleScene;
 	}
 
-	for (int i = 0; i < 7; i++)
+	if (m_player.GetLeft() > m_enemy.GetRight())
 	{
-		if (m_player.GetLeft() > m_enemy[i].GetRight())
-		{
-			isPlayerHit = false;
-		}
-		if (m_player.GetTop() > m_enemy[i].GetBottom())
-		{
-			isPlayerHit = false;
-		}
-		if (m_player.GetRight() < m_enemy[i].GetLeft())
-		{
-			isPlayerHit = false;
-		}
-		if (m_player.GetBottom() < m_enemy[i].GetTop())
-		{
-			isPlayerHit = false;
-		}
+		isPlayerHit = false;
+	}
+	if (m_player.GetTop() > m_enemy.GetBottom())
+	{
+		isPlayerHit = false;
+	}
+	if (m_player.GetRight() < m_enemy.GetLeft())
+	{
+		isPlayerHit = false;
+	}
+	if (m_player.GetBottom() < m_enemy.GetTop())
+	{
+		isPlayerHit = false;
 	}
 
 	if (m_player.GetLeft() > m_goal.GetRight())
@@ -112,9 +104,6 @@ void SceneMain::Draw()
 {
 	m_stage.Draw(&m_camera);
 	m_player.Draw();
-	for (int i = 0; i < 7; i++)
-	{
-		m_enemy[i].Draw(&m_camera);
-	}
+	m_enemyDate.Draw(&m_camera);
 	m_goal.Draw(&m_camera);
 }

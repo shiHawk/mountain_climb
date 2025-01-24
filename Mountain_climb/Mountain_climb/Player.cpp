@@ -91,7 +91,7 @@ void Player::OnDamage()
 	m_invincibleCount = kInvincible;
 	// ƒ_ƒ[ƒW‚ğó‚¯‚é
 	m_hp--;
-	//printfDx("Damage ");
+	printfDx("Damage ");
 }
 
 void Player::InstanceDeath()

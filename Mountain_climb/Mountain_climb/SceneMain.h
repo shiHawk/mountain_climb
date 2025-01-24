@@ -2,7 +2,7 @@
 #include "Stage.h"
 #include "SceneManager.h"
 #include "Player.h"
-#include "Enemy.h"
+#include "EnemyDate.h"
 #include "Camera.h"
 #include "Goal.h"
 #include "Score.h"
@@ -21,7 +21,7 @@ public:
 private:
 	Stage m_stage;
 	Player m_player;
-	Enemy m_enemy[7];
+	EnemyDate m_enemyDate;
 	Camera m_camera;
 	Goal m_goal;
 	Score m_score;
