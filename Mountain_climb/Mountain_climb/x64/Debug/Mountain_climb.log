@@ -1,13 +1,2 @@
-﻿  Enemy.cpp
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(41,29): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(40,20): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(39,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(38,22): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  SceneMain.cpp
-  SceneManager.cpp
-  コードを生成中...
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(57,1): warning C4715: 'Enemy::GetLeft': 値を返さないコントロール パスがあります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(73,1): warning C4715: 'Enemy::GetRight': 値を返さないコントロール パスがあります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(81,1): warning C4715: 'Enemy::GetBottom': 値を返さないコントロール パスがあります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(65,1): warning C4715: 'Enemy::GetTop': 値を返さないコントロール パスがあります。
+﻿  SceneMain.cpp
   Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe

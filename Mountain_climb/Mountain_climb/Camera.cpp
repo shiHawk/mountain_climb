@@ -39,7 +39,7 @@ void Camera::Update(const Player* player)
 	}
 	else if (player->GetPos().y > m_pos.y + (CameraScopeRangeH * 0.5f)) // ƒJƒƒ‰‚ð‰º‚ÉˆÚ“®‚·‚é
 	{
-		//aimCameraPos.y = player->GetPos().y - (CameraScopeRangeH * 0.5f);
+		aimCameraPos.y = player->GetPos().y - (CameraScopeRangeH * 0.5f);
 	}
 	
 

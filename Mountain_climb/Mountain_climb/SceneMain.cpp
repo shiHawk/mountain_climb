@@ -52,21 +52,25 @@ SceneManager::SceneKind SceneMain::Update()
 		return SceneManager::SceneKind::kTitleScene;
 	}
 
-	if (m_player.GetLeft() > m_enemy.GetRight())
+	for (int i = 0; i < kEnemyNum; i++)
 	{
-		isPlayerHit = false;
-	}
-	if (m_player.GetTop() > m_enemy.GetBottom())
-	{
-		isPlayerHit = false;
-	}
-	if (m_player.GetRight() < m_enemy.GetLeft())
-	{
-		isPlayerHit = false;
-	}
-	if (m_player.GetBottom() < m_enemy.GetTop())
-	{
-		isPlayerHit = false;
+		Enemy enemy = m_enemyDate.GetEnemyDate(i);
+		if (m_player.GetLeft() > enemy.GetRight())
+		{
+			isPlayerHit = false;
+		}
+		if (m_player.GetTop() > enemy.GetBottom())
+		{
+			isPlayerHit = false;
+		}
+		if (m_player.GetRight() < enemy.GetLeft())
+		{
+			isPlayerHit = false;
+		}
+		if (m_player.GetBottom() < enemy.GetTop())
+		{
+			isPlayerHit = false;
+		}
 	}
 
 	if (m_player.GetLeft() > m_goal.GetRight())
@@ -97,8 +101,6 @@ SceneManager::SceneKind SceneMain::Update()
 	}
 	return SceneManager::SceneKind::kSceneMain;
 }
-
-
 
 void SceneMain::Draw()
 {

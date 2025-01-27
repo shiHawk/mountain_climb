@@ -1,10 +1,12 @@
 #pragma once
 #include "Vec2.h"
 #include "Camera.h"
-class Enemy;
+#include "Enemy.h"
+
 namespace
 {
-	constexpr int enemyNum = 7;
+	// “G‚Ì”
+	constexpr int kEnemyNum = 7;
 }
 class EnemyDate
 {
@@ -13,9 +15,10 @@ public:
 	void End();
 	void Update();
 	void Draw(Camera* camera);
+	Enemy GetEnemyDate(int enemyNum);
 private:
-	float enemyStartPos[enemyNum];
-	Enemy m_enemy[enemyNum];
+	Vec2 enemyStartPos[kEnemyNum];
+	Enemy m_enemy[kEnemyNum];
 	Camera m_camera;
 };
 

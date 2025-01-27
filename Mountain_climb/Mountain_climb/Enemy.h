@@ -1,14 +1,14 @@
 #pragma once
 #include "Vec2.h"
 #include "Camera.h"
-#include "EnemyDate.h"
+
 class Enemy
 {
 public:
 	Enemy();
 	~Enemy();
 
-	void Init();
+	void Init(Vec2 pos);
 	void End();
 	void Update();
 	void Draw(Camera* camera);
@@ -23,6 +23,5 @@ private:
 	Vec2 m_pos;
 	Vec2 m_velocity;
 	float m_speed;
-	EnemyDate m_enemyDate;
 };
 

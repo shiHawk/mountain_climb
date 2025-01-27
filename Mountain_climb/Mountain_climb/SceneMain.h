@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include "Player.h"
 #include "EnemyDate.h"
+#include "Enemy.h"
 #include "Camera.h"
 #include "Goal.h"
 #include "Score.h"

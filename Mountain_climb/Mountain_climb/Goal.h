@@ -20,5 +20,7 @@ private:
 	Vec2 m_pos;
 	Vec2 m_velocity;
 	float m_speed;
+	int m_handle;
+	int m_animFrame;
 };
 
