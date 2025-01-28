@@ -21,29 +21,34 @@ void SceneMain::Init()
 	m_player.Init(&m_camera);
 	m_camera.Init();
 	m_stage.Init();
-	m_enemyDate.Init();
+	m_enemyData.Init();
 	m_goal.Init();
+	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 }
 
 void SceneMain::End()
 {
 	m_stage.End();
 	m_player.End();
-	m_enemyDate.End();
+	m_enemyData.End();
 	m_goal.End();
+	DeleteSoundMem(m_bgmHandle);
 }
 
 SceneManager::SceneKind SceneMain::Update()
 {
 	m_stage.Update(&m_player,&m_score);
 	m_player.Update();
-	m_enemyDate.Update();
+	m_enemyData.Update();
 	m_camera.Update(&m_player);
 	m_goal.Update();
 	Pad::Update();
 	
+	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
+	
 	// プレイヤーと敵の当たり判定
-	bool isPlayerHit = true;
+	bool isPlayerHit = false;
+	
 	// プレイヤーとゴールの当たり判定
 	bool isGoalHit = true;
 
@@ -54,24 +59,32 @@ SceneManager::SceneKind SceneMain::Update()
 
 	for (int i = 0; i < kEnemyNum; i++)
 	{
-		Enemy enemy = m_enemyDate.GetEnemyDate(i);
+		// 敵1体1体との当たり判定
+		bool isTempHit = true;
+		Enemy enemy = m_enemyData.GetEnemyDate(i);
 		if (m_player.GetLeft() > enemy.GetRight())
 		{
-			isPlayerHit = false;
+			isTempHit = false;
 		}
 		if (m_player.GetTop() > enemy.GetBottom())
 		{
-			isPlayerHit = false;
+			isTempHit = false;
 		}
 		if (m_player.GetRight() < enemy.GetLeft())
 		{
-			isPlayerHit = false;
+			isTempHit = false;
 		}
 		if (m_player.GetBottom() < enemy.GetTop())
 		{
-			isPlayerHit = false;
+			isTempHit = false;
+		}
+
+		if (isTempHit)
+		{
+			isPlayerHit = true;
 		}
 	}
+	
 
 	if (m_player.GetLeft() > m_goal.GetRight())
 	{
@@ -106,6 +119,6 @@ void SceneMain::Draw()
 {
 	m_stage.Draw(&m_camera);
 	m_player.Draw();
-	m_enemyDate.Draw(&m_camera);
+	m_enemyData.Draw(&m_camera);
 	m_goal.Draw(&m_camera);
 }

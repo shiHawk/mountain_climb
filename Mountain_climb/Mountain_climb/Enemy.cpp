@@ -54,7 +54,7 @@ void Enemy::Draw(Camera* camera)
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handle, true, true);
 
-	DrawLine(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
+	/*DrawLine(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
 		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
 		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
 		m_pos.y + static_cast<int>(camera->m_drawOffset.y), 0xff0000);
@@ -69,7 +69,7 @@ void Enemy::Draw(Camera* camera)
 	DrawLine(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
 		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
 		m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y), 0xff0000);
+		m_pos.y + static_cast<int>(camera->m_drawOffset.y), 0xff0000);*/
 	if (m_pos.x > Game::kScreenWidth)
 	{
 		m_pos.x = 0 - 40;
@@ -88,11 +88,11 @@ float Enemy::GetTop()
 
 float Enemy::GetRight()
 {
-	return m_pos.x + 33;
+	return m_pos.x + kGraphWidth;
 }
 
 float Enemy::GetBottom()
 {
-	return m_pos.y + 33;
+	return m_pos.y + kGraphHeight;
 }
 

@@ -21,7 +21,7 @@ namespace
 	// キャラクターの移動速度
 	constexpr float kSpeed = 0.5f;
 	// 無敵時間
-	constexpr int kInvincible = 30;
+	constexpr int kInvincible = 60;
 	// 最大残機
 	constexpr int kMaxHp = 3;
 
@@ -208,6 +208,10 @@ void Player::Update()
 
 void Player::Draw()
 {
+	if ((m_invincibleCount / 2) % 2)
+	{
+		return;
+	}
 	int animNo = m_animFrame / kSingleAnimFrame;
 
 	int useHandle = m_handleIdle;

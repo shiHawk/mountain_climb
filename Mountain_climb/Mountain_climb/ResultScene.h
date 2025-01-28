@@ -14,5 +14,6 @@ public:
 	void Draw(Stage* stage);
 private:
 	int m_score;
+	int m_handle;
 };
 
