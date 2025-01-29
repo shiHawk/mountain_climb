@@ -8,7 +8,8 @@ namespace
 }
 
 SceneMain::SceneMain():
-	m_bgmHandle(0)
+	m_bgmHandle(0),
+	m_lifeHandle(-1)
 {
 }
 
@@ -24,6 +25,14 @@ void SceneMain::Init()
 	m_enemyData.Init();
 	m_goal.Init();
 	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
+	m_lifeHandle = LoadGraph("data/image/Idle .png");
+
+	for (int i = 0; i < 3; i++)
+	{
+		m_life[i].Init();
+		m_life[i].SetHandle(m_lifeHandle);
+		m_life[i].SetIndex(i);
+	}
 }
 
 void SceneMain::End()
@@ -32,7 +41,12 @@ void SceneMain::End()
 	m_player.End();
 	m_enemyData.End();
 	m_goal.End();
+	for (int i = 0; i < 3; i++)
+	{
+		m_life[i].End();
+	}
 	DeleteSoundMem(m_bgmHandle);
+	DeleteGraph(m_lifeHandle);
 }
 
 SceneManager::SceneKind SceneMain::Update()
@@ -43,7 +57,10 @@ SceneManager::SceneKind SceneMain::Update()
 	m_camera.Update(&m_player);
 	m_goal.Update();
 	Pad::Update();
-	
+	for (int i = 0; i < 3; i++)
+	{
+		m_life[i].Update();
+	}
 	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
 	
 	// ƒvƒŒƒCƒ„[‚Æ“G‚Ì“–‚½‚è”»’è
@@ -121,4 +138,8 @@ void SceneMain::Draw()
 	m_player.Draw();
 	m_enemyData.Draw(&m_camera);
 	m_goal.Draw(&m_camera);
+	for (int i = 0; i < m_player.GetPlayerHp(); i++)
+	{
+		m_life[i].Draw();
+	}
 }

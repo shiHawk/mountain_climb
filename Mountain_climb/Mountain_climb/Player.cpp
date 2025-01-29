@@ -21,7 +21,7 @@ namespace
 	// キャラクターの移動速度
 	constexpr float kSpeed = 0.5f;
 	// 無敵時間
-	constexpr int kInvincible = 60;
+	constexpr int kInvincible = 80;
 	// 最大残機
 	constexpr int kMaxHp = 3;
 
@@ -91,7 +91,6 @@ void Player::OnDamage()
 	m_invincibleCount = kInvincible;
 	// ダメージを受ける
 	m_hp--;
-	printfDx("Damage ");
 }
 
 void Player::InstanceDeath()
@@ -203,7 +202,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
-	//printfDx("player.pos:(%d,%d)\n",(int)m_pos.x, (int)m_pos.y+48);
+	//printfDx("%d\n",m_hp);
 }
 
 void Player::Draw()

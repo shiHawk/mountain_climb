@@ -4,16 +4,24 @@
 void EnemyData::Init()
 {
 	enemyStartPos[0] = { -40, 432 };
-	enemyStartPos[1] = { -140, 332 };
-	enemyStartPos[2] = { -240, 232 };
-	enemyStartPos[3] = { -340, 132 };
-	enemyStartPos[4] = { -440, 32 };
-	enemyStartPos[5] = { -540, -68 };
-	enemyStartPos[6] = { -640, -168 };
+	enemyStartPos[1] = { 780, 332 };
+	enemyStartPos[2] = { -250, 232 };
+	enemyStartPos[3] = { 980, 132 };
+	enemyStartPos[4] = { -450, 32 };
+	enemyStartPos[5] = { 1180, -68 };
+	enemyStartPos[6] = { -650, -168 };
+
+	m_enemySpped[0] = 0.75f;
+	m_enemySpped[1] = 2.5f;
+	m_enemySpped[2] = 1.5f;
+	m_enemySpped[3] = 1.75f;
+	m_enemySpped[4] = 2.0f;
+	m_enemySpped[5] = 1.0f;
+	m_enemySpped[6] = 3.0f;
 
 	for (int i = 0; i < kEnemyNum; i++)
 	{
-		m_enemy[i].Init(enemyStartPos[i]);
+		m_enemy[i].Init(enemyStartPos[i],m_enemySpped[i]);
 	}
 }
 

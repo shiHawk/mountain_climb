@@ -8,13 +8,15 @@ namespace
 	constexpr int kGraphHeight = 30;
 	constexpr int kAnimNum = 7;
 	constexpr int kSingleAnimFrame = 4;
+	int kTemp;
 }
 
 Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
-	m_speed(2.0f)
-	//m_pos(0,432)
+	m_speed(2.0f),
+	m_isRightDir(true),
+	m_adjustment(-1)
 {
 }
 
@@ -22,9 +24,12 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::Init(Vec2 pos)
+void Enemy::Init(Vec2 pos, float speed)
 {
+	kTemp = GetRand(1);
 	m_pos = pos;
+	m_StartPos = pos;
+	m_speed = speed;
 	m_handle = LoadGraph("data/image/enemy.png");
 }
 
@@ -42,7 +47,15 @@ void Enemy::Update()
 		m_animFrameCount = 0;
 	}
 	m_velocity.x = m_speed;
-	m_pos += m_velocity;
+	if (m_isRightDir)
+	{
+		m_pos += m_velocity;
+	}
+	else
+	{
+		m_pos -= m_velocity;
+	}
+	
 }
 
 void Enemy::Draw(Camera* camera)
@@ -52,27 +65,18 @@ void Enemy::Draw(Camera* camera)
 	DrawRectGraph(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
 		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
-		m_handle, true, true);
+		m_handle, true, m_isRightDir);
 
-	/*DrawLine(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y), 0xff0000);
-	DrawLine(m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y), 0xff0000);
-	DrawLine(m_pos.x + 33 + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y), 0xff0000);
-	DrawLine(m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + 33 + static_cast<int>(camera->m_drawOffset.y),
-		m_pos.x + static_cast<int>(camera->m_drawOffset.x),
-		m_pos.y + static_cast<int>(camera->m_drawOffset.y), 0xff0000);*/
-	if (m_pos.x > Game::kScreenWidth)
+	if (m_isRightDir && m_pos.x > Game::kScreenWidth)
 	{
-		m_pos.x = 0 - 40;
+		m_pos = m_StartPos;
+		m_isRightDir = false;
+	}
+	if (!m_isRightDir && m_pos.x < -40)
+	{
+		//m_pos.x = 0 - 40;
+		m_pos.x = -40;
+		m_isRightDir = true;
 	}
 }
 

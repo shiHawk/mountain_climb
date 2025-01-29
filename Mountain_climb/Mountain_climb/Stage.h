@@ -43,6 +43,8 @@ private:
 	// 1階層の高さ
 	int m_hierarchyHeight = 96;
 
+	int m_fontHandle;
+
 	// ステージ1
 	int kChipSetData[kChipNumY][kChipNumX] =
 	{

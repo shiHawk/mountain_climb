@@ -28,6 +28,7 @@ void Stage::Init()
 	// グラフィックの読み込み
 	m_handle = LoadGraph("data/image/map.png");
 	assert(m_handle != -1);
+	m_fontHandle = CreateFontToHandle("Elephant", 16, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	// グラフィックに含まれるチップ数を数える
 	int graphWidth = 0;
 	int GraphHeight = 0;
@@ -58,6 +59,7 @@ void Stage::End()
 {
 	// グラフィックの解放
 	DeleteGraph(m_handle);
+	DeleteFontToHandle(m_fontHandle);
 }
 
 void Stage::Update(Player* player, Score* score)
@@ -104,7 +106,6 @@ void Stage::Update(Player* player, Score* score)
 						}
 						brokenBlockCount++;
 						score->AddScore();
-						int temp = score->FinalScore();
 					}
 					hitBottom = true;
 				}
@@ -240,7 +241,7 @@ void Stage::Draw(Camera* camera)
 		}
 	}
 	int score = brokenBlockCount * 100;
-	DrawFormatString(10, 10, 0xffffff, "score:%d",score);
+	DrawFormatStringToHandle(500, 10, 0x00ff00, m_fontHandle, "Score:%d", score);
 }
 
 int Stage::BrokenBlock()

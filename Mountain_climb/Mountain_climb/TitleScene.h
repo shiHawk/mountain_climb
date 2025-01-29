@@ -10,7 +10,8 @@ public:
 	SceneManager::SceneKind Update();
 	void Draw();
 private:
-	int m_handle;
+	int m_titleHandle;
 	int m_buttonHandle;
+	int m_blinkCount;
 };
 

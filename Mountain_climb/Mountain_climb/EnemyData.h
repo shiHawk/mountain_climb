@@ -17,6 +17,7 @@ public:
 	void Draw(Camera* camera);
 	Enemy GetEnemyDate(int enemyNum);
 private:
+	float m_enemySpped[kEnemyNum];
 	Vec2 enemyStartPos[kEnemyNum];
 	Enemy m_enemy[kEnemyNum];
 	Camera m_camera;

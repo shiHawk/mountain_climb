@@ -12,6 +12,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ChangeWindowMode(Game::kDefaultWindowMode);
 	// 画面サイズを変更する
 	SetGraphMode(Game::kScreenWidth, Game::kScreenHeight, Game::kColorBitNum);
+	SetWindowText("MountainClimb");
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{

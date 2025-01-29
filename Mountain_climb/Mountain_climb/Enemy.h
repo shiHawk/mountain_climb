@@ -8,7 +8,7 @@ public:
 	Enemy();
 	~Enemy();
 
-	void Init(Vec2 pos);
+	void Init(Vec2 pos, float speed);
 	void End();
 	void Update();
 	void Draw(Camera* camera);
@@ -21,7 +21,11 @@ private:
 	int m_handle;
 	int m_animFrameCount;
 	Vec2 m_pos;
+	Vec2 m_StartPos;
+	// ˆÊ’u’²®—p•Ï”
+	float m_adjustment;
 	Vec2 m_velocity;
 	float m_speed;
+	bool m_isRightDir;
 };
 
