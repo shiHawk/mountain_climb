@@ -13,7 +13,8 @@ ResultScene::ResultScene():
 	m_score(0),
 	m_handle(-1),
 	m_fontHandle(0),
-	m_fontScoreHandle(0)
+	m_fontScoreHandle(0),
+	m_rank(0)
 {
 }
 
@@ -64,10 +65,28 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 void ResultScene::Draw()
 {
 	int blockBonus = m_stage.BrokenBlock();
-	int hpBounus = m_player.GetPlayerHp() * 500;
-	m_score = blockBonus + hpBounus;
+	int remainingTimeBounus = 3000 - m_timer.RemainingTime();
+	if (3000 - m_timer.RemainingTime() < 0)
+	{
+		remainingTimeBounus = 0;
+	}
+
+	if (remainingTimeBounus >= 2000)
+	{
+		m_rank = 1;
+	}
+	else if (remainingTimeBounus >= 1000)
+	{
+		m_rank = 2;
+	}
+	else
+	{
+		m_rank = 3;
+	}
+	m_score = blockBonus + remainingTimeBounus;
 	DrawFormatStringToHandle(250, 10, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
-	DrawString(10, 50, "Press A Button", 0xffffff);
-	DrawFormatStringToHandle(120,200, 0x00ff00,m_fontScoreHandle,"Score:%d",m_score);
+	DrawFormatStringToHandle(200, 400, 0xffffff, m_fontHandle, "Press A Button");
+	DrawFormatStringToHandle(120, 200, 0x00ff00, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
+	DrawFormatStringToHandle(120,250, 0x00ff00,m_fontScoreHandle,"Score:%d",m_score);
 }
 

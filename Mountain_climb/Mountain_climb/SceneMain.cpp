@@ -24,6 +24,7 @@ void SceneMain::Init()
 	m_stage.Init();
 	m_enemyData.Init();
 	m_goal.Init();
+	m_timer.Init();
 	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 	m_lifeHandle = LoadGraph("data/image/Idle .png");
 
@@ -41,6 +42,7 @@ void SceneMain::End()
 	m_player.End();
 	m_enemyData.End();
 	m_goal.End();
+	m_timer.End();
 	for (int i = 0; i < 3; i++)
 	{
 		m_life[i].End();
@@ -56,6 +58,7 @@ SceneManager::SceneKind SceneMain::Update()
 	m_enemyData.Update();
 	m_camera.Update(&m_player);
 	m_goal.Update();
+	m_timer.Update();
 	Pad::Update();
 	for (int i = 0; i < 3; i++)
 	{
@@ -137,6 +140,7 @@ void SceneMain::Draw()
 	m_stage.Draw(&m_camera);
 	m_player.Draw();
 	m_enemyData.Draw(&m_camera);
+	m_timer.Draw();
 	m_goal.Draw(&m_camera);
 	for (int i = 0; i < m_player.GetPlayerHp(); i++)
 	{

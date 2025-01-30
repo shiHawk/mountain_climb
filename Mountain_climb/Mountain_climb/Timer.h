@@ -9,7 +9,9 @@ public:
 	void End();
 	void Update();
 	void Draw();
+	int RemainingTime();
 private:
 	Player m_player;
+	int m_fontHndle;
 };
 
