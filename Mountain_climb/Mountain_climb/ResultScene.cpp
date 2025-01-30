@@ -7,6 +7,9 @@ namespace
 	int changeScene = 1;
 	int stageNumber = 1;
 	bool returnTitle = false;
+	int bgX = 0;
+	int bgY = 0;
+	int scrollSpeed = 1;
 }
 
 ResultScene::ResultScene():
@@ -14,6 +17,7 @@ ResultScene::ResultScene():
 	m_handle(-1),
 	m_fontHandle(0),
 	m_fontScoreHandle(0),
+	m_bgHandle(0),
 	m_rank(0)
 {
 }
@@ -26,15 +30,21 @@ void ResultScene::Init()
 {
 	m_fontHandle = CreateFontToHandle("Elephant", 32, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_fontScoreHandle = CreateFontToHandle("Elephant", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_bgHandle = LoadGraph("data/image/bg.png");
+	bgX = 0;
+	bgY = 0;
 }
 
 void ResultScene::End()
 {
 	DeleteFontToHandle(m_fontHandle);
+	DeleteFontToHandle(m_fontScoreHandle);
+	DeleteGraph(m_bgHandle);
 }
 
 SceneManager::SceneKind ResultScene::Update(Stage* stage)
 {
+	bgX -= scrollSpeed;
 	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 1)
 	{
 		changeScene = 2;
@@ -64,8 +74,15 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 
 void ResultScene::Draw()
 {
+	if (bgX == -1000)
+	{
+		bgX = 0;
+	}
+	DrawGraph(bgX, bgY, m_bgHandle, true);
+	DrawGraph(bgX+1000, 0, m_bgHandle, true);
 	int blockBonus = m_stage.BrokenBlock();
 	int remainingTimeBounus = 3000 - m_timer.RemainingTime();
+	m_score = blockBonus + remainingTimeBounus;
 	if (3000 - m_timer.RemainingTime() < 0)
 	{
 		remainingTimeBounus = 0;
@@ -83,10 +100,11 @@ void ResultScene::Draw()
 	{
 		m_rank = 3;
 	}
-	m_score = blockBonus + remainingTimeBounus;
+	
+	
 	DrawFormatStringToHandle(250, 10, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
 	DrawFormatStringToHandle(200, 400, 0xffffff, m_fontHandle, "Press A Button");
-	DrawFormatStringToHandle(120, 200, 0x00ff00, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
-	DrawFormatStringToHandle(120,250, 0x00ff00,m_fontScoreHandle,"Score:%d",m_score);
+	DrawFormatStringToHandle(120, 200, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
+	DrawFormatStringToHandle(120,250, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
 }
 

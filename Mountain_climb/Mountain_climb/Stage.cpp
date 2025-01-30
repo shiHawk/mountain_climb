@@ -241,7 +241,7 @@ void Stage::Draw(Camera* camera)
 		}
 	}
 	int score = brokenBlockCount * 25;
-	DrawFormatStringToHandle(500, 10, 0x00ff00, m_fontHandle, "Score:%d", score);
+	DrawFormatStringToHandle(500, 10, 0x00ff00, m_fontHandle, "Block:%d", score);
 }
 
 int Stage::BrokenBlock()

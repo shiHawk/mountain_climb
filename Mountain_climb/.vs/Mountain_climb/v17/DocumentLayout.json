@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Life.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\ResultScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\ResultScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,20 +23,40 @@
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\EnemyData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\EnemyData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Life.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Life.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\ResultScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Goal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Goal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\EnemyData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\EnemyData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -59,20 +79,8 @@
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Life.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\EnemyData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\EnemyData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\TitleScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -87,16 +95,8 @@
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Goal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|solutionrelative:Mountain_climb\\Goal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{145717D4-871F-4899-9961-DD95E46E8CFB}|Mountain_climb\\Mountain_climb.vcxproj|C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Goal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -118,11 +118,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 22,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Timer.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Timer.h",
               "RelativeDocumentMoniker": "Mountain_climb\\Timer.h",
@@ -130,12 +130,11 @@
               "RelativeToolTip": "Mountain_climb\\Timer.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T00:51:18.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T00:51:18.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Timer.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Timer.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Timer.cpp",
@@ -143,38 +142,37 @@
               "RelativeToolTip": "Mountain_climb\\Timer.cpp",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAAB0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-30T00:51:26.696Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T00:51:26.696Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Life.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Life.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.cpp",
               "RelativeToolTip": "Mountain_climb\\Life.cpp",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAEUAAAASAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABoAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-29T08:37:02.867Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "Life.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.h",
               "RelativeDocumentMoniker": "Mountain_climb\\Life.h",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Life.h",
               "RelativeToolTip": "Mountain_climb\\Life.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAANAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-29T08:36:58.237Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\main.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\main.cpp",
@@ -182,12 +180,11 @@
               "RelativeToolTip": "Mountain_climb\\main.cpp",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAAC0AAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-29T01:16:36.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T01:16:36.775Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "EnemyData.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\EnemyData.h",
               "RelativeDocumentMoniker": "Mountain_climb\\EnemyData.h",
@@ -195,12 +192,11 @@
               "RelativeToolTip": "Mountain_climb\\EnemyData.h",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-29T05:10:28.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T05:10:28.424Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "EnemyData.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\EnemyData.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\EnemyData.cpp",
@@ -208,12 +204,11 @@
               "RelativeToolTip": "Mountain_climb\\EnemyData.cpp",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-28T06:30:01.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T06:30:01.026Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Enemy.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Enemy.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Enemy.cpp",
@@ -221,12 +216,11 @@
               "RelativeToolTip": "Mountain_climb\\Enemy.cpp",
               "ViewState": "AQIAAEwAAAAAAAAAAAAWwFEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-14T05:47:57.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-14T05:47:57.863Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Enemy.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Enemy.h",
               "RelativeDocumentMoniker": "Mountain_climb\\Enemy.h",
@@ -234,12 +228,11 @@
               "RelativeToolTip": "Mountain_climb\\Enemy.h",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-20T05:05:11.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T05:05:11.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "TitleScene.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\TitleScene.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\TitleScene.cpp",
@@ -247,12 +240,11 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.cpp",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-28T05:26:45.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T05:26:45.531Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "TitleScene.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\TitleScene.h",
               "RelativeDocumentMoniker": "Mountain_climb\\TitleScene.h",
@@ -260,38 +252,37 @@
               "RelativeToolTip": "Mountain_climb\\TitleScene.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-13T04:59:58.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T04:59:58.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "SceneMain.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\SceneMain.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.cpp",
               "RelativeToolTip": "Mountain_climb\\SceneMain.cpp",
-              "ViewState": "AQIAAH8AAAAAAAAAAAApwI4AAAAQAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAFYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-11T05:37:19.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "SceneMain.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.h",
               "RelativeDocumentMoniker": "Mountain_climb\\SceneMain.h",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneMain.h",
               "RelativeToolTip": "Mountain_climb\\SceneMain.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAAAAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-11T05:37:17.564Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Camera.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Camera.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Camera.cpp",
@@ -316,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.h",
               "RelativeDocumentMoniker": "Mountain_climb\\Player.h",
@@ -328,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Player.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Player.cpp",
@@ -336,12 +327,11 @@
               "RelativeToolTip": "Mountain_climb\\Player.cpp",
               "ViewState": "AQIAAF0AAAAAAAAAAAAWwBcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-12T05:17:41.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T05:17:41.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "SceneManager.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneManager.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\SceneManager.cpp",
@@ -354,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 6,
               "Title": "SceneManager.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\SceneManager.h",
               "RelativeDocumentMoniker": "Mountain_climb\\SceneManager.h",
@@ -362,7 +352,8 @@
               "RelativeToolTip": "Mountain_climb\\SceneManager.h",
               "ViewState": "AQIAABUAAAAAAAAAAAAAABgAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T05:47:17.723Z"
+              "WhenOpened": "2024-11-11T05:47:17.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -372,14 +363,14 @@
               "RelativeDocumentMoniker": "Mountain_climb\\Stage.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.cpp",
               "RelativeToolTip": "Mountain_climb\\Stage.cpp",
-              "ViewState": "AQIAAOsAAAAAAAAAAAAWwPgAAAAdAAAA",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAWwPMAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-11T04:43:27.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "Stage.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Stage.h",
               "RelativeDocumentMoniker": "Mountain_climb\\Stage.h",
@@ -387,8 +378,7 @@
               "RelativeToolTip": "Mountain_climb\\Stage.h",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAC0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T04:43:27.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:43:27.291Z"
             },
             {
               "$type": "Document",
@@ -405,26 +395,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ResultScene.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\ResultScene.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.cpp",
               "RelativeToolTip": "Mountain_climb\\ResultScene.cpp",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFQAAAACAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAGgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T06:20:48.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "ResultScene.h",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.h",
               "RelativeDocumentMoniker": "Mountain_climb\\ResultScene.h",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\ResultScene.h",
               "RelativeToolTip": "Mountain_climb\\ResultScene.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAMAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-11T06:20:42.58Z",
               "EditorCaption": ""
@@ -443,15 +433,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 11,
               "Title": "Goal.cpp",
               "DocumentMoniker": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Goal.cpp",
               "RelativeDocumentMoniker": "Mountain_climb\\Goal.cpp",
               "ToolTip": "C:\\Users\\fko2447002\\Documents\\GitHub\\mountain_climb\\Mountain_climb\\Mountain_climb\\Goal.cpp",
               "RelativeToolTip": "Mountain_climb\\Goal.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAA8AAAAPAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABkAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-11T02:29:09.842Z"
+              "WhenOpened": "2024-12-11T02:29:09.842Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

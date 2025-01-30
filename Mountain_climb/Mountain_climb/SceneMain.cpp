@@ -4,12 +4,16 @@
 
 namespace
 {
-
+	// ゲームオーバーの文字が表示されるまでのフレーム数
+	constexpr int kGameoverFadeFrame = 60;
+	constexpr int kFadeOutFrame = 255;
 }
 
 SceneMain::SceneMain():
 	m_bgmHandle(0),
-	m_lifeHandle(-1)
+	m_lifeHandle(-1),
+	m_gameOverHandle(-1),
+	m_gameoverFrameCount(0)
 {
 }
 
@@ -49,10 +53,16 @@ void SceneMain::End()
 	}
 	DeleteSoundMem(m_bgmHandle);
 	DeleteGraph(m_lifeHandle);
+	DeleteGraph(m_gameOverHandle);
 }
 
 SceneManager::SceneKind SceneMain::Update()
 {
+	m_fadeFrameCount++;
+	if (m_fadeFrameCount > 30)
+	{
+		m_fadeFrameCount = 0;
+	}
 	m_stage.Update(&m_player,&m_score);
 	m_player.Update();
 	m_enemyData.Update();
@@ -74,7 +84,12 @@ SceneManager::SceneKind SceneMain::Update()
 
 	if (m_player.GetPlayerHp() <= 0)
 	{
-		return SceneManager::SceneKind::kTitleScene;
+		m_gameoverFrameCount += 2;
+		if (m_gameoverFrameCount > kFadeOutFrame)
+		{
+			m_gameoverFrameCount = kGameoverFadeFrame;
+			return SceneManager::SceneKind::kTitleScene;
+		}
 	}
 
 	for (int i = 0; i < kEnemyNum; i++)
@@ -146,4 +161,37 @@ void SceneMain::Draw()
 	{
 		m_life[i].Draw();
 	}
+
+	// ゲームオーバーの表示
+	if (m_player.GetPlayerHp() <= 0)
+	{
+		// 0~60の間で変化するm_gameoverFrameCountを
+		// 0~255の値に変換する必要がある
+
+		// 割合を使用して変換を行う
+		// m_gameoverFrameCountを進行割合に変換する
+		float progressRate = static_cast<float>(m_gameoverFrameCount) / kGameoverFadeFrame;
+		//printfDx("%f %%\n", progressRate);
+
+		// 割合を実際の透明度に変換する
+		int alpha = static_cast <int>(255 * progressRate);
+
+		// ここ以降に呼ばれるDraw関数の描画方法を変更する
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
+
+		/*int width = GetDrawStringWidthToHandle("GAME OVER", strlen("GAME OVER"), m_fontHandle);
+		DrawStringToHandle(Game::kScreenWidth / 2 - width / 2, Game::kScreenHeight / 2 - 64 / 2,
+			"GAME OVER", GetColor(255, 0, 0), m_fontHandle);*/
+
+		// 以降の表示がおかしくならないように元の設定に戻しておく
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	}
+
+	// フェード処理
+	int fadeAlpha = m_gameoverFrameCount;
+	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
+
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
+	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }

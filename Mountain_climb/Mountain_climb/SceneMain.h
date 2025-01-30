@@ -23,6 +23,12 @@ public:
 	int m_bgmHandle;
 private:
 	int m_lifeHandle;
+	int m_gameOverHandle;
+	int m_fontHandle;
+	// ゲームオーバー演出に使用するフレーム
+	int m_gameoverFrameCount;
+	// フェード処理
+	int m_fadeFrameCount;
 	Stage m_stage;
 	Player m_player;
 	EnemyData m_enemyData;
