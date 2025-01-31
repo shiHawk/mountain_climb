@@ -76,7 +76,7 @@ SceneManager::SceneKind TitleScene::Update()
 		m_velocity.y += kJumpGravity;
 	}
 
-	if (m_pos.y > 330)
+	if (m_pos.y > 315)
 	{
 		m_isJump = false;
 	}
@@ -94,7 +94,7 @@ void TitleScene::Draw()
 {
 	int animNo = m_animFrame / kSingleAnimFrame;
 	DrawGraph(-130, -20, m_titleHandle,true);
-	DrawGraph(180, 390, m_buttonHandle, true);
+	DrawGraph(180, 380, m_buttonHandle, true);
 	DrawRectGraph(m_pos.x, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handleIdle, true, false);

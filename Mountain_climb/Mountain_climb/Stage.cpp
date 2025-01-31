@@ -15,7 +15,8 @@ namespace
 Stage::Stage() :
 	m_graphChipNumX(0),
 	m_graphChipNumY(0),
-	m_handle(-1)
+	m_handle(-1),
+	m_fontHandle(-1)
 {
 }
 
@@ -105,7 +106,6 @@ void Stage::Update(Player* player, Score* score)
 							kChipSetData3[h][w] = -1;
 						}
 						brokenBlockCount++;
-						score->AddScore();
 					}
 					hitBottom = true;
 				}
@@ -145,11 +145,12 @@ void Stage::Update(Player* player, Score* score)
 				}
 				
 				// マップチップに右から当たった場合
-				/*if (player->GetLeft() > w * kChipWidth && player->GetLeft() < w * kChipWidth + kChipWidth
-					&& player->GetTop() >= h * kChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight)
+				/*if (player->GetLeft() > w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
+					&& player->GetTop() >= h * kChipHeight - m_AllChipHeight && player->GetTop() <= h * kChipHeight + kChipHeight - m_AllChipHeight
+					&& player->GetPos().y < -240)
 				{
 					float chipRight = w * kChipWidth + kChipWidth;
-					player->AddMoveRight(chipRight - player->GetLeft());
+					player->AddMoveRight(5);
 					player->OnCollideX();
 				}*/
 			}

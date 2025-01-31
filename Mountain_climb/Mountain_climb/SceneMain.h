@@ -29,6 +29,7 @@ private:
 	int m_gameoverFrameCount;
 	// フェード処理
 	int m_fadeFrameCount;
+	int m_lifeBackHandle;
 	Stage m_stage;
 	Player m_player;
 	EnemyData m_enemyData;

@@ -13,7 +13,8 @@ SceneMain::SceneMain():
 	m_bgmHandle(0),
 	m_lifeHandle(-1),
 	m_gameOverHandle(-1),
-	m_gameoverFrameCount(0)
+	m_gameoverFrameCount(0),
+	m_lifeBackHandle(0)
 {
 }
 
@@ -31,6 +32,7 @@ void SceneMain::Init()
 	m_timer.Init();
 	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 	m_lifeHandle = LoadGraph("data/image/Idle .png");
+	m_lifeBackHandle = LoadGraph("data/image/LifeBack.png");
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -54,6 +56,7 @@ void SceneMain::End()
 	DeleteSoundMem(m_bgmHandle);
 	DeleteGraph(m_lifeHandle);
 	DeleteGraph(m_gameOverHandle);
+	DeleteGraph(m_lifeBackHandle);
 }
 
 SceneManager::SceneKind SceneMain::Update()
@@ -84,6 +87,7 @@ SceneManager::SceneKind SceneMain::Update()
 
 	if (m_player.GetPlayerHp() <= 0)
 	{
+		m_player.End();
 		m_gameoverFrameCount += 2;
 		if (m_gameoverFrameCount > kFadeOutFrame)
 		{
@@ -157,6 +161,7 @@ void SceneMain::Draw()
 	m_enemyData.Draw(&m_camera);
 	m_timer.Draw();
 	m_goal.Draw(&m_camera);
+	DrawGraph(0, -3, m_lifeBackHandle, true);
 	for (int i = 0; i < m_player.GetPlayerHp(); i++)
 	{
 		m_life[i].Draw();

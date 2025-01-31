@@ -3,6 +3,7 @@
 
 namespace
 {
+	// Œo‰ß‚µ‚½ŽžŠÔ
 	int elapsedTime = 0;
 }
 

@@ -15,7 +15,7 @@ namespace
 	constexpr int kBasePosX = 200;
 	constexpr int kIntervalX = 120;
 
-	constexpr int kPosY = 15;
+	constexpr int kPosY = 9;
 
 	// ÉTÉCÉY(ägëÂó¶)
 	constexpr float kScale = 1.0;

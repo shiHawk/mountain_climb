@@ -55,7 +55,6 @@ void Enemy::Update()
 	{
 		m_pos -= m_velocity;
 	}
-	
 }
 
 void Enemy::Draw(Camera* camera)

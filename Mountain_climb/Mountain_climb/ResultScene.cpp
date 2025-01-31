@@ -90,17 +90,20 @@ void ResultScene::Draw()
 		remainingTimeBounus = 0;
 	}
 
-	if (remainingTimeBounus >= 2000)
+	if (m_score >= 2300)
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank A");
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(330, 300, 0xdc143c, m_fontRankHandle, "A");
 	}
-	else if (remainingTimeBounus >= 1000)
+	else if (m_score >= 1500)
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank B");
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(330, 300, 0x4169e1, m_fontRankHandle, "B");
 	}
 	else
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank C");
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(330, 300, 0x3cb371, m_fontRankHandle, "C");
 	}
 	
 	DrawFormatStringToHandle(250, 10, 0xffffff, m_fontHandle, "Stage %d", stageNumber);

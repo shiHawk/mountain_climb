@@ -3,13 +3,13 @@
 
 void EnemyData::Init()
 {
-	enemyStartPos[0] = { -40, 432 };
-	enemyStartPos[1] = { 780, 332 };
-	enemyStartPos[2] = { -250, 232 };
-	enemyStartPos[3] = { 980, 132 };
-	enemyStartPos[4] = { -450, 32 };
-	enemyStartPos[5] = { 1180, -68 };
-	enemyStartPos[6] = { -650, -168 };
+	enemyStartPos[0] = { 640, 332 };
+	enemyStartPos[1] = { -100, 232 };
+	enemyStartPos[2] = { 700, 132 };
+	enemyStartPos[3] = { -150, 32 };
+	enemyStartPos[4] = { 720, -68 };
+	enemyStartPos[5] = { -200, -168 };
+	enemyStartPos[6] = { 850, -268 };
 
 	m_enemySpped[0] = 0.75f;
 	m_enemySpped[1] = 2.5f;
