@@ -202,7 +202,7 @@ void Player::Update()
 	}
 
 	m_pos += m_velocity;
-	//printfDx("%d\n",m_hp);
+	//printfDx("%d\n",m_velocity.y);
 }
 
 void Player::Draw()

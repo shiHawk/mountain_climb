@@ -19,6 +19,7 @@ private:
 	int m_handle;
 	int m_fontHandle;
 	int m_fontScoreHandle;
+	int m_fontRankHandle;
 	int m_bgHandle;
 	int m_rank;
 	Player m_player;

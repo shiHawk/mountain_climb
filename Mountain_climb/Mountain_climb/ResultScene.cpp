@@ -18,7 +18,8 @@ ResultScene::ResultScene():
 	m_fontHandle(0),
 	m_fontScoreHandle(0),
 	m_bgHandle(0),
-	m_rank(0)
+	m_rank(0),
+	m_fontRankHandle(0)
 {
 }
 
@@ -30,6 +31,7 @@ void ResultScene::Init()
 {
 	m_fontHandle = CreateFontToHandle("Elephant", 32, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_fontScoreHandle = CreateFontToHandle("Elephant", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_bgHandle = LoadGraph("data/image/bg.png");
 	bgX = 0;
 	bgY = 0;
@@ -90,20 +92,20 @@ void ResultScene::Draw()
 
 	if (remainingTimeBounus >= 2000)
 	{
-		m_rank = 1;
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank A");
 	}
 	else if (remainingTimeBounus >= 1000)
 	{
-		m_rank = 2;
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank B");
 	}
 	else
 	{
-		m_rank = 3;
+		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank C");
 	}
-	
 	
 	DrawFormatStringToHandle(250, 10, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
 	DrawFormatStringToHandle(200, 400, 0xffffff, m_fontHandle, "Press A Button");
+	DrawFormatStringToHandle(120, 150, 0xba55d3, m_fontScoreHandle, "Block:%d",blockBonus);
 	DrawFormatStringToHandle(120, 200, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
 	DrawFormatStringToHandle(120,250, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
 }
