@@ -52,7 +52,7 @@ void Goal::Draw(Camera* camera)
 		m_handle, true, true);
 	if (m_pos.x > Game::kScreenWidth)
 	{
-		m_pos.x = 0 - 30;
+		m_pos.x = 0 - kGraphWidth;
 	}
 }
 
@@ -68,10 +68,10 @@ float Goal::GetTop()
 
 float Goal::GetRight()
 {
-	return m_pos.x + 30;
+	return m_pos.x + kGraphWidth;
 }
 
 float Goal::GetBottom()
 {
-	return m_pos.y + 30;
+	return m_pos.y + kGraphWidth;
 }

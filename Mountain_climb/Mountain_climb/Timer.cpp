@@ -5,6 +5,8 @@ namespace
 {
 	// Œo‰ß‚µ‚½ŽžŠÔ
 	int elapsedTime = 0;
+	constexpr int kTimerPosX = 270;
+	constexpr int kTimerPosY = 10;
 }
 
 Timer::Timer():
@@ -33,7 +35,7 @@ void Timer::Update()
 
 void Timer::Draw()
 {
-	DrawFormatStringToHandle(270, 10, 0x00ff00, m_fontHndle, "Time:%d", elapsedTime);
+	DrawFormatStringToHandle(kTimerPosX, kTimerPosY, 0x00ff00, m_fontHndle, "Time:%d", elapsedTime);
 }
 
 int Timer::RemainingTime()

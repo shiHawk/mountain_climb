@@ -17,6 +17,22 @@ namespace
 	// 重力
 	float kJumpGravity = 0.2f;
 	float kGravity = 0.3f;
+	// 高さの限界
+	constexpr int kJumpLimit = 315;
+
+	// タイトルとボタンの位置
+	constexpr int kTitlePosX = -130;
+	constexpr int kTitlePosY = -20;
+	constexpr int kButtonPosX = 180;
+	constexpr int kButtonPosY = 380;
+
+	// 2体目のキャラの位置
+	constexpr int KAnotherOnePos = 458;
+
+	constexpr int kFadeOutFrame = 255;
+	constexpr int kGameoverFadeFrame = 60;
+
+	bool isFadeStart = false;
 }
 
 TitleScene::TitleScene():
@@ -29,7 +45,8 @@ TitleScene::TitleScene():
 	m_jumpSpeed(0),
 	m_pos(80,330),
 	m_scalingX(281),
-	m_scalingY(77)
+	m_scalingY(77),
+	m_gameoverFrameCount(0)
 {
 }
 
@@ -42,6 +59,7 @@ void TitleScene::Init()
 	m_titleHandle = LoadGraph("data/image/title.png");
 	m_buttonHandle = LoadGraph("data/image/button2.png");
 	m_handleIdle = LoadGraph("data/image/Idle .png");
+	isFadeStart = false;
 }
 
 void TitleScene::End()
@@ -76,16 +94,25 @@ SceneManager::SceneKind TitleScene::Update()
 		m_velocity.y += kJumpGravity;
 	}
 
-	if (m_pos.y > 315)
+	if (m_pos.y > kJumpLimit)
 	{
 		m_isJump = false;
 	}
 
 	m_pos += m_velocity;
-
-	if (Pad::IsTrigger(PAD_INPUT_1))
+	if (isFadeStart)
 	{
-		return SceneManager::SceneKind::kSceneMain;
+		m_gameoverFrameCount += 2;
+	}
+
+	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
+	{
+		isFadeStart = true;
+		if (m_gameoverFrameCount > kFadeOutFrame)
+		{
+			m_gameoverFrameCount = kGameoverFadeFrame;
+			return SceneManager::SceneKind::kSceneMain;
+		}
 	}
 	return SceneManager::SceneKind::kTitleScene;
 }
@@ -93,12 +120,20 @@ SceneManager::SceneKind TitleScene::Update()
 void TitleScene::Draw()
 {
 	int animNo = m_animFrame / kSingleAnimFrame;
-	DrawGraph(-130, -20, m_titleHandle,true);
-	DrawGraph(180, 380, m_buttonHandle, true);
+	DrawGraph(kTitlePosX, kTitlePosY, m_titleHandle,true);
+	DrawGraph(kButtonPosX, kButtonPosY, m_buttonHandle, true);
 	DrawRectGraph(m_pos.x, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handleIdle, true, false);
-	DrawRectGraph(m_pos.x + 458, m_pos.y,
+	DrawRectGraph(m_pos.x + KAnotherOnePos, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handleIdle, true, true);
+
+	// フェード処理
+	int fadeAlpha = m_gameoverFrameCount;
+	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
+
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
+	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }

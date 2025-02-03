@@ -34,6 +34,7 @@ public:
 	void OnCollideX();
 	void Landing(float DisY);
 	Vec2 GetPos() const;
+	bool IsNoDamage();
 	
 private:
 	// グラフィックハンドル
@@ -58,7 +59,6 @@ private:
 	bool m_isJump;
 	float m_jumpSpeed;
 
-	//
 	Camera* m_camera;
 };
 

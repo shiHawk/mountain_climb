@@ -4,12 +4,40 @@
 
 namespace
 {
+	// シーン番号
 	int changeScene = 1;
 	int stageNumber = 1;
 	bool returnTitle = false;
+	// 背景の位置
 	int bgX = 0;
 	int bgY = 0;
+	// 背景の幅
+	constexpr int kBgWidth = 1000;
 	int scrollSpeed = 1;
+
+	// 持ち点
+	constexpr int kPoints = 3000;
+	// ランクの基準
+	constexpr int kARankCriteria = 2250;
+	constexpr int kBRankCriteria = 1500;
+
+	// 表示するテキストの位置
+	constexpr int kTextPosX = 120;
+	constexpr int kTextPosY = 400;
+	constexpr int kRankPosX = 330;
+	constexpr int kRankPosY = 315;
+	constexpr int kClearPosX = 20;
+	constexpr int kClearPosY = 70;
+	constexpr int kStageTextPosX = 250;
+	constexpr int kStageTextPosY = 10;
+	constexpr int kBlockTextPosY = 205;
+	constexpr int kTimeTextPosY = 145;
+	constexpr int kScoreTextPosY = 260;
+
+	bool isFadeStart = false;
+	constexpr int kFadeOutFrame = 255;
+	constexpr int kGameoverFadeFrame = 60;
+
 }
 
 ResultScene::ResultScene():
@@ -19,7 +47,9 @@ ResultScene::ResultScene():
 	m_fontScoreHandle(0),
 	m_bgHandle(0),
 	m_rank(0),
-	m_fontRankHandle(0)
+	m_fontRankHandle(0),
+	m_clearHandle(0),
+	m_gameoverFrameCount(0)
 {
 }
 
@@ -33,20 +63,40 @@ void ResultScene::Init()
 	m_fontScoreHandle = CreateFontToHandle("Elephant", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_bgHandle = LoadGraph("data/image/bg.png");
+	m_clearHandle = LoadGraph("data/image/gameclear.png");
 	bgX = 0;
 	bgY = 0;
+	isFadeStart = false;
 }
 
 void ResultScene::End()
 {
 	DeleteFontToHandle(m_fontHandle);
 	DeleteFontToHandle(m_fontScoreHandle);
+	DeleteFontToHandle(m_fontRankHandle);
 	DeleteGraph(m_bgHandle);
+	DeleteGraph(m_clearHandle);
 }
 
 SceneManager::SceneKind ResultScene::Update(Stage* stage)
 {
 	bgX -= scrollSpeed;
+
+	if (isFadeStart)
+	{
+		m_gameoverFrameCount += 2;
+	}
+
+	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
+	{
+		isFadeStart = true;
+		if (m_gameoverFrameCount > kFadeOutFrame)
+		{
+			m_gameoverFrameCount = kGameoverFadeFrame;
+			return SceneManager::SceneKind::kSceneMain;
+		}
+	}
+	
 	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 1)
 	{
 		changeScene = 2;
@@ -76,40 +126,50 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 
 void ResultScene::Draw()
 {
-	if (bgX == -1000)
+	if (bgX == -kBgWidth)
 	{
 		bgX = 0;
 	}
 	DrawGraph(bgX, bgY, m_bgHandle, true);
-	DrawGraph(bgX+1000, 0, m_bgHandle, true);
+	DrawGraph(bgX+kBgWidth, 0, m_bgHandle, true);
 	int blockBonus = m_stage.BrokenBlock();
-	int remainingTimeBounus = 3000 - m_timer.RemainingTime();
+	int remainingTimeBounus = kPoints - m_timer.RemainingTime();
 	m_score = blockBonus + remainingTimeBounus;
-	if (3000 - m_timer.RemainingTime() < 0)
+	if (kPoints - m_timer.RemainingTime() < 0)
 	{
 		remainingTimeBounus = 0;
 	}
 
-	if (m_score >= 2300)
+	if (m_score >= kARankCriteria && m_player.IsNoDamage())
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
-		DrawFormatStringToHandle(330, 300, 0xdc143c, m_fontRankHandle, "A");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xffd700, m_fontRankHandle, "S");
 	}
-	else if (m_score >= 1500)
+	else if (m_score >= kARankCriteria)
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
-		DrawFormatStringToHandle(330, 300, 0x4169e1, m_fontRankHandle, "B");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xdc143c, m_fontRankHandle, "A");
+	}
+	else if (m_score >= kBRankCriteria)
+	{
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x4169e1, m_fontRankHandle, "B");
 	}
 	else
 	{
-		DrawFormatStringToHandle(120, 300, 0xffffff, m_fontRankHandle, "Rank");
-		DrawFormatStringToHandle(330, 300, 0x3cb371, m_fontRankHandle, "C");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x3cb371, m_fontRankHandle, "C");
 	}
 	
-	DrawFormatStringToHandle(250, 10, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
-	DrawFormatStringToHandle(200, 400, 0xffffff, m_fontHandle, "Press A Button");
-	DrawFormatStringToHandle(120, 150, 0xba55d3, m_fontScoreHandle, "Block:%d",blockBonus);
-	DrawFormatStringToHandle(120, 200, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
-	DrawFormatStringToHandle(120,250, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
-}
+	DrawFormatStringToHandle(kStageTextPosX, kStageTextPosY, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
+	if (stageNumber == 3)
+	{
+		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);
+	}
+	DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xffffff, m_fontHandle, "Press A Button");
+	DrawFormatStringToHandle(kTextPosX, kBlockTextPosY, 0xba55d3, m_fontScoreHandle, "Block:%d",blockBonus);
+	DrawFormatStringToHandle(kTextPosX, kTimeTextPosY, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
+	DrawFormatStringToHandle(kTextPosX, kScoreTextPosY, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
 
+
+}

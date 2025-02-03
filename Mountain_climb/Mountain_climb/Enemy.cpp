@@ -15,8 +15,7 @@ Enemy::Enemy():
 	m_animFrameCount(0),
 	m_handle(-1),
 	m_speed(2.0f),
-	m_isRightDir(true),
-	m_adjustment(-1)
+	m_isRightDir(true)
 {
 }
 
@@ -47,6 +46,7 @@ void Enemy::Update()
 		m_animFrameCount = 0;
 	}
 	m_velocity.x = m_speed;
+
 	if (m_isRightDir)
 	{
 		m_pos += m_velocity;
@@ -71,10 +71,9 @@ void Enemy::Draw(Camera* camera)
 		m_pos = m_StartPos;
 		m_isRightDir = false;
 	}
-	if (!m_isRightDir && m_pos.x < -40)
+	if (!m_isRightDir && m_pos.x < -kGraphWidth)
 	{
-		//m_pos.x = 0 - 40;
-		m_pos.x = -40;
+		m_pos.x = -kGraphWidth;
 		m_isRightDir = true;
 	}
 }

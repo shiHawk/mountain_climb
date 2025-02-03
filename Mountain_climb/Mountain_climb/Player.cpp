@@ -42,6 +42,8 @@ namespace
 	// 左右の壁
 	constexpr float kLeftWall = 64.0f;
 	constexpr float kRightWall = 96.0f;
+
+	bool isNoDamage = true;
 }
 
 Player::Player() :
@@ -70,6 +72,7 @@ void Player::Init(Camera* camera)
 	m_handleRun = LoadGraph("data/image/run.png");
 	m_camera = camera;
 	m_camera->m_pos.SetPos(m_pos.x, m_pos.y);
+	isNoDamage = true;
 }
 
 void Player::End()
@@ -91,6 +94,7 @@ void Player::OnDamage()
 	m_invincibleCount = kInvincible;
 	// ダメージを受ける
 	m_hp--;
+	isNoDamage = false;
 }
 
 void Player::InstanceDeath()
@@ -125,7 +129,8 @@ void Player::Update()
 	{
 		m_invincibleCount = 0;
 	}
-	
+
+
 	// 左右にキャラクターを動かす
 	m_isRun = false;
 	if (Pad::IsPress(KEY_INPUT_LEFT))
@@ -292,6 +297,11 @@ void Player::Landing(float DisY)
 Vec2 Player::GetPos() const
 {
 	return m_pos;
+}
+
+bool Player::IsNoDamage()
+{
+	return isNoDamage;
 }
 
 float Player::PlayerAirPos()

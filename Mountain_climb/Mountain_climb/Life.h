@@ -19,7 +19,6 @@ private:
 
 	// ’Ê‚µ”Ô†
 	int m_index;
-	int m_invincibleCount;
 
 };
 

@@ -6,10 +6,12 @@
 namespace
 {
 	bool hitBottom = false;
-	float liftX = 0;
 	// 壊したマップチップの数
 	int brokenBlockCount = 0;
 	int stageSwitch = 0;
+	constexpr int kBlockBounus = 25;
+	constexpr int blockScorePosX = 500;
+	constexpr int blockScorePosY = 10;
 }
 
 Stage::Stage() :
@@ -241,13 +243,13 @@ void Stage::Draw(Camera* camera)
 				m_handle, true);
 		}
 	}
-	int score = brokenBlockCount * 25;
-	DrawFormatStringToHandle(500, 10, 0x00ff00, m_fontHandle, "Block:%d", score);
+	int score = brokenBlockCount * kBlockBounus;
+	DrawFormatStringToHandle(blockScorePosX, blockScorePosY, 0x00ff00, m_fontHandle, "Block:%d", score);
 }
 
 int Stage::BrokenBlock()
 {
-	return brokenBlockCount * 25;
+	return brokenBlockCount * kBlockBounus;
 }
 
 void Stage::ChangeStage()

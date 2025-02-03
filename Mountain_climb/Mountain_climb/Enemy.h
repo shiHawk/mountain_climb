@@ -22,8 +22,6 @@ private:
 	int m_animFrameCount;
 	Vec2 m_pos;
 	Vec2 m_StartPos;
-	// ˆÊ’u’²®—p•Ï”
-	float m_adjustment;
 	Vec2 m_velocity;
 	float m_speed;
 	bool m_isRightDir;

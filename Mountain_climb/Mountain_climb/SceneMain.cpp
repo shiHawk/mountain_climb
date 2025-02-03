@@ -14,7 +14,9 @@ SceneMain::SceneMain():
 	m_lifeHandle(-1),
 	m_gameOverHandle(-1),
 	m_gameoverFrameCount(0),
-	m_lifeBackHandle(0)
+	m_lifeBackHandle(0),
+	m_fadeFrameCount(0),
+	m_fontHandle(0)
 {
 }
 
@@ -176,7 +178,6 @@ void SceneMain::Draw()
 		// 割合を使用して変換を行う
 		// m_gameoverFrameCountを進行割合に変換する
 		float progressRate = static_cast<float>(m_gameoverFrameCount) / kGameoverFadeFrame;
-		//printfDx("%f %%\n", progressRate);
 
 		// 割合を実際の透明度に変換する
 		int alpha = static_cast <int>(255 * progressRate);

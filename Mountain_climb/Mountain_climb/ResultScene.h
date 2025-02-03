@@ -21,7 +21,9 @@ private:
 	int m_fontScoreHandle;
 	int m_fontRankHandle;
 	int m_bgHandle;
+	int m_clearHandle;
 	int m_rank;
+	int m_gameoverFrameCount;
 	Player m_player;
 	Stage m_stage;
 	Timer m_timer;

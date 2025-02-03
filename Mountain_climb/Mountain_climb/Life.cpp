@@ -54,10 +54,6 @@ void Life::Update()
 
 void Life::Draw()
 {
-	if ((m_invincibleCount / 2) % 2)
-	{
-		return;
-	}
 	// グラフィックの切り出し位置(X座標)を計算で求める
 	int animNo = m_animFrameCount / kSingleAnimFrame;
 
