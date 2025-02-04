@@ -1,30 +1,33 @@
 ﻿  Camera.cpp
   Enemy.cpp
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(66,11): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(65,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   EnemyData.cpp
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(65,11): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Enemy.cpp(64,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   FlyEnemy.cpp
   Goal.cpp
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Goal.cpp(50,11): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Goal.cpp(49,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Life.cpp
-  main.cpp
-  Pad.cpp
   Player.cpp
   ResultScene.cpp
   SceneMain.cpp
   SceneManager.cpp
-  Score.cpp
   Stage.cpp
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(88,23): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(118,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(142,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(164,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(176,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(91,23): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(120,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(144,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(167,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Stage.cpp(179,21): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
   Timer.cpp
   TitleScene.cpp
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(125,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(125,21): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(128,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(128,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  main.cpp
   コード生成しています。
-  Previous IPDB not found, fall back to full compilation.
-  All 135 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  52 of 135 functions (38.5%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Release\Mountain_climb.exe

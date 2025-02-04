@@ -35,7 +35,7 @@ void Timer::Update()
 
 void Timer::Draw()
 {
-	DrawFormatStringToHandle(kTimerPosX, kTimerPosY, 0x00ff00, m_fontHndle, "Time:%d", elapsedTime);
+	DrawFormatStringToHandle(kTimerPosX, kTimerPosY, 0x98fb98, m_fontHndle, "Time:%d", elapsedTime);
 }
 
 int Timer::RemainingTime()

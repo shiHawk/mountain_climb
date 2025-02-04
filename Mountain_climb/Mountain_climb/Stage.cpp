@@ -232,11 +232,6 @@ void Stage::Draw(Camera* camera)
 			auto rightTop = static_cast<int>(mapChip.pos.x + mapChip.w * 0.5f);
 			auto rightBottom = static_cast<int>(mapChip.pos.y + mapChip.h * 0.5f);*/
 
-			/*DrawRectGraph(
-				mapChip.pos.y, mapChip.pos.x,
-				leftTop, leftBottom, leftTop - rightTop, leftTop - rightTop,
-				m_handle, true);*/
-
 			DrawRectGraph(wIndex * kChipWidth + static_cast<int>(camera->m_drawOffset.x),
 				hIndex * kChipHeight - m_AllChipHeight + static_cast<int>(camera->m_drawOffset.y),
 				cutX, cutY, kChipWidth, kChipHeight,
@@ -244,7 +239,7 @@ void Stage::Draw(Camera* camera)
 		}
 	}
 	int score = brokenBlockCount * kBlockBounus;
-	DrawFormatStringToHandle(blockScorePosX, blockScorePosY, 0x00ff00, m_fontHandle, "Block:%d", score);
+	DrawFormatStringToHandle(blockScorePosX, blockScorePosY, 0x98fb98, m_fontHandle, "Block:%d", score);
 }
 
 int Stage::BrokenBlock()

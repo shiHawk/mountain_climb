@@ -5,7 +5,7 @@
 namespace
 {
 	// ゲームオーバーの文字が表示されるまでのフレーム数
-	constexpr int kGameoverFadeFrame = 60;
+	constexpr int kGameOverFadeFrame = 60;
 	constexpr int kFadeOutFrame = 255;
 }
 
@@ -93,7 +93,7 @@ SceneManager::SceneKind SceneMain::Update()
 		m_gameoverFrameCount += 2;
 		if (m_gameoverFrameCount > kFadeOutFrame)
 		{
-			m_gameoverFrameCount = kGameoverFadeFrame;
+			m_gameoverFrameCount = kGameOverFadeFrame;
 			return SceneManager::SceneKind::kTitleScene;
 		}
 	}
@@ -177,7 +177,7 @@ void SceneMain::Draw()
 
 		// 割合を使用して変換を行う
 		// m_gameoverFrameCountを進行割合に変換する
-		float progressRate = static_cast<float>(m_gameoverFrameCount) / kGameoverFadeFrame;
+		float progressRate = static_cast<float>(m_gameoverFrameCount) / kGameOverFadeFrame;
 
 		// 割合を実際の透明度に変換する
 		int alpha = static_cast <int>(255 * progressRate);

@@ -13,6 +13,7 @@ namespace
 	int bgY = 0;
 	// 背景の幅
 	constexpr int kBgWidth = 1000;
+	constexpr int kBgHeight = 1000;
 	int scrollSpeed = 1;
 
 	// 持ち点
@@ -36,7 +37,7 @@ namespace
 
 	bool isFadeStart = false;
 	constexpr int kFadeOutFrame = 255;
-	constexpr int kGameoverFadeFrame = 60;
+	constexpr int kGameOverFadeFrame = 60;
 
 }
 
@@ -49,7 +50,7 @@ ResultScene::ResultScene():
 	m_rank(0),
 	m_fontRankHandle(0),
 	m_clearHandle(0),
-	m_gameoverFrameCount(0)
+	m_gameOverFrameCount(0)
 {
 }
 
@@ -84,42 +85,27 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 
 	if (isFadeStart)
 	{
-		m_gameoverFrameCount += 2;
-	}
-
-	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
-	{
-		isFadeStart = true;
-		if (m_gameoverFrameCount > kFadeOutFrame)
-		{
-			m_gameoverFrameCount = kGameoverFadeFrame;
-			return SceneManager::SceneKind::kSceneMain;
-		}
+		m_gameOverFrameCount += 5;
 	}
 	
-	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 1)
+	if (Pad::IsTrigger(PAD_INPUT_1)|| isFadeStart)
 	{
-		changeScene = 2;
-		stage->ChangeStage();
-		stageNumber++;
-		returnTitle = false;
-		return SceneManager::SceneKind::kSceneMain;
-	}
-	if (Pad::IsTrigger(PAD_INPUT_1) && changeScene == 2)
-	{
-		changeScene = 3;
-		stage->ChangeStage();
-		stageNumber++;
-		returnTitle = true;
-		return SceneManager::SceneKind::kSceneMain;
-	}
-	if (Pad::IsTrigger(PAD_INPUT_1) && returnTitle)
-	{
-		changeScene = 1;
-		stageNumber = 1;
-		returnTitle = false;
-		stage->ChangeStage();
-		return SceneManager::SceneKind::kTitleScene;
+		isFadeStart = true;
+		if (m_gameOverFrameCount > kFadeOutFrame)
+		{
+			changeScene++;
+			stage->ChangeStage();
+			stageNumber++;
+			returnTitle = false;
+			m_gameOverFrameCount = kGameOverFadeFrame;
+			if (stageNumber > 3)
+			{
+				changeScene = 1;
+				stageNumber = 1;
+				return SceneManager::SceneKind::kTitleScene;
+			}
+			return SceneManager::SceneKind::kSceneMain;
+		}
 	}
 	return SceneManager::SceneKind::kResultScene;
 }
@@ -142,34 +128,40 @@ void ResultScene::Draw()
 
 	if (m_score >= kARankCriteria && m_player.IsNoDamage())
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xffd700, m_fontRankHandle, "S");
 	}
 	else if (m_score >= kARankCriteria)
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xdc143c, m_fontRankHandle, "A");
 	}
 	else if (m_score >= kBRankCriteria)
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
-		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x4169e1, m_fontRankHandle, "B");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x4682b4, m_fontRankHandle, "B");
 	}
 	else
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xffffff, m_fontRankHandle, "Rank");
-		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x3cb371, m_fontRankHandle, "C");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x98fb98, m_fontRankHandle, "C");
 	}
 	
-	DrawFormatStringToHandle(kStageTextPosX, kStageTextPosY, 0xffffff, m_fontHandle, "Stage %d", stageNumber);
+	DrawFormatStringToHandle(kStageTextPosX, kStageTextPosY, 0xf0f8ff, m_fontHandle, "Stage %d", stageNumber);
 	if (stageNumber == 3)
 	{
 		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);
 	}
-	DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xffffff, m_fontHandle, "Press A Button");
+	DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Button");
 	DrawFormatStringToHandle(kTextPosX, kBlockTextPosY, 0xba55d3, m_fontScoreHandle, "Block:%d",blockBonus);
 	DrawFormatStringToHandle(kTextPosX, kTimeTextPosY, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
 	DrawFormatStringToHandle(kTextPosX, kScoreTextPosY, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
 
+	// フェード処理
+	int fadeAlpha = m_gameOverFrameCount;
+	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
 
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
+	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }

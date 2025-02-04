@@ -30,7 +30,7 @@ namespace
 	constexpr int KAnotherOnePos = 458;
 
 	constexpr int kFadeOutFrame = 255;
-	constexpr int kGameoverFadeFrame = 60;
+	constexpr int kGameOverFadeFrame = 60;
 
 	bool isFadeStart = false;
 }
@@ -46,7 +46,7 @@ TitleScene::TitleScene():
 	m_pos(80,330),
 	m_scalingX(281),
 	m_scalingY(77),
-	m_gameoverFrameCount(0)
+	m_gameOverFrameCount(0)
 {
 }
 
@@ -102,15 +102,15 @@ SceneManager::SceneKind TitleScene::Update()
 	m_pos += m_velocity;
 	if (isFadeStart)
 	{
-		m_gameoverFrameCount += 2;
+		m_gameOverFrameCount += 3;
 	}
 
 	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
 	{
 		isFadeStart = true;
-		if (m_gameoverFrameCount > kFadeOutFrame)
+		if (m_gameOverFrameCount > kFadeOutFrame)
 		{
-			m_gameoverFrameCount = kGameoverFadeFrame;
+			m_gameOverFrameCount = kGameOverFadeFrame;
 			return SceneManager::SceneKind::kSceneMain;
 		}
 	}
@@ -130,7 +130,7 @@ void TitleScene::Draw()
 		m_handleIdle, true, true);
 
 	// フェード処理
-	int fadeAlpha = m_gameoverFrameCount;
+	int fadeAlpha = m_gameOverFrameCount;
 	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);

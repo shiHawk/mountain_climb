@@ -23,7 +23,7 @@ private:
 	int m_bgHandle;
 	int m_clearHandle;
 	int m_rank;
-	int m_gameoverFrameCount;
+	int m_gameOverFrameCount;
 	Player m_player;
 	Stage m_stage;
 	Timer m_timer;
