@@ -116,7 +116,6 @@ void Stage::Update(Player* player, Score* score)
 				if (player->GetLeft() >= w * kChipWidth && player->GetLeft() <= w * kChipWidth + kChipWidth
 					&& player->GetBottom() >= h * kChipHeight - m_AllChipHeight && player->GetBottom() <= h * kChipHeight + kChipHeight - m_AllChipHeight)
 				{
-					//printfDx("着地");
 					float chipTop = h * kChipHeight - m_AllChipHeight;
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
 					hitBottom = false;

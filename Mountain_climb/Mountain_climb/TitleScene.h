@@ -24,6 +24,7 @@ private:
 	Vec2 m_pos;
 	int m_scalingX;
 	int m_scalingY;
-	int m_gameOverFrameCount;
+	int m_fadeFrameCount;
+	int m_bgmHandle;
 };
 

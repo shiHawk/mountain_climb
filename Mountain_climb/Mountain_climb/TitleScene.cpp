@@ -33,6 +33,10 @@ namespace
 	constexpr int kGameOverFadeFrame = 60;
 
 	bool isFadeStart = false;
+
+	constexpr int kBlinkFrame = 40;
+	constexpr int kBlinkCycle = 60;
+	int seCount = 0;
 }
 
 TitleScene::TitleScene():
@@ -46,7 +50,8 @@ TitleScene::TitleScene():
 	m_pos(80,330),
 	m_scalingX(281),
 	m_scalingY(77),
-	m_gameOverFrameCount(0)
+	m_fadeFrameCount(0),
+	m_bgmHandle(0)
 {
 }
 
@@ -59,6 +64,8 @@ void TitleScene::Init()
 	m_titleHandle = LoadGraph("data/image/title.png");
 	m_buttonHandle = LoadGraph("data/image/button2.png");
 	m_handleIdle = LoadGraph("data/image/Idle .png");
+	m_bgmHandle = LoadSoundMem("data/image/titlebgm.mp3");
+	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
 	isFadeStart = false;
 }
 
@@ -67,10 +74,16 @@ void TitleScene::End()
 	DeleteGraph(m_titleHandle);
 	DeleteGraph(m_buttonHandle);
 	DeleteGraph(m_handleIdle);
+	DeleteSoundMem(m_bgmHandle);
 }
 
 SceneManager::SceneKind TitleScene::Update()
 {
+	m_blinkCount++;
+	if (m_blinkCount > kBlinkCycle)
+	{
+		m_blinkCount = 0;
+	}
 	m_animFrame++;
 	int totalFrame = kIdleAnimNum * kSingleAnimFrame;
 	if (m_animFrame >= totalFrame)
@@ -102,15 +115,17 @@ SceneManager::SceneKind TitleScene::Update()
 	m_pos += m_velocity;
 	if (isFadeStart)
 	{
-		m_gameOverFrameCount += 3;
+		m_fadeFrameCount += 3;
 	}
 
 	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
 	{
 		isFadeStart = true;
-		if (m_gameOverFrameCount > kFadeOutFrame)
+		m_blinkCount = 1;
+
+		if (m_fadeFrameCount > kFadeOutFrame)
 		{
-			m_gameOverFrameCount = kGameOverFadeFrame;
+			m_fadeFrameCount = kGameOverFadeFrame;
 			return SceneManager::SceneKind::kSceneMain;
 		}
 	}
@@ -121,7 +136,10 @@ void TitleScene::Draw()
 {
 	int animNo = m_animFrame / kSingleAnimFrame;
 	DrawGraph(kTitlePosX, kTitlePosY, m_titleHandle,true);
-	DrawGraph(kButtonPosX, kButtonPosY, m_buttonHandle, true);
+	if (m_blinkCount < kBlinkFrame)
+	{
+		DrawGraph(kButtonPosX, kButtonPosY, m_buttonHandle, true);
+	}
 	DrawRectGraph(m_pos.x, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handleIdle, true, false);
@@ -130,8 +148,7 @@ void TitleScene::Draw()
 		m_handleIdle, true, true);
 
 	// フェード処理
-	int fadeAlpha = m_gameOverFrameCount;
-	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
+	int fadeAlpha = m_fadeFrameCount;
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);

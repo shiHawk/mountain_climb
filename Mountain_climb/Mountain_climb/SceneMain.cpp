@@ -35,7 +35,8 @@ void SceneMain::Init()
 	m_bgmHandle = LoadSoundMem("data/image/bgm.mp3");
 	m_lifeHandle = LoadGraph("data/image/Idle .png");
 	m_lifeBackHandle = LoadGraph("data/image/LifeBack.png");
-
+	m_gameOverHandle = LoadGraph("data/image/gameover.png");
+	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
 	for (int i = 0; i < 3; i++)
 	{
 		m_life[i].Init();
@@ -64,6 +65,7 @@ void SceneMain::End()
 SceneManager::SceneKind SceneMain::Update()
 {
 	m_fadeFrameCount++;
+	
 	if (m_fadeFrameCount > 30)
 	{
 		m_fadeFrameCount = 0;
@@ -79,7 +81,7 @@ SceneManager::SceneKind SceneMain::Update()
 	{
 		m_life[i].Update();
 	}
-	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
+	
 	
 	// プレイヤーと敵の当たり判定
 	bool isPlayerHit = false;
@@ -172,6 +174,7 @@ void SceneMain::Draw()
 	// ゲームオーバーの表示
 	if (m_player.GetPlayerHp() <= 0)
 	{
+		
 		// 0~60の間で変化するm_gameoverFrameCountを
 		// 0~255の値に変換する必要がある
 
@@ -200,4 +203,8 @@ void SceneMain::Draw()
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	if (m_player.GetPlayerHp() <= 0)
+	{
+		DrawGraph(125, 125, m_gameOverHandle, true);
+	}
 }

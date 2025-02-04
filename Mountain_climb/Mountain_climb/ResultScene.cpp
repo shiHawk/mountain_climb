@@ -24,21 +24,28 @@ namespace
 
 	// 表示するテキストの位置
 	constexpr int kTextPosX = 120;
-	constexpr int kTextPosY = 400;
-	constexpr int kRankPosX = 330;
-	constexpr int kRankPosY = 315;
+	constexpr int kTextPosY = 448;
+	constexpr int kRankPosX = 300;
+	constexpr int kRankPosY = 400;
 	constexpr int kClearPosX = 20;
 	constexpr int kClearPosY = 70;
 	constexpr int kStageTextPosX = 250;
-	constexpr int kStageTextPosY = 10;
-	constexpr int kBlockTextPosY = 205;
-	constexpr int kTimeTextPosY = 145;
-	constexpr int kScoreTextPosY = 260;
+	constexpr int kStageTextPosY = 20;
+	constexpr int kBlockTextPosY = 200;
+	constexpr int kTimeTextPosY = 100;
+	constexpr int kScoreTextPosY = 300;
+
+	constexpr int kBlockTextStage3PosY = 160;
+	constexpr int kTimeTextStage3PosY = 250;
+	constexpr int kScoreTextStage3PosY = 340;
 
 	bool isFadeStart = false;
 	constexpr int kFadeOutFrame = 255;
 	constexpr int kGameOverFadeFrame = 60;
 
+	// 点滅用
+	constexpr int kBlinkFrame = 40;
+	constexpr int kBlinkCycle = 60;
 }
 
 ResultScene::ResultScene():
@@ -50,7 +57,9 @@ ResultScene::ResultScene():
 	m_rank(0),
 	m_fontRankHandle(0),
 	m_clearHandle(0),
-	m_gameOverFrameCount(0)
+	m_gameOverFrameCount(0),
+	m_blinkCount(0),
+	m_bgmHandle(0)
 {
 }
 
@@ -61,10 +70,12 @@ ResultScene::~ResultScene()
 void ResultScene::Init()
 {
 	m_fontHandle = CreateFontToHandle("Elephant", 32, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
-	m_fontScoreHandle = CreateFontToHandle("Elephant", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
-	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", 64, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontScoreHandle = CreateFontToHandle("Elephant", 48, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", 48, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_bgHandle = LoadGraph("data/image/bg.png");
 	m_clearHandle = LoadGraph("data/image/gameclear.png");
+	m_bgmHandle = LoadSoundMem("data/image/resultbgm.mp3");
+	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
 	bgX = 0;
 	bgY = 0;
 	isFadeStart = false;
@@ -77,11 +88,17 @@ void ResultScene::End()
 	DeleteFontToHandle(m_fontRankHandle);
 	DeleteGraph(m_bgHandle);
 	DeleteGraph(m_clearHandle);
+	DeleteSoundMem(m_bgmHandle);
 }
 
 SceneManager::SceneKind ResultScene::Update(Stage* stage)
 {
 	bgX -= scrollSpeed;
+	m_blinkCount++;
+	if (m_blinkCount > kBlinkCycle)
+	{
+		m_blinkCount = 0;
+	}
 
 	if (isFadeStart)
 	{
@@ -91,6 +108,7 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 	if (Pad::IsTrigger(PAD_INPUT_1)|| isFadeStart)
 	{
 		isFadeStart = true;
+		m_blinkCount = 1;
 		if (m_gameOverFrameCount > kFadeOutFrame)
 		{
 			changeScene++;
@@ -126,36 +144,46 @@ void ResultScene::Draw()
 		remainingTimeBounus = 0;
 	}
 
+	if (stageNumber == 3)
+	{
+		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);
+		DrawFormatStringToHandle(kTextPosX, kTimeTextStage3PosY, 0xba55d3, m_fontScoreHandle, "Time  %d", remainingTimeBounus);
+		DrawFormatStringToHandle(kTextPosX, kBlockTextStage3PosY, 0xba55d3, m_fontScoreHandle, "Block %04d", blockBonus);
+		DrawFormatStringToHandle(kTextPosX, kScoreTextStage3PosY, 0xba55d3, m_fontScoreHandle, "Score %d", m_score);
+	}
+	else
+	{
+		DrawFormatStringToHandle(kTextPosX, kTimeTextPosY, 0xba55d3, m_fontScoreHandle, "Time  %d", remainingTimeBounus);
+		DrawFormatStringToHandle(kTextPosX, kBlockTextPosY, 0xba55d3, m_fontScoreHandle, "Block %04d", blockBonus);
+		DrawFormatStringToHandle(kTextPosX, kScoreTextPosY, 0xba55d3, m_fontScoreHandle, "Score %d", m_score);
+	}
+	DrawFormatStringToHandle(kStageTextPosX, kStageTextPosY, 0xf0f8ff, m_fontHandle, "Stage %d", stageNumber);
+
 	if (m_score >= kARankCriteria && m_player.IsNoDamage())
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xba55d3, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xffd700, m_fontRankHandle, "S");
 	}
 	else if (m_score >= kARankCriteria)
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xba55d3, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0xdc143c, m_fontRankHandle, "A");
 	}
 	else if (m_score >= kBRankCriteria)
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xba55d3, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x4682b4, m_fontRankHandle, "B");
 	}
 	else
 	{
-		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xf0f8ff, m_fontRankHandle, "Rank");
+		DrawFormatStringToHandle(kTextPosX, kRankPosY, 0xba55d3, m_fontRankHandle, "Rank");
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x98fb98, m_fontRankHandle, "C");
 	}
 	
-	DrawFormatStringToHandle(kStageTextPosX, kStageTextPosY, 0xf0f8ff, m_fontHandle, "Stage %d", stageNumber);
-	if (stageNumber == 3)
+	if (m_blinkCount < kBlinkFrame)
 	{
-		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);
+		DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Button");
 	}
-	DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Button");
-	DrawFormatStringToHandle(kTextPosX, kBlockTextPosY, 0xba55d3, m_fontScoreHandle, "Block:%d",blockBonus);
-	DrawFormatStringToHandle(kTextPosX, kTimeTextPosY, 0xba55d3, m_fontScoreHandle, "Time:%d", remainingTimeBounus);
-	DrawFormatStringToHandle(kTextPosX, kScoreTextPosY, 0xba55d3,m_fontScoreHandle,"Score:%d",m_score);
 
 	// フェード処理
 	int fadeAlpha = m_gameOverFrameCount;
