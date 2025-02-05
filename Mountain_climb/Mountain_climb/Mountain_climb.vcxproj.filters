@@ -126,7 +126,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Downloads\icon.ico">
+    <Image Include="data\image\icon.ico">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>

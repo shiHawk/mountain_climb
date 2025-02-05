@@ -94,11 +94,11 @@ SceneManager::SceneKind SceneMain::Update()
 		m_player.End();
 		m_gameoverFrameCount += 1;
 		return SceneManager::SceneKind::kTitleScene;
-		if (m_gameoverFrameCount > kFadeOutFrame)
+		/*if (m_gameoverFrameCount > kFadeOutFrame)
 		{
 			m_gameoverFrameCount = kGameOverFadeFrame;
 			
-		}
+		}*/
 	}
 
 	for (int i = 0; i < kEnemyNum; i++)
@@ -176,9 +176,9 @@ void SceneMain::Draw()
 	int fadeAlpha = m_gameoverFrameCount;
 	// m_fadeFrameaCount = 0‚ÌŽžfadeAlpha = 255 ^‚Á•
 
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
+	/*SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, GetColor(0, 0, 0), true);
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);*/
 	if (m_player.GetPlayerHp() <= 0)
 	{
 		DrawGraph(125, 125, m_gameOverHandle, true);

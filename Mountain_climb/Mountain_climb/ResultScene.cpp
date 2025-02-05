@@ -139,11 +139,15 @@ void ResultScene::Draw()
 	int blockBonus = m_stage.BrokenBlock();
 	int remainingTimeBounus = kPoints - m_timer.RemainingTime();
 	m_score = blockBonus + remainingTimeBounus;
+	
 	if (kPoints - m_timer.RemainingTime() < 0)
 	{
 		remainingTimeBounus = 0;
 	}
-
+	if (m_score < 0)
+	{
+		m_score = blockBonus;
+	}
 	if (stageNumber == 3)
 	{
 		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);

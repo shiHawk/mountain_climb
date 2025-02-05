@@ -182,7 +182,7 @@
     <ResourceCompile Include="Mountain_climb.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Downloads\icon.ico" />
+    <Image Include="data\image\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -133,7 +133,11 @@ void Player::Update()
 
 	// 左右にキャラクターを動かす
 	m_isRun = false;
-	if (Pad::IsPress(KEY_INPUT_LEFT))
+	if (Pad::IsPress(KEY_INPUT_UP))
+	{
+
+	}
+	else if (Pad::IsPress(KEY_INPUT_LEFT))
 	{
 		// 左キーを押しているときの処理
 		m_velocity.x -= kSpeed;
