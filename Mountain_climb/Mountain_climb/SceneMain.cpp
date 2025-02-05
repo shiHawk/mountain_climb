@@ -92,11 +92,12 @@ SceneManager::SceneKind SceneMain::Update()
 	if (m_player.GetPlayerHp() <= 0)
 	{
 		m_player.End();
-		m_gameoverFrameCount += 2;
+		m_gameoverFrameCount += 1;
+		return SceneManager::SceneKind::kTitleScene;
 		if (m_gameoverFrameCount > kFadeOutFrame)
 		{
 			m_gameoverFrameCount = kGameOverFadeFrame;
-			return SceneManager::SceneKind::kTitleScene;
+			
 		}
 	}
 
@@ -169,31 +170,6 @@ void SceneMain::Draw()
 	for (int i = 0; i < m_player.GetPlayerHp(); i++)
 	{
 		m_life[i].Draw();
-	}
-
-	// ゲームオーバーの表示
-	if (m_player.GetPlayerHp() <= 0)
-	{
-		
-		// 0~60の間で変化するm_gameoverFrameCountを
-		// 0~255の値に変換する必要がある
-
-		// 割合を使用して変換を行う
-		// m_gameoverFrameCountを進行割合に変換する
-		float progressRate = static_cast<float>(m_gameoverFrameCount) / kGameOverFadeFrame;
-
-		// 割合を実際の透明度に変換する
-		int alpha = static_cast <int>(255 * progressRate);
-
-		// ここ以降に呼ばれるDraw関数の描画方法を変更する
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
-
-		/*int width = GetDrawStringWidthToHandle("GAME OVER", strlen("GAME OVER"), m_fontHandle);
-		DrawStringToHandle(Game::kScreenWidth / 2 - width / 2, Game::kScreenHeight / 2 - 64 / 2,
-			"GAME OVER", GetColor(255, 0, 0), m_fontHandle);*/
-
-		// 以降の表示がおかしくならないように元の設定に戻しておく
-		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 
 	// フェード処理

@@ -26,5 +26,6 @@ private:
 	int m_scalingY;
 	int m_fadeFrameCount;
 	int m_bgmHandle;
+	int m_valume;
 };
 

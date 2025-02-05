@@ -26,6 +26,7 @@ private:
 	int m_gameOverFrameCount;
 	int m_blinkCount;
 	int m_bgmHandle;
+	int m_valume;
 	int m_seHandle;
 	Player m_player;
 	Stage m_stage;

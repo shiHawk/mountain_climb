@@ -37,6 +37,7 @@ namespace
 	constexpr int kBlinkFrame = 40;
 	constexpr int kBlinkCycle = 60;
 	int seCount = 0;
+	int maxVolume = 255;
 }
 
 TitleScene::TitleScene():
@@ -51,7 +52,8 @@ TitleScene::TitleScene():
 	m_scalingX(281),
 	m_scalingY(77),
 	m_fadeFrameCount(0),
-	m_bgmHandle(0)
+	m_bgmHandle(0),
+	m_valume(0)
 {
 }
 
@@ -65,6 +67,7 @@ void TitleScene::Init()
 	m_buttonHandle = LoadGraph("data/image/button2.png");
 	m_handleIdle = LoadGraph("data/image/Idle .png");
 	m_bgmHandle = LoadSoundMem("data/image/titlebgm.mp3");
+	ChangeVolumeSoundMem(maxVolume - m_valume, m_bgmHandle);
 	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
 	isFadeStart = false;
 }
@@ -79,6 +82,7 @@ void TitleScene::End()
 
 SceneManager::SceneKind TitleScene::Update()
 {
+	ChangeVolumeSoundMem(maxVolume - m_valume, m_bgmHandle);
 	m_blinkCount++;
 	if (m_blinkCount > kBlinkCycle)
 	{
@@ -115,7 +119,9 @@ SceneManager::SceneKind TitleScene::Update()
 	m_pos += m_velocity;
 	if (isFadeStart)
 	{
+		m_valume += 3;
 		m_fadeFrameCount += 3;
+		
 	}
 
 	if (Pad::IsTrigger(PAD_INPUT_1) || isFadeStart)
@@ -123,7 +129,7 @@ SceneManager::SceneKind TitleScene::Update()
 		isFadeStart = true;
 		m_blinkCount = 1;
 
-		if (m_fadeFrameCount > kFadeOutFrame)
+		if (m_fadeFrameCount > kFadeOutFrame && m_valume > kFadeOutFrame)
 		{
 			m_fadeFrameCount = kGameOverFadeFrame;
 			return SceneManager::SceneKind::kSceneMain;

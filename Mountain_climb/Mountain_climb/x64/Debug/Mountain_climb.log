@@ -1,8 +1,39 @@
-﻿  SceneManager.cpp
+﻿  Camera.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Camera.h(3,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  Enemy.cpp
+  (ソース ファイル 'Camera.cpp' をコンパイルしています)
+  
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Camera.h(3,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  (ソース ファイル 'Enemy.cpp' をコンパイルしています)
+  
+  EnemyData.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\EnemyData.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.pdb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  FlyEnemy.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\FlyEnemy.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.pdb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  Goal.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Goal.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.idb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  Life.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Life.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.idb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  main.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\main.cpp(1,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  Pad.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Pad.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.pdb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  Player.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Player.cpp(2,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  ResultScene.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\ResultScene.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.idb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  SceneMain.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\SceneMain.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.idb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  SceneManager.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\SceneManager.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.pdb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  Score.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Score.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.pdb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
+  Stage.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Camera.h(3,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  (ソース ファイル 'Stage.cpp' をコンパイルしています)
+  
+  Timer.cpp
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\Timer.cpp(2,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
   TitleScene.cpp
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(150,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(150,21): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(153,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(153,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\TitleScene.cpp(1,1): error C1041: プログラム データベース 'C:\Users\opencampus\Documents\GitHub\mountain_climb\Mountain_climb\Mountain_climb\x64\Debug\vc143.idb' を開けません。複数の CL.EXE が同じ .PDB ファイルに書き込む場合、/FS を使用してください。
   コードを生成中...
-  Mountain_climb.vcxproj -> C:\Users\fko2447002\Documents\GitHub\mountain_climb\Mountain_climb\x64\Debug\Mountain_climb.exe
