@@ -22,6 +22,7 @@ public:
 	float PlayerAirPos();
 	bool FallFlag();
 	bool IsDir();
+	bool IsRun();
 	void OnDamage();
 	void InstanceDeath();
 	int GetPlayerHp();

@@ -120,7 +120,7 @@ void Stage::Update(Player* player, Score* score)
 					player->Landing(player->GetBottom() - chipTop);// マップチップとプレイヤーの重なった分だけ上にずらす
 					hitBottom = false;
 					player->OnCollideY();
-					if (chipNo > 109 && chipNo < 113)
+					if (chipNo > 109 && chipNo < 113 && player->IsRun())
 					{
 						if (player->IsDir())
 						{
@@ -260,4 +260,9 @@ void Stage::ChangeStage()
 	{
 		stageSwitch = 0;
 	}
+}
+
+void Stage::ResetStage()
+{
+	stageSwitch = 0;
 }

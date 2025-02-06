@@ -41,7 +41,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// ‰æ–Ê‚ÌØ‚è‘Ö‚í‚è‚ğ‘Ò‚Â•K—v‚ª‚ ‚é
 		ScreenFlip();		// 1/60•bŒo‰ß‚·‚é‚Ü‚Å‘Ò‚Â
-		
+		if (CheckHitKey(KEY_INPUT_ESCAPE))
+		{
+			break;
+		}
 		// FPS60‚ÉŒÅ’è
 		while (GetNowHiPerformanceCount() - time < 16667)
 		{

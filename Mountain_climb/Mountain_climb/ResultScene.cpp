@@ -17,13 +17,13 @@ namespace
 	int scrollSpeed = 1;
 
 	// 持ち点
-	constexpr int kPoints = 3000;
+	constexpr int kPoints = 4000;
 	// ランクの基準
-	constexpr int kARankCriteria = 2250;
+	constexpr int kARankCriteria = 2000;
 	constexpr int kBRankCriteria = 1500;
 
 	// 表示するテキストの位置
-	constexpr int kTextPosX = 120;
+	constexpr int kTextPosX = 80;
 	constexpr int kTextPosY = 448;
 	constexpr int kRankPosX = 300;
 	constexpr int kRankPosY = 400;
@@ -40,6 +40,7 @@ namespace
 	constexpr int kScoreTextStage3PosY = 340;
 
 	bool isFadeStart = false;
+	bool isFadeStart2 = false;
 	constexpr int kFadeOutFrame = 255;
 	constexpr int kGameOverFadeFrame = 60;
 
@@ -79,6 +80,7 @@ void ResultScene::Init()
 	bgX = 0;
 	bgY = 0;
 	isFadeStart = false;
+	isFadeStart2 = false;
 }
 
 void ResultScene::End()
@@ -103,6 +105,24 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 	if (isFadeStart)
 	{
 		m_gameOverFrameCount += 5;
+	}
+
+	if (isFadeStart2)
+	{
+		m_gameOverFrameCount += 5;
+	}
+
+	if (Pad::IsTrigger(PAD_INPUT_2) || isFadeStart2)
+	{
+		isFadeStart2 = true;
+		m_blinkCount = 1;
+		if (m_gameOverFrameCount > kFadeOutFrame)
+		{
+			stageNumber = 1;
+			stage->ResetStage();
+			m_gameOverFrameCount = kGameOverFadeFrame;
+			return SceneManager::SceneKind::kTitleScene;
+		}
 	}
 	
 	if (Pad::IsTrigger(PAD_INPUT_1)|| isFadeStart)
@@ -184,9 +204,15 @@ void ResultScene::Draw()
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x98fb98, m_fontRankHandle, "C");
 	}
 	
-	if (m_blinkCount < kBlinkFrame)
+	if (m_blinkCount < kBlinkFrame && stageNumber == 3)
 	{
-		DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Button");
+		DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Title");
+		DrawFormatStringToHandle(380, kTextPosY, 0xf0f8ff, m_fontHandle, "Press B Title");
+	}
+	else if (m_blinkCount < kBlinkFrame)
+	{
+		DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Next");
+		DrawFormatStringToHandle(350, kTextPosY, 0xf0f8ff, m_fontHandle, "Press B Title");
 	}
 
 	// フェード処理

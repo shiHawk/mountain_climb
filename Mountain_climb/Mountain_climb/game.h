@@ -7,5 +7,5 @@ namespace Game
 	constexpr int kScreenHeight = 480;
 	constexpr int kColorBitNum = 32;
 
-	constexpr bool kDefaultWindowMode = true;
+	constexpr bool kDefaultWindowMode = false;
 }

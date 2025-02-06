@@ -330,6 +330,11 @@ bool Player::IsDir()
 	}
 }
 
+bool Player::IsRun()
+{
+	return m_isRun;
+}
+
 int Player::GetPlayerHp()
 {
 	return m_hp;
