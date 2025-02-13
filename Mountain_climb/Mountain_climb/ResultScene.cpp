@@ -8,12 +8,14 @@ namespace
 	int changeScene = 1;
 	int stageNumber = 1;
 	bool returnTitle = false;
+
 	// 背景の位置
 	int bgX = 0;
 	int bgY = 0;
 	// 背景の幅
 	constexpr int kBgWidth = 1000;
 	constexpr int kBgHeight = 1000;
+	// 背景のスクロール速度
 	int scrollSpeed = 1;
 
 	// 持ち点
@@ -34,7 +36,6 @@ namespace
 	constexpr int kBlockTextPosY = 200;
 	constexpr int kTimeTextPosY = 100;
 	constexpr int kScoreTextPosY = 300;
-
 	constexpr int kBlockTextStage3PosY = 160;
 	constexpr int kTimeTextStage3PosY = 250;
 	constexpr int kScoreTextStage3PosY = 340;
@@ -42,25 +43,28 @@ namespace
 	bool isFadeStart = false;
 	bool isFadeStart2 = false;
 	constexpr int kFadeOutFrame = 255;
-	constexpr int kGameOverFadeFrame = 60;
+	constexpr int kFadeFrame = 60;
 
 	// 点滅用
 	constexpr int kBlinkFrame = 40;
 	constexpr int kBlinkCycle = 60;
+
+	// 増分
+	constexpr int kIncremental = 5;
 }
 
 ResultScene::ResultScene():
 	m_score(0),
-	m_handle(-1),
 	m_fontHandle(0),
 	m_fontScoreHandle(0),
 	m_bgHandle(0),
 	m_rank(0),
 	m_fontRankHandle(0),
 	m_clearHandle(0),
-	m_gameOverFrameCount(0),
+	m_FadeFrameCount(0),
 	m_blinkCount(0),
-	m_bgmHandle(0)
+	m_bgmHandle(0),
+	m_valume(0)
 {
 }
 
@@ -104,23 +108,23 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 
 	if (isFadeStart)
 	{
-		m_gameOverFrameCount += 5;
+		m_FadeFrameCount += kIncremental;
 	}
 
 	if (isFadeStart2)
 	{
-		m_gameOverFrameCount += 5;
+		m_FadeFrameCount += kIncremental;
 	}
 
 	if (Pad::IsTrigger(PAD_INPUT_2) || isFadeStart2)
 	{
 		isFadeStart2 = true;
 		m_blinkCount = 1;
-		if (m_gameOverFrameCount > kFadeOutFrame)
+		if (m_FadeFrameCount > kFadeOutFrame)
 		{
 			stageNumber = 1;
 			stage->ResetStage();
-			m_gameOverFrameCount = kGameOverFadeFrame;
+			m_FadeFrameCount = kFadeFrame;
 			return SceneManager::SceneKind::kTitleScene;
 		}
 	}
@@ -129,13 +133,13 @@ SceneManager::SceneKind ResultScene::Update(Stage* stage)
 	{
 		isFadeStart = true;
 		m_blinkCount = 1;
-		if (m_gameOverFrameCount > kFadeOutFrame)
+		if (m_FadeFrameCount > kFadeOutFrame)
 		{
 			changeScene++;
 			stage->ChangeStage();
 			stageNumber++;
 			returnTitle = false;
-			m_gameOverFrameCount = kGameOverFadeFrame;
+			m_FadeFrameCount = kFadeFrame;
 			if (stageNumber > 3)
 			{
 				changeScene = 1;
@@ -216,7 +220,7 @@ void ResultScene::Draw()
 	}
 
 	// フェード処理
-	int fadeAlpha = m_gameOverFrameCount;
+	int fadeAlpha = m_FadeFrameCount;
 	// m_fadeFrameaCount = 0の時fadeAlpha = 255 真っ黒
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);

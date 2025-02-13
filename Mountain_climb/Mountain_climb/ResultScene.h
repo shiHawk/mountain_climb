@@ -15,19 +15,26 @@ public:
 	SceneManager::SceneKind Update(Stage* stage);
 	void Draw();
 private:
-	int m_score;
-	int m_handle;
+	// •\¦•¶šŠÖŒW
 	int m_fontHandle;
 	int m_fontScoreHandle;
 	int m_fontRankHandle;
-	int m_bgHandle;
 	int m_clearHandle;
-	int m_rank;
-	int m_gameOverFrameCount;
-	int m_blinkCount;
+
+	// ”wŒi
+	int m_bgHandle;
+	
+	// BGMŠÖŒW
 	int m_bgmHandle;
 	int m_valume;
-	int m_seHandle;
+
+	// ƒXƒRƒAŠÖŒW
+	int m_score;
+	int m_rank;
+
+	int m_FadeFrameCount;
+	int m_blinkCount;
+	
 	Player m_player;
 	Stage m_stage;
 	Timer m_timer;

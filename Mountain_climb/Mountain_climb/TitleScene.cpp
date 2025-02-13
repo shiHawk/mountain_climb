@@ -27,30 +27,31 @@ namespace
 	constexpr int kButtonPosY = 380;
 
 	// 2体目のキャラの位置
-	constexpr int KAnotherOnePos = 458;
+	constexpr int kAnotherOnePos = 458;
 
 	constexpr int kFadeOutFrame = 255;
-	constexpr int kGameOverFadeFrame = 60;
+	constexpr int kFadeFrame = 60;
 
 	bool isFadeStart = false;
 
 	constexpr int kBlinkFrame = 40;
 	constexpr int kBlinkCycle = 60;
-	int seCount = 0;
+
 	int maxVolume = 255;
+
+	// 増分
+	constexpr int kIncremental = 3;
 }
 
 TitleScene::TitleScene():
 	m_titleHandle(-1),
 	m_buttonHandle(-1),
 	m_blinkCount(0),
-	m_handleIdle(-1),
+	m_characterHandle(-1),
 	m_animFrame(0),
 	m_isJump(false),
 	m_jumpSpeed(0),
 	m_pos(80,330),
-	m_scalingX(281),
-	m_scalingY(77),
 	m_fadeFrameCount(0),
 	m_bgmHandle(0),
 	m_valume(0)
@@ -65,7 +66,7 @@ void TitleScene::Init()
 {
 	m_titleHandle = LoadGraph("data/image/title.png");
 	m_buttonHandle = LoadGraph("data/image/button2.png");
-	m_handleIdle = LoadGraph("data/image/Idle .png");
+	m_characterHandle = LoadGraph("data/image/Idle .png");
 	m_bgmHandle = LoadSoundMem("data/image/titlebgm.mp3");
 	ChangeVolumeSoundMem(maxVolume - m_valume, m_bgmHandle);
 	PlaySoundMem(m_bgmHandle, DX_PLAYTYPE_LOOP);
@@ -76,7 +77,7 @@ void TitleScene::End()
 {
 	DeleteGraph(m_titleHandle);
 	DeleteGraph(m_buttonHandle);
-	DeleteGraph(m_handleIdle);
+	DeleteGraph(m_characterHandle);
 	DeleteSoundMem(m_bgmHandle);
 }
 
@@ -119,8 +120,8 @@ SceneManager::SceneKind TitleScene::Update()
 	m_pos += m_velocity;
 	if (isFadeStart)
 	{
-		m_valume += 3;
-		m_fadeFrameCount += 3;
+		m_valume += kIncremental;
+		m_fadeFrameCount += kIncremental;
 		
 	}
 
@@ -131,7 +132,7 @@ SceneManager::SceneKind TitleScene::Update()
 
 		if (m_fadeFrameCount > kFadeOutFrame && m_valume > kFadeOutFrame)
 		{
-			m_fadeFrameCount = kGameOverFadeFrame;
+			m_fadeFrameCount = kFadeFrame;
 			return SceneManager::SceneKind::kSceneMain;
 		}
 	}
@@ -148,10 +149,10 @@ void TitleScene::Draw()
 	}
 	DrawRectGraph(m_pos.x, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
-		m_handleIdle, true, false);
-	DrawRectGraph(m_pos.x + KAnotherOnePos, m_pos.y,
+		m_characterHandle, true, false);
+	DrawRectGraph(m_pos.x + kAnotherOnePos, m_pos.y,
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
-		m_handleIdle, true, true);
+		m_characterHandle, true, true);
 
 	// フェード処理
 	int fadeAlpha = m_fadeFrameCount;

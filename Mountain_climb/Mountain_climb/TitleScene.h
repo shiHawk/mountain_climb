@@ -10,21 +10,25 @@ public:
 	SceneManager::SceneKind Update();
 	void Draw();
 private:
+	// グラフィックハンドル
+	int m_characterHandle;
 	int m_titleHandle;
 	int m_buttonHandle;
-	int m_blinkCount;
-	// グラフィックハンドル
-	int m_handleIdle;
+
 	// アニメーション関連
 	int m_animFrame;	// フレーム数を数える
+	int m_blinkCount;
+
 	// ジャンプ処理
-	bool m_isJump;
+	bool  m_isJump;
 	float m_jumpSpeed;
+
 	Vec2 m_velocity;
 	Vec2 m_pos;
-	int m_scalingX;
-	int m_scalingY;
+
 	int m_fadeFrameCount;
+
+	// BGM関連
 	int m_bgmHandle;
 	int m_valume;
 };

@@ -5,7 +5,7 @@
 namespace
 {
 	// ゲームオーバーの文字が表示されるまでのフレーム数
-	constexpr int kGameOverFadeFrame = 60;
+	constexpr int kFadeFrame = 60;
 	constexpr int kFadeOutFrame = 255;
 }
 
