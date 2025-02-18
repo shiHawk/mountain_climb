@@ -144,7 +144,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyData.cpp" />
-    <ClCompile Include="FlyEnemy.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
@@ -162,7 +161,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyData.h" />
-    <ClInclude Include="FlyEnemy.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Life.h" />
