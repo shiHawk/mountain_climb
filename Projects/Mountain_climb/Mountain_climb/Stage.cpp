@@ -65,7 +65,7 @@ void Stage::End()
 	DeleteFontToHandle(m_fontHandle);
 }
 
-void Stage::Update(Player* player, Score* score)
+void Stage::Update(Player* player)
 {
 	for (int h = 0; h < kChipNumY; h++)
 	{

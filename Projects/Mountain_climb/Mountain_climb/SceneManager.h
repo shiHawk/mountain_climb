@@ -1,5 +1,4 @@
 #pragma once
-#include"Score.h"
 #include "Stage.h"
 
 class TitleScene;

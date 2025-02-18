@@ -1,6 +1,5 @@
 #pragma once
 #include "SceneManager.h"
-#include "Score.h"
 #include "Stage.h"
 #include "Player.h"
 #include "Timer.h"

@@ -70,7 +70,7 @@ SceneManager::SceneKind SceneMain::Update()
 	{
 		m_fadeFrameCount = 0;
 	}
-	m_stage.Update(&m_player,&m_score);
+	m_stage.Update(&m_player);
 	m_player.Update();
 	m_enemyData.Update();
 	m_camera.Update(&m_player);

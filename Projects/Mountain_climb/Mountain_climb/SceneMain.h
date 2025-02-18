@@ -7,7 +7,6 @@
 #include "Camera.h"
 #include "Goal.h"
 #include "Life.h"
-#include "Score.h"
 #include "Timer.h"
 
 class SceneMain
@@ -36,7 +35,6 @@ private:
 	Camera m_camera;
 	Goal m_goal;
 	Life m_life[3];
-	Score m_score;
 	Timer m_timer;
 };
 
