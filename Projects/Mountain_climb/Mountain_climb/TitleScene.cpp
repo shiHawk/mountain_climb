@@ -29,14 +29,17 @@ namespace
 	// 2体目のキャラの位置
 	constexpr int kAnotherOnePos = 458;
 
+	// フェード関連
 	constexpr int kFadeOutFrame = 255;
 	constexpr int kFadeFrame = 60;
-
+	// フェードが始まっているか
 	bool isFadeStart = false;
 
+	// 点滅サイクル
 	constexpr int kBlinkFrame = 40;
 	constexpr int kBlinkCycle = 60;
 
+	// 最大音量
 	int maxVolume = 255;
 
 	// 増分

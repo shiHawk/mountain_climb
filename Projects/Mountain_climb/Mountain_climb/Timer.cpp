@@ -5,6 +5,8 @@ namespace
 {
 	// 経過した時間
 	int elapsedTime = 0;
+
+	// タイマーの表示場所
 	constexpr int kTimerPosX = 270;
 	constexpr int kTimerPosY = 10;
 }

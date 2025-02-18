@@ -32,7 +32,7 @@ namespace
 	constexpr float kMaxSpeed = 2.6f;
 
 	// ジャンプ処理
-	constexpr float kJumpPower = -9.6f;	// ジャンプの初速
+	constexpr float kJumpPower = -9.6f;	
 	// 重力
 	float kJumpGravity = 0.4f;	
 	float kGravity = 0.5f;
@@ -43,6 +43,7 @@ namespace
 	constexpr float kLeftWall = 64.0f;
 	constexpr float kRightWall = 96.0f;
 
+	// 無傷かどうかの判定
 	bool isNoDamage = true;
 }
 

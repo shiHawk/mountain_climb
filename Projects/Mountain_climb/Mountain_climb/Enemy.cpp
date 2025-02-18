@@ -8,7 +8,6 @@ namespace
 	constexpr int kGraphHeight = 30;
 	constexpr int kAnimNum = 7;
 	constexpr int kSingleAnimFrame = 4;
-	int kTemp;
 }
 
 Enemy::Enemy():
@@ -25,7 +24,6 @@ Enemy::~Enemy()
 
 void Enemy::Init(Vec2 pos, float speed)
 {
-	kTemp = GetRand(1);
 	m_pos = pos;
 	m_StartPos = pos;
 	m_speed = speed;
@@ -66,11 +64,13 @@ void Enemy::Draw(Camera* camera)
 		animNo * kGraphWidth, 0, kGraphWidth, kGraphHeight,
 		m_handle, true, m_isRightDir);
 
+	// 右から左に出て行った場合
 	if (m_isRightDir && m_pos.x > Game::kScreenWidth)
 	{
 		m_pos = m_StartPos;
 		m_isRightDir = false;
 	}
+	// 左から右に出て行った場合
 	if (!m_isRightDir && m_pos.x < -kGraphWidth)
 	{
 		m_pos.x = -kGraphWidth;

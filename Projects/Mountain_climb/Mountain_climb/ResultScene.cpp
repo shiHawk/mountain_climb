@@ -51,6 +51,10 @@ namespace
 
 	// 増分
 	constexpr int kIncremental = 5;
+
+	// フォントのサイズ
+	constexpr int kFontSize = 32;
+	constexpr int kScoreFontSize = 48;
 }
 
 ResultScene::ResultScene():
@@ -74,9 +78,9 @@ ResultScene::~ResultScene()
 
 void ResultScene::Init()
 {
-	m_fontHandle = CreateFontToHandle("Elephant", 32, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
-	m_fontScoreHandle = CreateFontToHandle("Elephant", 48, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
-	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", 48, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontHandle = CreateFontToHandle("Elephant", kFontSize, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontScoreHandle = CreateFontToHandle("Elephant", kScoreFontSize, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
+	m_fontRankHandle = CreateFontToHandle("Bodoni MT Black", kScoreFontSize, -1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8);
 	m_bgHandle = LoadGraph("data/image/bg.png");
 	m_clearHandle = LoadGraph("data/image/gameclear.png");
 	m_bgmHandle = LoadSoundMem("data/image/resultbgm.mp3");
@@ -160,10 +164,12 @@ void ResultScene::Draw()
 	}
 	DrawGraph(bgX, bgY, m_bgHandle, true);
 	DrawGraph(bgX+kBgWidth, 0, m_bgHandle, true);
+
 	int blockBonus = m_stage.BrokenBlock();
 	int remainingTimeBounus = kPoints - m_timer.RemainingTime();
 	m_score = blockBonus + remainingTimeBounus;
 	
+	// 残り時間のボーナスが0未満だった場合
 	if (kPoints - m_timer.RemainingTime() < 0)
 	{
 		remainingTimeBounus = 0;
@@ -172,6 +178,8 @@ void ResultScene::Draw()
 	{
 		m_score = blockBonus;
 	}
+
+	// 最終ステージだったら
 	if (stageNumber == 3)
 	{
 		DrawGraph(kClearPosX, kClearPosY, m_clearHandle, true);
@@ -208,6 +216,7 @@ void ResultScene::Draw()
 		DrawFormatStringToHandle(kRankPosX, kRankPosY, 0x98fb98, m_fontRankHandle, "C");
 	}
 	
+	// 最終ステージだったら
 	if (m_blinkCount < kBlinkFrame && stageNumber == 3)
 	{
 		DrawFormatStringToHandle(kTextPosX, kTextPosY, 0xf0f8ff, m_fontHandle, "Press A Title");
